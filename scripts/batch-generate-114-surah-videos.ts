@@ -661,9 +661,10 @@ async function addVideoToPlaylist(videoId: string, playlistId: string, oauthToke
 }
 
 async function getOrRefreshOAuthToken(): Promise<string | undefined> {
-  const refreshToken = process.env.YOUTUBE_REFRESH_TOKEN
-  const clientId = process.env.NITRO_GOOGLE_CLIENT_ID || process.env.GOOGLE_CLIENT_ID
-  const clientSecret = process.env.NITRO_GOOGLE_CLIENT_SECRET || process.env.GOOGLE_CLIENT_SECRET
+  const refreshToken = process.env.YOUTUBE_REFRESH_TOKEN?.trim()
+  const cleanVal = (v?: string) => (!v || (v.startsWith('${') && v.endsWith('}')) || v.includes('your-google-client') ? '' : v.trim())
+  const clientId = cleanVal(process.env.GOOGLE_CLIENT_ID) || cleanVal(process.env.NITRO_GOOGLE_CLIENT_ID)
+  const clientSecret = cleanVal(process.env.GOOGLE_CLIENT_SECRET) || cleanVal(process.env.NITRO_GOOGLE_CLIENT_SECRET)
 
   if (refreshToken && clientId && clientSecret) {
     try {

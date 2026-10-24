@@ -28,16 +28,24 @@ const chaptersByLocale: Record<string, typeof chaptersEn> = {
 
 const basePages = [
     {
+        id: "shazam-lyrics",
+        path: "/quran/1?shazam=lyrics",
+        title: "Shazam Video & Synchronized Karaoke Lyrics",
+        subtitle: "Apple Music & Shazam-style video recitation with glowing live verse lyrics",
+        searchTerms: ["shazam", "lyrics", "karaoke", "video recitation", "theater", "music", "audio sync", "visualizer"],
+    },
+    {
+        id: "shazam-sync",
+        path: "/quran/1?shazam=mic",
+        title: "Shazam Quran Audio Recitation Matcher",
+        subtitle: "Listen with your microphone to automatically identify and sync the recited Quran verse",
+        searchTerms: ["shazam", "audio sync", "mic", "microphone", "listen", "recognize", "identify", "reciter", "audio match"],
+    },
+    {
         id: "home",
         path: "/",
         titleKey: "pages.home.title",
         subtitleKey: "pages.home.hero.lead",
-    },
-    {
-        id: "about",
-        path: "/about",
-        titleKey: "pages.about.title",
-        subtitleKey: "pages.about.hero.lead",
     },
     {
         id: "quran",
@@ -46,10 +54,31 @@ const basePages = [
         subtitleKey: "pages.quran.detail",
     },
     {
+        id: "holynames",
+        path: "/holynames",
+        title: "The 99 Holy Names of Allah (Asma' Allah Al-Husna)",
+        subtitle: "Random reflection mode, Dhikr Tasbeeh counter, audio pronunciation & live search",
+        searchTerms: ["holynames", "holy names", "asma", "asmaa", "husna", "99 names", "names of god", "random", "أسماء الله الحسنى"],
+    },
+    {
         id: "tasbeeh",
         path: "/tasbeeh",
         titleKey: "pages.tasbeeh",
         subtitleKey: "pages.tasbeeh",
+        searchTerms: ["tasbeeh", "dhikr", "counter", "beads", "subhanallah"],
+    },
+    {
+        id: "recitations",
+        path: "/recitations",
+        title: "Sunnah Recitations & YouTube Video Feed",
+        subtitle: "Watch 114 Surah recitations with official channel video player and security disclaimers",
+        searchTerms: ["recitations", "youtube", "videos", "social", "sunnah recitations", "surah video"],
+    },
+    {
+        id: "about",
+        path: "/about",
+        titleKey: "pages.about.title",
+        subtitleKey: "pages.about.hero.lead",
     },
     {
         id: "contact",
@@ -111,11 +140,12 @@ function buildItems(locale: string): SearchResult[] {
 
     const pages: SearchResult[] = basePages.map((p) => ({
         id: `page-${p.id}`,
-        title: t(p.titleKey) as string,
-        subtitle: t(p.subtitleKey) as string,
+        title: (p as any).titleKey ? (t((p as any).titleKey) as string) : ((p as any).title || p.id),
+        subtitle: (p as any).subtitleKey ? (t((p as any).subtitleKey) as string) : ((p as any).subtitle || ""),
         path: p.path,
         type: "page",
-    }));
+        searchTerms: (p as any).searchTerms || [],
+    } as SearchResult & { searchTerms: string[] }));
 
     const chapters = chaptersByLocale[loc] ?? chaptersByLocale.en;
     const suras: SearchResult[] = chapters.map((c) => ({

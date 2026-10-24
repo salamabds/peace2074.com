@@ -41,6 +41,63 @@ export default defineEventHandler(async (event) => {
     const chapters = chaptersMap[loc] || chaptersMap.en;
     const results: any[] = [];
 
+    // Feature pages matching (Shazam, Holy Names, Recitations, Tasbeeh)
+    const featurePages = [
+        {
+            type: "page",
+            id: "feature-shazam-lyrics",
+            title: "Shazam Video & Synchronized Karaoke Lyrics",
+            subtitle: "Full-screen Apple Music / Shazam-style video recitation with glowing live verse lyrics",
+            path: "/quran/1?shazam=lyrics",
+            keywords: ["shazam", "lyrics", "karaoke", "video recitation", "theater", "music", "audio sync", "visualizer"],
+        },
+        {
+            type: "page",
+            id: "feature-shazam-sync",
+            title: "Shazam Quran Audio Recitation Matcher",
+            subtitle: "Listen with your microphone to automatically identify and sync the recited Quran verse",
+            path: "/quran/1?shazam=mic",
+            keywords: ["shazam", "audio sync", "mic", "microphone", "listen", "recognize", "identify", "reciter", "audio match"],
+        },
+        {
+            type: "page",
+            id: "feature-holynames",
+            title: "The 99 Holy Names of Allah (Asma' Allah Al-Husna)",
+            subtitle: "Random reflection mode, Dhikr Tasbeeh counter, audio pronunciation & search",
+            path: "/holynames",
+            keywords: ["holynames", "holy names", "asma", "asmaa", "husna", "99 names", "names of god", "random", "أسماء الله الحسنى"],
+        },
+        {
+            type: "page",
+            id: "feature-recitations",
+            title: "Sunnah Recitations & YouTube Video Feed",
+            subtitle: "Watch 114 Surah recitations with official channel video player and security disclaimers",
+            path: "/recitations",
+            keywords: ["recitations", "youtube", "videos", "social", "sunnah recitations", "surah video"],
+        },
+        {
+            type: "page",
+            id: "feature-tasbeeh",
+            title: "Digital Tasbeeh & Dhikr Counter",
+            subtitle: "Track daily dhikr sessions with haptic vibration, beads, and custom targets",
+            path: "/tasbeeh",
+            keywords: ["tasbeeh", "dhikr", "counter", "beads", "subhanallah"],
+        },
+    ];
+
+    for (const feat of featurePages) {
+        const hay = `${feat.title} ${feat.subtitle} ${feat.keywords.join(" ")}`.toLowerCase();
+        if (hay.includes(query)) {
+            results.push({
+                type: feat.type,
+                id: feat.id,
+                title: feat.title,
+                subtitle: feat.subtitle,
+                path: feat.path,
+            });
+        }
+    }
+
     // Match surah names
     for (const c of chapters) {
         const name = String(c.name || "");

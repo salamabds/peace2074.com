@@ -3303,6 +3303,17 @@ onMounted(async () => {
     showShazamLyricsModal.value = true
   }
 
+  // Auto-trigger Shazam Mic Audio Sync if requested via query parameter
+  if (
+    route.query.shazam === 'mic' ||
+    route.query.shazam === 'audio' ||
+    route.query.shazam === 'sync'
+  ) {
+    setTimeout(() => {
+      void triggerQuranShazam()
+    }, 700)
+  }
+
   const queryAutoplayRaw =
     (route.query.play ||
      route.query.autoplay ||

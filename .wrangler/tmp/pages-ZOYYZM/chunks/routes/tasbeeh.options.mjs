@@ -1,0 +1,2 @@
+import{d as o,K as r}from"../nitro/nitro.mjs";import{a as t}from"../_/cors.mjs";import"node:buffer";import"node:crypto";import"node:util";import"node:stream";import"node:url";import"node:events";import"node:net";import"node:tls";import"node:assert";import"node:process";import"cloudflare:workers";import"node:timers";const e=o(o=>(t(o),r(o,204),""));export{e as default};
+//# sourceMappingURL=tasbeeh.options.mjs.map

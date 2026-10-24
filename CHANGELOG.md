@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 4.0.0 (2026-10-25)
+
+### Features
+
+- **Shazam Video & Synchronized Karaoke Lyrics Theater**: Apple Music and Shazam-style full-screen modal featuring luminous word-level karaoke, animated audio radar, smooth scoped lyrics centering, and interactive reciter selection.
+- **Holy Names (Asma Allah Al Husna) Suite**: comprehensive revamp with grid/card view modes, random hero discovery card, category filters, interactive dhikr counter, audio pronunciation, and multilingual translations.
+- **YouTube 114 Surahs Automation Engine**: complete batch generator producing 1080p synchronized recitation videos with persistent security watermarks, automated playlist indexing, and daily LaunchAgent scheduling.
+- **Enhanced Site Search & Quick Actions**: new searchable pages, direct Ayah/Surah deep linking, and expanded query-driven actions in `useSiteSearch`.
+- **Sign in with Apple Integration**: native OAuth flow for seamless user profile and bookmark sync across iOS and web platforms.
+
+### Bug Fixes
+
+- **Karaoke & Recitation Stability**: eliminate layout shifts and viewport jumping by replacing root `scrollIntoView` with scoped container scrolling and stabilizing word typography without scale re-flow.
+- **Audio Reciter State**: fix reciter dropdown synchronization and prevent audio playback state collisions during view transitions.
+
+### Chores
+
+- bump project version to `4.0.0` across web manifests, Nitro API, and mobile configurations.
+
 ## 3.4.0 (2026-08-30)
 
 ### Features

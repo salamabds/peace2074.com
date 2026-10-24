@@ -540,6 +540,30 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string):
       document.body.appendChild(mark)
     }
 
+    if (!document.getElementById('peace2074-security-watermark')) {
+      const secMark = document.createElement('div')
+      secMark.id = 'peace2074-security-watermark'
+      secMark.innerHTML = '🔒 © 2026 PEACE2074 • peace2074.com • All Rights Reserved • Unauthorized Re-Upload Prohibited'
+      secMark.style.cssText = `
+        position: fixed !important;
+        bottom: 12px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 999999 !important;
+        background: rgba(15, 23, 42, 0.75) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        color: rgba(255, 255, 255, 0.75) !important;
+        padding: 4px 14px !important;
+        border-radius: 12px !important;
+        font-family: system-ui, -apple-system, sans-serif !important;
+        font-size: 11px !important;
+        letter-spacing: 0.6px !important;
+        backdrop-filter: blur(6px) !important;
+        pointer-events: none !important;
+      `
+      document.body.appendChild(secMark)
+    }
+
     hideAllBanners()
     setInterval(hideAllBanners, 200)
   })
@@ -732,7 +756,9 @@ async function uploadToYouTube(chapter: Chapter, videoPath: string, rawOauthToke
 
   const title = `Surah ${chapter.id}. ${chapter.transliteration} (${chapter.name}) — Chapter ${chapter.id} of 114 | Peace2074 Quran Recitation`
   const webPlayerUrl = `https://peace2074.com/quran/${chapter.id}?play=true&theme=dark`
-  const description = `Recitation of Surah ${chapter.transliteration} (${chapter.name} - ${chapter.translation}), Chapter ${chapter.id} of the Holy Quran (${chapter.total_verses} verses, ${chapter.type === 'meccan' ? 'Meccan' : 'Medinan'}). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\n${webPlayerUrl}${chaptersText}\n\nSubscribe to Peace2074: https://www.youtube.com/channel/${CHANNEL_ID}?sub_confirmation=1`
+  const copyrightNotice = '\n\n🔒 COPYRIGHT & ANTI-PIRACY NOTICE:\n© 2026 PEACE2074 (https://peace2074.com). All rights reserved.\nThis video, synchronized Arabic Uthmani calligraphy, multilingual translations, audio editing, and layout are protected under international copyright law.\nUnauthorized downloading, re-uploading, mirroring, derivative broadcasting, or commercial exploitation on YouTube, TikTok, Facebook, or other platforms is strictly prohibited and subject to immediate DMCA takedown and copyright strikes.'
+
+  const description = `Recitation of Surah ${chapter.transliteration} (${chapter.name} - ${chapter.translation}), Chapter ${chapter.id} of the Holy Quran (${chapter.total_verses} verses, ${chapter.type === 'meccan' ? 'Meccan' : 'Medinan'}). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\n${webPlayerUrl}${chaptersText}\n\nSubscribe to Peace2074: https://www.youtube.com/channel/${CHANNEL_ID}?sub_confirmation=1${copyrightNotice}`
   const tags = ['Quran', `Surah ${chapter.transliteration}`, `Surah ${chapter.id}`, 'Peace2074', 'Quran Recitation', 'Mishary Alafasy', 'Holy Quran', 'Islam']
 
   try {
@@ -760,6 +786,9 @@ async function uploadToYouTube(chapter: Chapter, videoPath: string, rawOauthToke
           status: {
             privacyStatus: 'public',
             selfDeclaredMadeForKids: false,
+            license: 'youtube', // Standard YouTube License (prevents unauthorized re-use/re-uploading)
+            embeddable: true,
+            publicStatsViewable: true,
           },
         }),
       }

@@ -77,7 +77,7 @@
 
           <!-- YouTube Embed (Optional View) -->
           <q-card v-else flat class="video-card">
-            <div class="video-aspect">
+            <div class="video-aspect relative-position" @contextmenu.prevent>
               <iframe
                 :src="activeYoutubeEmbedUrl"
                 title="Quran Recitation HD Video"
@@ -85,6 +85,9 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
+              <div class="player-watermark">
+                <span class="watermark-pill">✨ Peace2074 • peace2074.com</span>
+              </div>
             </div>
 
             <div class="video-info q-pa-md">
@@ -598,5 +601,26 @@ watch(() => route.query.surah, (newVal) => {
 
 :global(body.body--dark) .arabic-name {
   color: #f8fafc;
+}
+
+.player-watermark {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.watermark-pill {
+  background: rgba(15, 23, 42, 0.75);
+  color: #fef3c7;
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 </style>

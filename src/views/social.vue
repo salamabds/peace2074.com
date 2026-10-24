@@ -400,7 +400,7 @@
         </q-card-section>
 
         <q-card-section class="q-pa-md">
-          <div class="yt-video-wrapper" style="border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+          <div class="yt-video-wrapper relative-position" style="border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.5);" @contextmenu.prevent>
             <iframe
               v-if="activeVideo"
               class="yt-channel-iframe"
@@ -409,6 +409,9 @@
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             />
+            <div class="player-watermark">
+              <span class="watermark-pill">✨ Peace2074 • peace2074.com</span>
+            </div>
           </div>
           <!-- Multi-Reciter Selector Bar for Surahs -->
           <div v-if="activeSurah" class="q-mt-sm q-pa-xs rounded-borders" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
@@ -1267,5 +1270,26 @@ const tiktokSlots = [
   .yt-widget-container {
     justify-content: center;
   }
+}
+
+.player-watermark {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.watermark-pill {
+  background: rgba(15, 23, 42, 0.75);
+  color: #fef3c7;
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 </style>

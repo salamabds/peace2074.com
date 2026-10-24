@@ -228,8 +228,12 @@
                   </q-item-section>
 
                   <q-item-section>
-                    <q-item-label class="text-weight-bold">
-                      {{ suraItem.e_name }}
+                    <q-item-label class="text-weight-bold row items-center no-wrap">
+                      <span>{{ suraItem.e_name }}</span>
+                      <q-badge v-if="surahVideoMap[suraItem.id]" color="red" class="q-ml-xs text-weight-bold" style="font-size: 0.65rem; padding: 2px 6px;">
+                        <q-icon name="smart_display" size="12px" class="q-mr-xs" />
+                        Video
+                      </q-badge>
                     </q-item-label>
                     <q-item-label caption>
                       {{ suraItem.total_verses || suraItem.ayat?.length || 0 }} Verses
@@ -277,6 +281,7 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import useQ2P from '@/composables/useQ2P'
+import curatedVideos from '@/shared/data/youtube-videos'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -288,12 +293,45 @@ const searchQuery = ref<string>('')
 const activeVerseIndex = ref<number>(0)
 const readerMode = ref<'card' | 'mushaf'>('card')
 const displayMode = ref<'text' | 'youtube'>('text')
+const liveVideos = ref<any[]>([])
 
-const YOUTUBE_CHANNEL_ID = 'UCKPAQJxnUTX-pzvLQ3M0aEQ'
-const YOUTUBE_PLAYLIST_ID = 'PLEJ9VLBcEoKg'
+const UPLOADS_PLAYLIST_ID = 'UUiuUJUpeWXxWwDSpPKoEVbQ'
 
 // Surah metadata list 1 to 114
 const allSurahs = computed(() => q2p.GetQ.value || [])
+
+// Map surahId -> video info
+const surahVideoMap = computed(() => {
+  const map: Record<number, { id: string; url: string; embedUrl: string }> = {}
+
+  // Base: from curated verified list
+  for (const v of curatedVideos) {
+    if (v.surahId) {
+      map[v.surahId] = {
+        id: v.id,
+        url: v.url,
+        embedUrl: v.embedUrl,
+      }
+    }
+  }
+
+  // Merge: any fresh videos from API
+  for (const v of liveVideos.value) {
+    if (v.surahId) {
+      map[v.surahId] = {
+        id: v.id,
+        url: v.url,
+        embedUrl: v.embedUrl,
+      }
+    }
+  }
+
+  return map
+})
+
+const activeSurahVideo = computed(() => {
+  return surahVideoMap.value[activeSuraId.value] || null
+})
 
 const filteredSurahList = computed(() => {
   const query = searchQuery.value.trim().toLowerCase()
@@ -312,11 +350,17 @@ const currentSuraData = computed(() => {
 })
 
 const activeYoutubeEmbedUrl = computed(() => {
-  return `https://www.youtube.com/embed/videoseries?list=${YOUTUBE_PLAYLIST_ID}&index=${activeSuraId.value - 1}&autoplay=1`
+  if (activeSurahVideo.value) {
+    return activeSurahVideo.value.embedUrl
+  }
+  return `https://www.youtube.com/embed/videoseries?list=${UPLOADS_PLAYLIST_ID}&index=${activeSuraId.value - 1}&autoplay=1`
 })
 
 const activeYoutubeDirectUrl = computed(() => {
-  return `https://www.youtube.com/watch?v=videoseries&list=${YOUTUBE_PLAYLIST_ID}&index=${activeSuraId.value - 1}`
+  if (activeSurahVideo.value) {
+    return activeSurahVideo.value.url
+  }
+  return `https://www.youtube.com/watch?v=videoseries&list=${UPLOADS_PLAYLIST_ID}&index=${activeSuraId.value - 1}`
 })
 
 function selectSurah(id: number) {

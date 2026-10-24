@@ -584,6 +584,7 @@ import chaptersEn from '@/shared/data/chapters/en.json'
 
 interface VideoItem {
   id: string
+  surahId?: number | null
   title: string
   url: string
   embedUrl: string
@@ -754,12 +755,15 @@ function getChannelVideo(sura: ChapterItem): VideoItem | null {
   const suraIdStr = String(sura.id)
   return (
     videos.value.find((v) => {
+      if (v.surahId === sura.id) return true
       const titleLower = v.title.toLowerCase()
       return (
-        titleLower.includes(transLower) ||
-        titleLower.includes(`surah ${suraIdStr}`) ||
-        titleLower.includes(`sura ${suraIdStr}`) ||
-        titleLower.includes(`surah #${suraIdStr}`)
+        titleLower.includes(`surah ${suraIdStr}.`) ||
+        titleLower.includes(`surah ${suraIdStr} `) ||
+        titleLower.includes(`surah ${suraIdStr}:`) ||
+        titleLower.includes(`sura ${suraIdStr}.`) ||
+        titleLower.includes(`chapter ${suraIdStr} `) ||
+        titleLower.includes(transLower)
       )
     }) || null
   )

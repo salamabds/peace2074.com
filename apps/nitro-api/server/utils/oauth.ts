@@ -34,6 +34,10 @@ function hasPlaceholderMarker(value: string): boolean {
         return false
     }
 
+    if (normalized.includes('${') && normalized.includes('}')) {
+        return true
+    }
+
     return [
         'replace_with',
         'your-',
@@ -91,46 +95,60 @@ function normalizeApplePrivateKey(value: unknown): Uint8Array {
     return decodeBase64ToUint8Array(normalized)
 }
 
+function resolveRedirectUri(value: unknown, fallback: string, publicUrl: string): string {
+    const normalized = normalizeConfigValue(value)
+    if (!normalized || hasPlaceholderMarker(normalized)) {
+        return fallback
+    }
+    return normalized.replace('${PUBLIC_URL}', publicUrl)
+}
+
 function getOAuthConfig(): OAuthConfig {
     const config = useRuntimeConfig()
     const publicUrl = normalizeConfigValue(process.env.PUBLIC_URL) || 'https://peace2074.com'
 
     // Google OAuth
     const googleClientId =
-        (config as any).googleClientId ||
-        process.env.GOOGLE_CLIENT_ID ||
-        process.env.NITRO_GOOGLE_CLIENT_ID ||
+        normalizeCredentialValue((config as any).googleClientId) ||
+        normalizeCredentialValue(process.env.GOOGLE_CLIENT_ID) ||
+        normalizeCredentialValue(process.env.NITRO_GOOGLE_CLIENT_ID) ||
         ''
 
     const googleClientSecret =
-        (config as any).googleClientSecret ||
-        process.env.GOOGLE_CLIENT_SECRET ||
-        process.env.NITRO_GOOGLE_CLIENT_SECRET ||
+        normalizeCredentialValue((config as any).googleClientSecret) ||
+        normalizeCredentialValue(process.env.GOOGLE_CLIENT_SECRET) ||
+        normalizeCredentialValue(process.env.NITRO_GOOGLE_CLIENT_SECRET) ||
         ''
 
-    const googleRedirectUri =
+    const rawGoogleRedirectUri =
         (config as any).googleRedirectUri ||
         process.env.GOOGLE_REDIRECT_URI ||
         process.env.NITRO_GOOGLE_REDIRECT_URI ||
-        `${publicUrl}/api/auth/google/callback`
+        ''
+
+    const googleRedirectUri = resolveRedirectUri(
+        rawGoogleRedirectUri,
+        `${publicUrl}/api/auth/google/callback`,
+        publicUrl
+    )
 
     // Apple OAuth
     const appleClientId =
-        (config as any).appleClientId ||
-        process.env.APPLE_CLIENT_ID ||
-        process.env.NITRO_APPLE_CLIENT_ID ||
+        normalizeCredentialValue((config as any).appleClientId) ||
+        normalizeCredentialValue(process.env.APPLE_CLIENT_ID) ||
+        normalizeCredentialValue(process.env.NITRO_APPLE_CLIENT_ID) ||
         ''
 
     const appleTeamId =
-        (config as any).appleTeamId ||
-        process.env.APPLE_TEAM_ID ||
-        process.env.NITRO_APPLE_TEAM_ID ||
+        normalizeCredentialValue((config as any).appleTeamId) ||
+        normalizeCredentialValue(process.env.APPLE_TEAM_ID) ||
+        normalizeCredentialValue(process.env.NITRO_APPLE_TEAM_ID) ||
         ''
 
     const appleKeyId =
-        (config as any).appleKeyId ||
-        process.env.APPLE_KEY_ID ||
-        process.env.NITRO_APPLE_KEY_ID ||
+        normalizeCredentialValue((config as any).appleKeyId) ||
+        normalizeCredentialValue(process.env.APPLE_KEY_ID) ||
+        normalizeCredentialValue(process.env.NITRO_APPLE_KEY_ID) ||
         ''
 
     const applePrivateKey =
@@ -139,24 +157,30 @@ function getOAuthConfig(): OAuthConfig {
         process.env.NITRO_APPLE_PRIVATE_KEY ||
         ''
 
-    const appleRedirectUri =
+    const rawAppleRedirectUri =
         (config as any).appleRedirectUri ||
         process.env.APPLE_REDIRECT_URI ||
         process.env.NITRO_APPLE_REDIRECT_URI ||
-        `${publicUrl}/api/auth/apple/callback`
+        ''
+
+    const appleRedirectUri = resolveRedirectUri(
+        rawAppleRedirectUri,
+        `${publicUrl}/api/auth/apple/callback`,
+        publicUrl
+    )
 
     return {
         google: {
-            clientId: normalizeCredentialValue(googleClientId),
-            clientSecret: normalizeCredentialValue(googleClientSecret),
-            redirectUri: normalizeConfigValue(googleRedirectUri)
+            clientId: googleClientId,
+            clientSecret: googleClientSecret,
+            redirectUri: googleRedirectUri
         },
         apple: {
-            clientId: normalizeCredentialValue(appleClientId),
-            teamId: normalizeCredentialValue(appleTeamId),
-            keyId: normalizeCredentialValue(appleKeyId),
+            clientId: appleClientId,
+            teamId: appleTeamId,
+            keyId: appleKeyId,
             privateKey: normalizeApplePrivateKey(applePrivateKey),
-            redirectUri: normalizeConfigValue(appleRedirectUri)
+            redirectUri: appleRedirectUri
         }
     }
 }

@@ -329,8 +329,8 @@ async function handleChangeReciter(newReciterId: number) {
     localStorage.setItem(QURAN_RECITER_STORAGE_KEY, String(newReciterId))
   }
   const suraId = Number(sura.value?.id || route.params.id || 1)
-  if (audioPlayer.value) {
-    audioPlayer.value.pause()
+  if (audioEl.value) {
+    audioEl.value.pause()
   }
   isPlayingAudio.value = false
   await loadAudioAndTimings(suraId)

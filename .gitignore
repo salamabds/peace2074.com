@@ -24,6 +24,7 @@ dist-ssr
 apps/nitro-api/.nitro/
 apps/nitro-api/.output/
 apps/nitro-api/dist/
+apps/nitro-api/assets/release/
 apps/nitro-api/.vercel/
 apps/nitro-api/.wrangler/
 **/.vercel/

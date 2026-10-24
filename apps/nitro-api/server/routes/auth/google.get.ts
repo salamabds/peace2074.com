@@ -22,9 +22,17 @@ export default defineEventHandler(async (event) => {
         const isNative = query.native === '1'
 
         const google = getGoogleOAuth()
-        const state = generateState()
+        const rawState = generateState()
+        const state = isNative ? `${rawState}.native` : rawState
         const codeVerifier = generateCodeVerifier()
-        const cookieOpts = getOAuthCookieOptions(event)
+        const baseOpts = getOAuthCookieOptions(event)
+        const isSecure = baseOpts.secure
+
+        const cookieOpts = {
+            ...baseOpts,
+            sameSite: (isSecure ? 'none' : baseOpts.sameSite) as 'none' | 'lax',
+            secure: isSecure,
+        }
 
         // Store state + PKCE verifier in cookies for CSRF protection
         setCookie(event, 'google_oauth_state', state, cookieOpts)
@@ -32,7 +40,10 @@ export default defineEventHandler(async (event) => {
 
         // Track native app requests so the callback can redirect to the custom URL scheme
         if (isNative) {
-            setCookie(event, 'oauth_from_native', '1', { ...cookieOpts, maxAge: 600 })
+            setCookie(event, 'oauth_from_native', '1', {
+                ...cookieOpts,
+                maxAge: 600,
+            })
         }
 
         const url = google.createAuthorizationURL(state, codeVerifier, ['openid', 'profile', 'email'])

@@ -24,11 +24,19 @@ export default defineEventHandler(async (event) => {
         const code = query.code as string
         const state = query.state as string
         const redirectUrl = process.env.PUBLIC_URL || 'https://peace2074.com'
-        const cookieOptions = getOAuthCookieOptions(event)
+        const baseCookieOptions = getOAuthCookieOptions(event)
+        const isSecure = baseCookieOptions.secure
+        const cookieOptions = {
+            ...baseCookieOptions,
+            sameSite: (isSecure ? 'none' : baseCookieOptions.sameSite) as 'none' | 'lax',
+            secure: isSecure,
+        }
 
         const storedState = getCookie(event, 'google_oauth_state')
         const storedCodeVerifier = getCookie(event, 'google_code_verifier')
-        const isNative = getCookie(event, 'oauth_from_native') === '1'
+        const cookieNative = getCookie(event, 'oauth_from_native') === '1'
+        const stateNative = typeof state === 'string' && state.endsWith('.native')
+        const isNative = cookieNative || stateNative
         const nativeBase = 'peace2074://auth/callback'
 
         // Validate state for CSRF protection
@@ -49,7 +57,7 @@ export default defineEventHandler(async (event) => {
         // Clear the auth cookies
         deleteCookie(event, 'google_oauth_state', cookieOptions)
         deleteCookie(event, 'google_code_verifier', cookieOptions)
-        if (isNative) deleteCookie(event, 'oauth_from_native', cookieOptions)
+        if (cookieNative) deleteCookie(event, 'oauth_from_native', cookieOptions)
 
         const google = getGoogleOAuth()
 

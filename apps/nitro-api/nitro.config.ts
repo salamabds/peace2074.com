@@ -26,8 +26,7 @@ export default defineNitroConfig({
     serverAssets: [
         {
             baseName: 'release',
-            // Walk back to the repo root so CHANGELOG.md is bundled for /deploys
-            dir: '../../../',
+            dir: './assets/release',
             pattern: 'CHANGELOG.md',
         },
     ],

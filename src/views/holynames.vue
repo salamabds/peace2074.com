@@ -1,13 +1,26 @@
 <script lang="ts" setup>
+import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute, useRouter } from 'vue-router'
+import { useQuasar } from 'quasar'
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
+const route = useRoute()
+const router = useRouter()
+const $q = useQuasar()
 
 interface HolyNameI {
   name: string
   text: string
   transliterationKey: string
   meaningKey: string
+}
+
+type HolyCategory = 'mercy' | 'majesty' | 'creation' | 'knowledge' | 'peace'
+
+interface HolyNameWithMeta extends HolyNameI {
+  id: number
+  category: HolyCategory
 }
 
 interface SparkleSpec {

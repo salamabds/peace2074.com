@@ -92,7 +92,7 @@ async function updateChannelBranding() {
 
   try {
     const response = await fetch(
-      'https://www.googleapis.com/youtube/v3/channels?part=snippet,brandingSettings',
+      'https://www.googleapis.com/youtube/v3/channels?part=brandingSettings',
       {
         method: 'PUT',
         headers: {
@@ -102,17 +102,12 @@ async function updateChannelBranding() {
         },
         body: JSON.stringify({
           id: CHANNEL_ID,
-          snippet: {
-            title: CHANNEL_TITLE,
-            description: CHANNEL_DESCRIPTION,
-          },
           brandingSettings: {
             channel: {
-              title: CHANNEL_TITLE,
-              description: CHANNEL_DESCRIPTION,
+              title: 'Peace2074',
+              description: 'PEACE2074 is a multilingual Quran and reflection space designed to feel calm, beautiful, and deeply usable—whether you open it for one ayah, one breath, or a longer journey.',
               keywords: KEYWORDS,
-              country: 'US',
-              defaultTab: 'Featured',
+              country: 'IL',
             },
           },
         }),

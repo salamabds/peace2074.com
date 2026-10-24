@@ -30,11 +30,14 @@
 
       <q-card class="yt-community-card" flat bordered>
         <!-- Branded Header Banner with Official YouTube Identity -->
-        <div class="yt-banner">
+        <div
+          class="yt-banner"
+          :style="youtubeChannel.bannerUrl && !youtubeChannel.bannerUrl.includes('yt_banner.png') ? { backgroundImage: `url(${youtubeChannel.bannerUrl})` } : {}"
+        >
           <div class="yt-banner-gradient" />
           <div class="yt-banner-content">
             <div class="yt-avatar-wrapper">
-              <img src="/yt_avatar.png" alt="Peace2074 Channel Avatar" class="yt-avatar-img" />
+              <img :src="youtubeChannel.avatarUrl || '/yt_avatar.png'" alt="Peace2074 Channel Avatar" class="yt-avatar-img" />
               <svg viewBox="0 0 24 24" class="yt-verified-check-svg" aria-label="Verified">
                 <circle cx="12" cy="12" r="10" fill="#0070F3" />
                 <path fill="#FFFFFF" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
@@ -47,7 +50,7 @@
               </div>
               <div class="yt-channel-handle text-caption opacity-90 row items-center q-mt-xs">
                 <font-awesome-icon :icon="['fab', 'youtube']" class="q-mr-xs text-red" />
-                {{ youtubeChannel.handle }} • Official YouTube Channel
+                {{ youtubeChannel.handle }} • {{ youtubeChannel.subscriberCountFormatted }}
               </div>
             </div>
           </div>
@@ -55,7 +58,33 @@
 
         <q-card-section class="yt-info">
           <div class="yt-channel-desc text-body2">
-            {{ t('pages.social.youtube.channelDesc') }}
+            {{ youtubeChannel.description || t('pages.social.youtube.channelDesc') }}
+          </div>
+          <!-- Channel stats & details pills -->
+          <div class="row items-center q-gutter-xs q-mt-sm yt-channel-chips">
+            <q-chip dense outline color="red" text-color="white" icon="people" class="text-weight-bold">
+              {{ youtubeChannel.subscriberCountFormatted }}
+            </q-chip>
+            <q-chip dense outline color="primary" icon="place" class="text-weight-medium">
+              {{ youtubeChannel.country }}
+            </q-chip>
+            <q-chip dense outline color="grey-7" icon="event" class="text-weight-medium">
+              Joined {{ youtubeChannel.joinedDate }}
+            </q-chip>
+            <q-chip
+              clickable
+              dense
+              outline
+              color="positive"
+              icon="language"
+              class="text-weight-medium"
+              tag="a"
+              :href="youtubeChannel.websiteUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              peace2074.com
+            </q-chip>
           </div>
         </q-card-section>
 
@@ -86,6 +115,19 @@
               icon="group"
               :label="t('pages.social.youtube.communityBtn')"
               :href="youtubeChannel.communityUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="yt-btn"
+            />
+
+            <!-- Official Website Link Button -->
+            <q-btn
+              id="yt-website-btn"
+              outline
+              color="primary"
+              icon="language"
+              label="peace2074.com"
+              :href="youtubeChannel.websiteUrl"
               target="_blank"
               rel="noopener noreferrer"
               class="yt-btn"
@@ -564,15 +606,56 @@ const { t } = useI18n()
 const CHANNEL_ID = 'UCKPAQJxnUTX-pzvLQ3M0aEQ'
 const UPLOADS_PLAYLIST_ID = `UU${CHANNEL_ID.slice(2)}`
 
-const youtubeChannel = {
+interface YouTubeChannelData {
+  channelId: string
+  channelName: string
+  title?: string
+  handle: string
+  customUrl: string
+  description: string
+  channelUrl: string
+  subscribeUrl: string
+  communityUrl: string
+  websiteUrl: string
+  country: string
+  countryCode: string
+  joinedDate: string
+  publishedAt: string
+  rawSubscriberCount: string
+  subscriberCountFormatted: string
+  rawVideoCount: string
+  videoCountFormatted: string
+  rawViewCount: string
+  viewCountFormatted: string
+  avatarUrl: string
+  bannerUrl: string
+  embedPlaylistUrl: string
+}
+
+const youtubeChannel = ref<YouTubeChannelData>({
   channelId: CHANNEL_ID,
   channelName: 'Peace2074',
   handle: '@peace2074',
+  customUrl: '@peace2074',
+  description: 'PEACE2074 is a multilingual Quran and reflection space designed to feel calm, beautiful, and deeply usable—whether you open it for one ayah, one breath, or a longer journey.',
   channelUrl: 'https://www.youtube.com/@peace2074',
   subscribeUrl: 'https://www.youtube.com/@peace2074?sub_confirmation=1',
   communityUrl: 'https://www.youtube.com/@peace2074/community',
+  websiteUrl: 'https://peace2074.com',
+  country: 'Israel',
+  countryCode: 'IL',
+  joinedDate: 'Mar 13, 2020',
+  publishedAt: '2020-03-13T17:57:13.297478Z',
+  rawSubscriberCount: '1',
+  subscriberCountFormatted: '1 subscriber',
+  rawVideoCount: '0',
+  videoCountFormatted: '0 videos',
+  rawViewCount: '0',
+  viewCountFormatted: '0 views',
+  avatarUrl: '/yt_avatar.png',
+  bannerUrl: '/yt_banner.png',
   embedPlaylistUrl: `https://www.youtube.com/embed?listType=playlist&list=${UPLOADS_PLAYLIST_ID}&rel=0`,
-}
+})
 
 const videos = ref<VideoItem[]>([])
 const showPlayerModal = ref(false)
@@ -764,6 +847,27 @@ function formatDate(isoString?: string) {
 
 onMounted(async () => {
   window.addEventListener('keydown', handleKeydown)
+
+  // 1. Fetch Official YouTube Channel Profile Metadata
+  try {
+    const chRes = await fetch('/api/youtube/channel')
+    if (chRes.ok) {
+      const chData = await chRes.json()
+      if (chData?.ok && chData.channel) {
+        const ch = chData.channel
+        youtubeChannel.value = {
+          ...youtubeChannel.value,
+          ...ch,
+          channelName: ch.title || youtubeChannel.value.channelName,
+          channelUrl: ch.url || youtubeChannel.value.channelUrl,
+        }
+      }
+    }
+  } catch (err) {
+    console.warn('[Social] Failed to fetch YouTube channel info:', err)
+  }
+
+  // 2. Fetch Latest YouTube Channel Videos
   try {
     const res = await fetch('/api/youtube/videos')
     if (res.ok) {
@@ -917,6 +1021,11 @@ const tiktokSlots = [
   font-size: 0.95rem;
   line-height: 1.6;
   opacity: 0.88;
+}
+
+.yt-channel-chips {
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .yt-actions {

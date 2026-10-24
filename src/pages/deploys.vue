@@ -168,11 +168,18 @@ onMounted(async () => {
 async function loadChangelog() {
   try {
     const response = await fetchChangelog()
-    if (response.ok && Array.isArray(response.deploys)) {
+    if (response.ok && Array.isArray(response.deploys) && response.deploys.length > 0) {
       deploys.value = response.deploys
+      return
     }
   } catch (error) {
-    console.error('Failed to load changelog:', error)
+    console.warn('API changelog fetch failed, using bundled fallback:', error)
+  }
+
+  // Guaranteed fallback so the deploys page is populated even if API is offline
+  if (Array.isArray(bundledDeploys) && bundledDeploys.length > 0) {
+    deploys.value = bundledDeploys as Deploy[]
+  } else {
     $q.notify({
       type: 'warning',
       message: t('pages.deploys.loadError'),

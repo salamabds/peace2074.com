@@ -569,8 +569,9 @@
   "82": {
     "surahId": 82,
     "surahName": "Al-Infitar",
-    "status": "generated",
-    "videoPath": "output_videos/surah_082_al_infitar.mp4"
+    "status": "failed",
+    "videoPath": "output_videos/surah_082_al_infitar.mp4",
+    "error": "YouTube Daily Upload Limit Reached. YouTube restricts channels to a daily maximum (~50-100 uploads per 24 hours). Halting batch until the 24h window resets."
   },
   "83": {
     "surahId": 83,

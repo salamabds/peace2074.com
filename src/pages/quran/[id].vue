@@ -1527,7 +1527,12 @@ async function navigateToQuickAccess(
 }
 
 function scrollToVerse(verse?: number | null) {
-  if (typeof window === 'undefined' || verse === undefined || verse === null)
+  if (
+    typeof window === 'undefined' ||
+    verse === undefined ||
+    verse === null ||
+    showShazamLyricsModal.value
+  )
     return
   const el = document.getElementById(getVerseElementId(verse))
   if (!el) return
@@ -3040,8 +3045,9 @@ function updateCurrentWord(time: number) {
   }
 }
 
+let lastWordScrollAt = 0
 function scrollToCurrentWord(ayahIndex: number, wordIndex: number) {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || showShazamLyricsModal.value) return
 
   // Try to find the word element based on current layout mode
   const verseNum = ayahIndex + 1
@@ -3058,6 +3064,9 @@ function scrollToCurrentWord(ayahIndex: number, wordIndex: number) {
   const el = document.getElementById(wordId)
   if (!el) return
 
+  const now = Date.now()
+  if (now - lastWordScrollAt < 600) return
+
   const offset = getRecitationScrollOffset()
   const rect = el.getBoundingClientRect()
   const viewportBandTop = offset
@@ -3069,6 +3078,7 @@ function scrollToCurrentWord(ayahIndex: number, wordIndex: number) {
     return
   }
 
+  lastWordScrollAt = now
   const targetTop =
     window.scrollY + rect.top - offset - (window.innerHeight - offset) * 0.32
 

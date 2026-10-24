@@ -738,17 +738,22 @@ function cycleMobileLayout() {
   else activeLayout.value = 'split'
 }
 
-// Auto-scroll to center active verse smoothly
+// Auto-scroll to center active verse smoothly inside modal container
 watch(
   () => props.currentAyahIndex,
   async (newIdx) => {
     if (!props.modelValue || newIdx < 0) return
     await nextTick()
+    const container = lyricsViewport.value
     const targetEl = document.getElementById(`shazam-lyric-verse-${newIdx + 1}`)
-    if (targetEl && lyricsViewport.value) {
-      targetEl.scrollIntoView({
+    if (targetEl && container) {
+      const containerRect = container.getBoundingClientRect()
+      const targetRect = targetEl.getBoundingClientRect()
+      const targetOffset = targetRect.top - containerRect.top + container.scrollTop
+      const centerPos = targetOffset - container.clientHeight / 2 + targetEl.clientHeight / 2
+      container.scrollTo({
+        top: Math.max(0, centerPos),
         behavior: 'smooth',
-        block: 'center',
       })
     }
   }
@@ -760,13 +765,18 @@ watch(
   async (isOpen) => {
     if (isOpen) {
       await nextTick()
+      const container = lyricsViewport.value
       const targetEl = document.getElementById(
         `shazam-lyric-verse-${props.currentAyahIndex + 1}`
       )
-      if (targetEl && lyricsViewport.value) {
-        targetEl.scrollIntoView({
+      if (targetEl && container) {
+        const containerRect = container.getBoundingClientRect()
+        const targetRect = targetEl.getBoundingClientRect()
+        const targetOffset = targetRect.top - containerRect.top + container.scrollTop
+        const centerPos = targetOffset - container.clientHeight / 2 + targetEl.clientHeight / 2
+        container.scrollTo({
+          top: Math.max(0, centerPos),
           behavior: 'auto',
-          block: 'center',
         })
       }
     }
@@ -1137,7 +1147,6 @@ watch(
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.4),
     0 0 30px rgba(0, 245, 212, 0.15);
-  transform: scale(1.02);
 }
 
 .verse-num-pill {
@@ -1188,18 +1197,15 @@ watch(
 
 /* Word-by-Word Karaoke Glowing Highlight */
 .lyric-word {
-  display: inline-block;
-  padding: 0 3px;
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline;
+  padding: 0 2px;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
 }
 
 .lyric-word.is-active-word {
-  background: linear-gradient(135deg, #ffd700 0%, #00f5d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #00f5d4;
   font-weight: 800;
-  transform: scale(1.14);
-  text-shadow: 0 0 24px rgba(0, 245, 212, 0.9);
+  text-shadow: 0 0 16px rgba(0, 245, 212, 0.95), 0 0 30px rgba(255, 215, 0, 0.6);
 }
 
 .lyric-word.is-passed-word {

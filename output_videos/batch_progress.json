@@ -569,69 +569,79 @@
   "82": {
     "surahId": 82,
     "surahName": "Al-Infitar",
-    "status": "failed",
+    "status": "uploaded",
     "videoPath": "output_videos/surah_082_al_infitar.mp4",
-    "error": "YouTube Daily Upload Limit Reached. YouTube restricts channels to a daily maximum (~50-100 uploads per 24 hours). Halting batch until the 24h window resets."
+    "youtubeVideoId": "Uc_vaui5Vtc"
   },
   "83": {
     "surahId": 83,
     "surahName": "Al-Mutaffifin",
-    "status": "generated",
-    "videoPath": "output_videos/surah_083_al_mutaffifin.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_083_al_mutaffifin.mp4",
+    "youtubeVideoId": "4NBm-c-Pu34"
   },
   "84": {
     "surahId": 84,
     "surahName": "Al-Inshiqaq",
-    "status": "generated",
-    "videoPath": "output_videos/surah_084_al_inshiqaq.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_084_al_inshiqaq.mp4",
+    "youtubeVideoId": "1TUaq1DACGY"
   },
   "85": {
     "surahId": 85,
     "surahName": "Al-Buruj",
-    "status": "generated",
-    "videoPath": "output_videos/surah_085_al_buruj.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_085_al_buruj.mp4",
+    "youtubeVideoId": "0Il6icRfXXI"
   },
   "86": {
     "surahId": 86,
     "surahName": "At-Tariq",
-    "status": "generated",
-    "videoPath": "output_videos/surah_086_at_tariq.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_086_at_tariq.mp4",
+    "youtubeVideoId": "ebAkW-DlIek"
   },
   "87": {
     "surahId": 87,
     "surahName": "Al-A'la",
-    "status": "generated",
-    "videoPath": "output_videos/surah_087_al_a_la.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_087_al_a_la.mp4",
+    "youtubeVideoId": "SVqrwPTm_T4"
   },
   "88": {
     "surahId": 88,
     "surahName": "Al-Ghashiyah",
-    "status": "generated",
-    "videoPath": "output_videos/surah_088_al_ghashiyah.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_088_al_ghashiyah.mp4",
+    "youtubeVideoId": "RgI8-VQGdmE"
   },
   "89": {
     "surahId": 89,
     "surahName": "Al-Fajr",
-    "status": "generated",
-    "videoPath": "output_videos/surah_089_al_fajr.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_089_al_fajr.mp4",
+    "youtubeVideoId": "qd-4LfhbpY4"
   },
   "90": {
     "surahId": 90,
     "surahName": "Al-Balad",
-    "status": "generated",
-    "videoPath": "output_videos/surah_090_al_balad.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_090_al_balad.mp4",
+    "youtubeVideoId": "hLJfafgf2S4"
   },
   "91": {
     "surahId": 91,
     "surahName": "Ash-Shams",
-    "status": "generated",
-    "videoPath": "output_videos/surah_091_ash_shams.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_091_ash_shams.mp4",
+    "youtubeVideoId": "ut7mPaQA6W4"
   },
   "92": {
     "surahId": 92,
     "surahName": "Al-Layl",
-    "status": "generated",
-    "videoPath": "output_videos/surah_092_al_layl.mp4"
+    "status": "failed",
+    "videoPath": "output_videos/surah_092_al_layl.mp4",
+    "error": "YouTube Daily Upload Limit Reached. YouTube restricts channels to a daily maximum (~50-100 uploads per 24 hours). Halting batch until the 24h window resets."
   },
   "93": {
     "surahId": 93,

@@ -352,116 +352,135 @@
   "51": {
     "surahId": 51,
     "surahName": "Adh-Dhariyat",
-    "status": "generated",
-    "videoPath": "output_videos/surah_051_adh_dhariyat.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_051_adh_dhariyat.mp4",
+    "youtubeVideoId": "T7mQInLJEsQ"
   },
   "52": {
     "surahId": 52,
     "surahName": "At-Tur",
-    "status": "generated",
-    "videoPath": "output_videos/surah_052_at_tur.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_052_at_tur.mp4",
+    "youtubeVideoId": "EiQ5yAsVjGk"
   },
   "53": {
     "surahId": 53,
     "surahName": "An-Najm",
-    "status": "generated",
-    "videoPath": "output_videos/surah_053_an_najm.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_053_an_najm.mp4",
+    "youtubeVideoId": "CEAKpn2zi3Y"
   },
   "54": {
     "surahId": 54,
     "surahName": "Al-Qamar",
-    "status": "generated",
-    "videoPath": "output_videos/surah_054_al_qamar.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_054_al_qamar.mp4",
+    "youtubeVideoId": "2XVR5OQ177o"
   },
   "55": {
     "surahId": 55,
     "surahName": "Ar-Rahman",
-    "status": "generated",
-    "videoPath": "output_videos/surah_055_ar_rahman.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_055_ar_rahman.mp4",
+    "youtubeVideoId": "klC00r2MEZ4"
   },
   "56": {
     "surahId": 56,
     "surahName": "Al-Waqi'ah",
-    "status": "generated",
-    "videoPath": "output_videos/surah_056_al_waqi_ah.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_056_al_waqi_ah.mp4",
+    "youtubeVideoId": "Fw7rZuIqQ34"
   },
   "57": {
     "surahId": 57,
     "surahName": "Al-Hadid",
-    "status": "generated",
-    "videoPath": "output_videos/surah_057_al_hadid.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_057_al_hadid.mp4",
+    "youtubeVideoId": "ILOsuX9DrBw"
   },
   "58": {
     "surahId": 58,
     "surahName": "Al-Mujadila",
-    "status": "generated",
-    "videoPath": "output_videos/surah_058_al_mujadila.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_058_al_mujadila.mp4",
+    "youtubeVideoId": "YKqH0qawkds"
   },
   "59": {
     "surahId": 59,
     "surahName": "Al-Hashr",
-    "status": "generated",
-    "videoPath": "output_videos/surah_059_al_hashr.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_059_al_hashr.mp4",
+    "youtubeVideoId": "hnU0ee7j-p8"
   },
   "60": {
     "surahId": 60,
     "surahName": "Al-Mumtahanah",
-    "status": "generated",
-    "videoPath": "output_videos/surah_060_al_mumtahanah.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_060_al_mumtahanah.mp4",
+    "youtubeVideoId": "nwYfdirGS-c"
   },
   "61": {
     "surahId": 61,
     "surahName": "As-Saf",
-    "status": "generated",
-    "videoPath": "output_videos/surah_061_as_saf.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_061_as_saf.mp4",
+    "youtubeVideoId": "UsncVYAaJFA"
   },
   "62": {
     "surahId": 62,
     "surahName": "Al-Jumu'ah",
-    "status": "generated",
-    "videoPath": "output_videos/surah_062_al_jumu_ah.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_062_al_jumu_ah.mp4",
+    "youtubeVideoId": "Ni_l1-YvhYk"
   },
   "63": {
     "surahId": 63,
     "surahName": "Al-Munafiqun",
-    "status": "generated",
-    "videoPath": "output_videos/surah_063_al_munafiqun.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_063_al_munafiqun.mp4",
+    "youtubeVideoId": "_AoNFmuqwnY"
   },
   "64": {
     "surahId": 64,
     "surahName": "At-Taghabun",
-    "status": "generated",
-    "videoPath": "output_videos/surah_064_at_taghabun.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_064_at_taghabun.mp4",
+    "youtubeVideoId": "mOcLfPmIEjY"
   },
   "65": {
     "surahId": 65,
     "surahName": "At-Talaq",
-    "status": "generated",
-    "videoPath": "output_videos/surah_065_at_talaq.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_065_at_talaq.mp4",
+    "youtubeVideoId": "wNnpLjly6Jk"
   },
   "66": {
     "surahId": 66,
     "surahName": "At-Tahrim",
-    "status": "generated",
-    "videoPath": "output_videos/surah_066_at_tahrim.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_066_at_tahrim.mp4",
+    "youtubeVideoId": "Ck_aXrjukl4"
   },
   "67": {
     "surahId": 67,
     "surahName": "Al-Mulk",
-    "status": "generated",
-    "videoPath": "output_videos/surah_067_al_mulk.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_067_al_mulk.mp4",
+    "youtubeVideoId": "73mP2hwqUdM"
   },
   "68": {
     "surahId": 68,
     "surahName": "Al-Qalam",
-    "status": "generated",
-    "videoPath": "output_videos/surah_068_al_qalam.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_068_al_qalam.mp4",
+    "youtubeVideoId": "F0MzjAheG68"
   },
   "69": {
     "surahId": 69,
     "surahName": "Al-Haqqah",
-    "status": "generated",
-    "videoPath": "output_videos/surah_069_al_haqqah.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_069_al_haqqah.mp4",
+    "youtubeVideoId": "5E0UQ6Mwp7k"
   },
   "70": {
     "surahId": 70,
@@ -473,8 +492,9 @@
   "71": {
     "surahId": 71,
     "surahName": "Nuh",
-    "status": "generated",
-    "videoPath": "output_videos/surah_071_nuh.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_071_nuh.mp4",
+    "youtubeVideoId": "s--VncFcUrI"
   },
   "72": {
     "surahId": 72,

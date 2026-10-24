@@ -369,11 +369,23 @@ function selectSurah(id: number) {
   router.replace({ query: { ...route.query, surah: String(id) } })
 }
 
-onMounted(() => {
+onMounted(async () => {
   q2p.init(1)
   const querySurah = Number(route.query.surah || route.query.id || 1)
   if (querySurah >= 1 && querySurah <= 114) {
     activeSuraId.value = querySurah
+  }
+
+  try {
+    const res = await fetch('/api/youtube/videos')
+    if (res.ok) {
+      const data = await res.json()
+      if (data?.ok && Array.isArray(data.videos) && data.videos.length > 0) {
+        liveVideos.value = data.videos
+      }
+    }
+  } catch (err) {
+    console.warn('[Recitations] Failed to fetch live videos:', err)
   }
 })
 

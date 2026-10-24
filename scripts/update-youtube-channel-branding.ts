@@ -7,23 +7,8 @@ dotenv.config()
 const OAUTH_TOKEN = process.env.YOUTUBE_OAUTH_TOKEN || ''
 const CHANNEL_ID = process.env.YOUTUBE_CHANNEL_ID || 'UCKPAQJxnUTX-pzvLQ3M0aEQ'
 
-const CHANNEL_TITLE = 'Peace2074 — Official Quran Recitations & Reflections'
-const CHANNEL_DESCRIPTION = `Peace2074 (https://peace2074.com) is a global digital sanctuary for the Holy Quran, Dhikr, and Islamic reflection.
-
-✨ Key Features on Peace2074:
-• Complete 114 Surahs with HD 1080p synchronized Arabic text & multilingual translations.
-• Asma' Allah Al-Husna (99 Names of Allah) & Digital Tasbeeh counter.
-• Multi-language support across 10 languages (English, Arabic, Persian, German, Spanish, Turkish, Russian, Hebrew, Italian, Uzbek).
-• Fully responsive web app & iOS native application.
-
-🔗 Official Links:
-🌐 Website: https://peace2074.com
-📖 Read Quran: https://peace2074.com/quran
-✨ 99 Names of Allah: https://peace2074.com/holynames
-📿 Digital Tasbeeh: https://peace2074.com/tasbeeh
-💻 Open Source: https://github.com/oilaeaw/peace2074.com
-
-"Verily, in the remembrance of Allah do hearts find rest." (Quran 13:28)`
+const CHANNEL_TITLE = 'Peace2074'
+const CHANNEL_DESCRIPTION = 'PEACE2074 is a multilingual Quran and reflection space designed to feel calm, beautiful, and deeply usable—whether you open it for one ayah, one breath, or a longer journey.'
 
 const KEYWORDS = [
   'Quran',
@@ -90,42 +75,46 @@ async function updateChannelBranding() {
     process.exit(1)
   }
 
-  try {
-    const response = await fetch(
-      'https://www.googleapis.com/youtube/v3/channels?part=brandingSettings',
-      {
-        method: 'PUT',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          id: CHANNEL_ID,
-          brandingSettings: {
-            channel: {
-              title: 'Peace2074',
-              description: 'PEACE2074 is a multilingual Quran and reflection space designed to feel calm, beautiful, and deeply usable—whether you open it for one ayah, one breath, or a longer journey.',
-              keywords: KEYWORDS,
-              country: 'IL',
-            },
-          },
-        }),
-      }
-    )
+  const targetChannels = Array.from(new Set([CHANNEL_ID, 'UCiuUJUpeWXxWwDSpPKoEVbQ']))
 
-    if (response.ok) {
-      const data = await response.json()
-      console.log('✅ YouTube Channel Branding Successfully Updated!')
-      console.log(`📌 Title: ${CHANNEL_TITLE}`)
-      console.log(`📌 Keywords: ${KEYWORDS}`)
-      console.log(`📌 Channel ID: ${data.id || CHANNEL_ID}`)
-    } else {
-      const errText = await response.text()
-      console.error(`❌ YouTube API update failed (${response.status}):`, errText)
+  for (const chId of targetChannels) {
+    try {
+      console.log(`\nUpdating channel: ${chId}...`)
+      const response = await fetch(
+        'https://www.googleapis.com/youtube/v3/channels?part=brandingSettings',
+        {
+          method: 'PUT',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            id: chId,
+            brandingSettings: {
+              channel: {
+                description: CHANNEL_DESCRIPTION,
+                keywords: KEYWORDS,
+                country: 'IL',
+              },
+            },
+          }),
+        }
+      )
+
+      if (response.ok) {
+        const data = await response.json()
+        console.log(`✅ Channel ${chId} Branding Successfully Updated!`)
+        console.log(`📌 Description: ${CHANNEL_DESCRIPTION}`)
+        console.log(`📌 Keywords: ${KEYWORDS}`)
+        console.log(`📌 Channel ID: ${data.id || chId}`)
+      } else {
+        const errText = await response.text()
+        console.warn(`⚠️ YouTube API update note for (${chId}):`, errText)
+      }
+    } catch (err: any) {
+      console.error(`❌ Error updating YouTube channel ${chId}:`, err?.message || err)
     }
-  } catch (err: any) {
-    console.error('❌ Error updating YouTube channel branding:', err?.message || err)
   }
 }
 

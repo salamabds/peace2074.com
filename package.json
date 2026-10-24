@@ -55,6 +55,7 @@
     "prepare": "husky",
     "check:locales": "node --experimental-strip-types scripts/check-locales.ts",
     "sync:quran:data": "node --experimental-strip-types scripts/sync-quran-public-data.ts",
+    "sync:changelog": "node --experimental-strip-types scripts/sync-changelog.ts",
     "db:test": "node --experimental-strip-types scripts/test-db-connection.ts",
     "chapters:translate": "node --experimental-strip-types scripts/generate-chapter-translations.ts",
     "login:youtube": "node --experimental-strip-types scripts/login-youtube.ts",

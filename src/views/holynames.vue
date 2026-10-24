@@ -990,6 +990,10 @@ function openNameModal(item: HolyNameWithMeta) {
   playChimeTone()
 }
 
+function closeNameModal() {
+  activeModalName.value = null
+}
+
 function incrementModalDhikr() {
   modalDhikrCount.value++
   playBeadClick()

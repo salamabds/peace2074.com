@@ -768,8 +768,8 @@ async function uploadToYouTube(chapter: Chapter, videoPath: string, rawOauthToke
     if (!initRes.ok) {
       const errText = await initRes.text()
       console.error(`[Surah ${chapter.id}] YouTube upload init failed ${initRes.status}:`, errText)
-      if (errText.includes('quotaExceeded') || errText.includes('dailyLimitExceeded')) {
-        throw new Error('YouTube API Daily Quota Exceeded. Halting batch until next quota window.')
+      if (errText.includes('quotaExceeded') || errText.includes('dailyLimitExceeded') || errText.includes('uploadLimitExceeded')) {
+        throw new Error('YouTube Daily Upload Limit Reached. YouTube restricts channels to a daily maximum (~50-100 uploads per 24 hours). Halting batch until the 24h window resets.')
       }
       return null
     }
@@ -800,12 +800,12 @@ async function uploadToYouTube(chapter: Chapter, videoPath: string, rawOauthToke
     } else {
       const errText = await uploadRes.text()
       console.error(`[Surah ${chapter.id}] YouTube upload stream failed ${uploadRes.status}:`, errText)
-      if (errText.includes('quotaExceeded') || errText.includes('dailyLimitExceeded')) {
-        throw new Error('YouTube API Daily Quota Exceeded. Halting batch until next quota window.')
+      if (errText.includes('quotaExceeded') || errText.includes('dailyLimitExceeded') || errText.includes('uploadLimitExceeded')) {
+        throw new Error('YouTube Daily Upload Limit Reached. YouTube restricts channels to a daily maximum (~50-100 uploads per 24 hours). Halting batch until the 24h window resets.')
       }
     }
   } catch (err: any) {
-    if (err?.message?.includes('Daily Quota Exceeded')) {
+    if (err?.message?.includes('Daily Upload Limit Reached') || err?.message?.includes('Daily Quota Exceeded')) {
       throw err
     }
     console.error(`[Surah ${chapter.id}] YouTube upload error:`, err?.message || err)
@@ -884,8 +884,8 @@ async function main() {
       progress[id] = rec
       saveProgress(progress)
 
-      if (err?.message?.includes('Daily Quota Exceeded')) {
-        console.log(`\n⏳ Daily YouTube upload quota reached. Batch will resume automatically on the next scheduled run.`)
+      if (err?.message?.includes('Daily Quota Exceeded') || err?.message?.includes('Daily Upload Limit Reached')) {
+        console.log(`\n⏳ Daily YouTube upload limit reached (~50-100 uploads per 24h). All videos are saved in output_videos/ and the batch will resume once YouTube's 24-hour window resets.`)
         break
       }
     }

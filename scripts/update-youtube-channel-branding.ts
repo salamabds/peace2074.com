@@ -43,13 +43,50 @@ const KEYWORDS = [
   'Quran Persian Translation',
 ].join(', ')
 
+async function getOrRefreshOAuthToken(): Promise<string> {
+  let token = (process.env.YOUTUBE_OAUTH_TOKEN || '').trim()
+  if (token.startsWith('your-') || token.includes('bearer-token')) {
+    token = ''
+  }
+
+  const refreshToken = (process.env.YOUTUBE_REFRESH_TOKEN || '').trim()
+  const clientId = (process.env.GOOGLE_CLIENT_ID || process.env.NITRO_GOOGLE_CLIENT_ID || '').trim()
+  const clientSecret = (process.env.GOOGLE_CLIENT_SECRET || process.env.NITRO_GOOGLE_CLIENT_SECRET || '').trim()
+
+  if (refreshToken && clientId && clientSecret) {
+    try {
+      const res = await fetch('https://oauth2.googleapis.com/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          client_id: clientId,
+          client_secret: clientSecret,
+          refresh_token: refreshToken,
+          grant_type: 'refresh_token',
+        }),
+      })
+      if (res.ok) {
+        const data = await res.json()
+        if (data.access_token) {
+          return data.access_token
+        }
+      }
+    } catch (err: any) {
+      console.warn('[YouTube Token Auto-Refresh Warning]', err?.message || err)
+    }
+  }
+
+  return token
+}
+
 async function updateChannelBranding() {
   console.log('================================================================')
   console.log('🎨 UPDATING PEACE2074 YOUTUBE CHANNEL BRANDING & PROFILE')
   console.log('================================================================')
 
-  if (!OAUTH_TOKEN) {
-    console.error('❌ YOUTUBE_OAUTH_TOKEN is missing in .env file. Run `pnpm login:youtube` first.')
+  const token = await getOrRefreshOAuthToken()
+  if (!token) {
+    console.error('❌ YOUTUBE_OAUTH_TOKEN is missing or expired in .env file. Run `pnpm login:youtube` first.')
     process.exit(1)
   }
 
@@ -59,7 +96,7 @@ async function updateChannelBranding() {
       {
         method: 'PUT',
         headers: {
-          Authorization: `Bearer ${OAUTH_TOKEN}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },

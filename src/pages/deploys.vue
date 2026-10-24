@@ -126,6 +126,7 @@ import {
   fetchDeployLikes,
   fetchChangelog,
 } from '@/stores/services'
+import bundledDeploys from '@/shared/data/changelog.json'
 
 const { t } = useI18n()
 const $q = useQuasar()

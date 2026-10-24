@@ -2,6 +2,7 @@ import { defineEventHandler } from 'h3'
 import { readFile } from 'fs/promises'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import bundledDeploys from '../data/changelog.json'
 
 interface Deploy {
     version: string
@@ -46,6 +47,12 @@ export default defineEventHandler(async () => {
         }
 
         if (!content) {
+            if (Array.isArray(bundledDeploys) && bundledDeploys.length > 0) {
+                return {
+                    ok: true,
+                    deploys: bundledDeploys
+                }
+            }
             console.error('CHANGELOG.md could not be loaded from the bundled asset or fallback paths')
             return { ok: false, deploys: [] }
         }
@@ -161,6 +168,12 @@ export default defineEventHandler(async () => {
             deploys
         }
     } catch (error: any) {
+        if (Array.isArray(bundledDeploys) && bundledDeploys.length > 0) {
+            return {
+                ok: true,
+                deploys: bundledDeploys
+            }
+        }
         console.error('Failed to read changelog:', error)
         return {
             ok: false,

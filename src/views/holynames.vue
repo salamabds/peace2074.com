@@ -752,6 +752,476 @@ const holynames: HolyNameI[] = [
     meaningKey: 'holyNames.99.meaning',
   },
 ]
+
+// Helper to assign categories to 99 names
+function getCategoryForId(id: number): HolyCategory {
+  if (
+    [1, 2, 14, 16, 17, 30, 33, 34, 35, 36, 47, 48, 79, 80, 81, 82, 83].includes(
+      id
+    )
+  ) {
+    return 'mercy'
+  }
+  if (
+    [
+      3, 4, 7, 8, 9, 10, 15, 20, 21, 22, 23, 24, 25, 37, 38, 40, 41, 42, 43,
+      44, 53, 54, 55, 56, 63, 84, 85,
+    ].includes(id)
+  ) {
+    return 'majesty'
+  }
+  if ([11, 12, 13, 57, 58, 59, 60, 61, 62, 70, 71, 72, 95].includes(id)) {
+    return 'creation'
+  }
+  if ([5, 6, 32, 64, 65, 66, 67, 68].includes(id)) {
+    return 'peace'
+  }
+  return 'knowledge'
+}
+
+const enrichedNames: HolyNameWithMeta[] = holynames.map((item, idx) => {
+  const id = idx + 1
+  return {
+    ...item,
+    id,
+    category: getCategoryForId(id),
+  }
+})
+
+const categories: { key: string; label: string; arabic: string; icon: string }[] =
+  [
+    { key: 'all', label: 'All Names', arabic: 'الكل', icon: 'auto_awesome' },
+    {
+      key: 'mercy',
+      label: 'Mercy & Kindness',
+      arabic: 'الرحمة واللطف',
+      icon: 'favorite',
+    },
+    {
+      key: 'majesty',
+      label: 'Majesty & Power',
+      arabic: 'الملك والجلال',
+      icon: 'shield',
+    },
+    {
+      key: 'creation',
+      label: 'Creation & Life',
+      arabic: 'الخلق والإحياء',
+      icon: 'spa',
+    },
+    {
+      key: 'knowledge',
+      label: 'Wisdom & Knowledge',
+      arabic: 'العلم والحكمة',
+      icon: 'psychology',
+    },
+    {
+      key: 'peace',
+      label: 'Peace & Faith',
+      arabic: 'السلام والإيمان',
+      icon: 'wb_sunny',
+    },
+    { key: 'favorites', label: 'Bookmarked', arabic: 'المفضلة', icon: 'star' },
+  ]
+
+// View modes: 'random' (Default) | 'shuffled' | 'all'
+const viewMode = ref<'random' | 'shuffled' | 'all'>('random')
+
+// Random selection
+const randomNameIndex = ref<number>(
+  Math.floor(Math.random() * enrichedNames.length)
+)
+const currentRandomName = computed(
+  () => enrichedNames[randomNameIndex.value] || enrichedNames[0]
+)
+
+// Shuffled array for non-iterative browsing
+const shuffledIndices = ref<number[]>([])
+
+function shuffleNames() {
+  const arr = enrichedNames.map((_, i) => i)
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+  shuffledIndices.value = arr
+  playChimeTone()
+  $q.notify({
+    message: '99 Holy Names shuffled randomly (non-iterative)',
+    color: 'secondary',
+    icon: 'shuffle',
+    timeout: 1500,
+  })
+}
+
+// Search & Filter
+const searchQuery = ref('')
+const selectedCategory = ref('all')
+
+const filteredNames = computed(() => {
+  let list = enrichedNames
+
+  // If in shuffled mode and we have shuffled indices, order by shuffled indices
+  if (
+    viewMode.value === 'shuffled' &&
+    shuffledIndices.value.length === enrichedNames.length
+  ) {
+    list = shuffledIndices.value.map((idx) => enrichedNames[idx])
+  }
+
+  // Category filter
+  if (selectedCategory.value === 'favorites') {
+    list = list.filter((item) => bookmarkedIds.value.includes(item.id))
+  } else if (selectedCategory.value !== 'all') {
+    list = list.filter((item) => item.category === selectedCategory.value)
+  }
+
+  // Search filter
+  const query = searchQuery.value.trim().toLowerCase()
+  if (!query) return list
+
+  return list.filter((item) => {
+    const nameMatch = item.name.toLowerCase().includes(query)
+    const textMatch = item.text.toLowerCase().includes(query)
+    const transMatch = t(item.transliterationKey).toLowerCase().includes(query)
+    const meaningMatch = t(item.meaningKey).toLowerCase().includes(query)
+    const idMatch = String(item.id) === query
+    return nameMatch || textMatch || transMatch || meaningMatch || idMatch
+  })
+})
+
+// Dhikr Tasbeeh counter
+const dhikrCount = ref(0)
+const dhikrTarget = ref<number>(33)
+const targetOptions = [33, 99, 100, 999999]
+
+function incrementDhikr() {
+  dhikrCount.value++
+  playBeadClick()
+  if (navigator.vibrate) {
+    navigator.vibrate(35)
+  }
+  if (dhikrCount.value === dhikrTarget.value) {
+    playChimeTone()
+    $q.notify({
+      message: `Masha'Allah! Completed ${dhikrTarget.value} praises`,
+      color: 'positive',
+      icon: 'check_circle',
+      timeout: 2000,
+    })
+  }
+}
+
+function resetDhikr() {
+  dhikrCount.value = 0
+}
+
+function setDhikrTarget(val: number) {
+  dhikrTarget.value = val
+}
+
+// Bookmarks
+const bookmarkedIds = ref<number[]>([])
+
+function toggleBookmark(id: number) {
+  if (bookmarkedIds.value.includes(id)) {
+    bookmarkedIds.value = bookmarkedIds.value.filter((x) => x !== id)
+  } else {
+    bookmarkedIds.value.push(id)
+  }
+  try {
+    localStorage.setItem(
+      'peace2074_holy_bookmarks',
+      JSON.stringify(bookmarkedIds.value)
+    )
+  } catch {}
+}
+
+function isBookmarked(id: number): boolean {
+  return bookmarkedIds.value.includes(id)
+}
+
+// Pick Next Random Name
+function pickRandomName() {
+  let nextIdx = Math.floor(Math.random() * enrichedNames.length)
+  if (nextIdx === randomNameIndex.value && enrichedNames.length > 1) {
+    nextIdx = (nextIdx + 1) % enrichedNames.length
+  }
+  randomNameIndex.value = nextIdx
+  resetDhikr()
+  playChimeTone()
+}
+
+// Auto-Play ambient mode
+const isAutoPlaying = ref(false)
+let autoPlayTimer: any = null
+
+function toggleAutoPlay() {
+  isAutoPlaying.value = !isAutoPlaying.value
+  if (isAutoPlaying.value) {
+    autoPlayTimer = setInterval(() => {
+      pickRandomName()
+    }, 7000)
+    $q.notify({
+      message: 'Ambient contemplation enabled: cycling random names',
+      color: 'primary',
+      icon: 'auto_awesome',
+      timeout: 2000,
+    })
+  } else {
+    if (autoPlayTimer) clearInterval(autoPlayTimer)
+    autoPlayTimer = null
+  }
+}
+
+// Interactive Modal for card clicks
+const activeModalName = ref<HolyNameWithMeta | null>(null)
+const modalDhikrCount = ref(0)
+const isModalOpen = computed({
+  get: () => !!activeModalName.value,
+  set: (val: boolean) => {
+    if (!val) activeModalName.value = null
+  },
+})
+
+function openNameModal(item: HolyNameWithMeta) {
+  activeModalName.value = item
+  modalDhikrCount.value = 0
+  playChimeTone()
+}
+
+function incrementModalDhikr() {
+  modalDhikrCount.value++
+  playBeadClick()
+  if (navigator.vibrate) {
+    navigator.vibrate(35)
+  }
+}
+
+function resetModalDhikr() {
+  modalDhikrCount.value = 0
+}
+
+function nextModalName() {
+  if (!activeModalName.value) return
+  const currentIdx = enrichedNames.findIndex(
+    (x) => x.id === activeModalName.value!.id
+  )
+  const nextIdx = (currentIdx + 1) % enrichedNames.length
+  activeModalName.value = enrichedNames[nextIdx]
+  modalDhikrCount.value = 0
+}
+
+function prevModalName() {
+  if (!activeModalName.value) return
+  const currentIdx = enrichedNames.findIndex(
+    (x) => x.id === activeModalName.value!.id
+  )
+  const prevIdx =
+    (currentIdx - 1 + enrichedNames.length) % enrichedNames.length
+  activeModalName.value = enrichedNames[prevIdx]
+  modalDhikrCount.value = 0
+}
+
+function randomModalName() {
+  let nextIdx = Math.floor(Math.random() * enrichedNames.length)
+  if (
+    activeModalName.value &&
+    enrichedNames[nextIdx].id === activeModalName.value.id
+  ) {
+    nextIdx = (nextIdx + 1) % enrichedNames.length
+  }
+  activeModalName.value = enrichedNames[nextIdx]
+  modalDhikrCount.value = 0
+  playChimeTone()
+}
+
+// Audio Pronunciation & Synthesis
+const isPlayingAudio = ref(false)
+
+function playPronunciation(holyName: { name: string; text: string }) {
+  if (typeof window === 'undefined') return
+  isPlayingAudio.value = true
+  playChimeTone()
+
+  if ('speechSynthesis' in window) {
+    try {
+      window.speechSynthesis.cancel()
+      const utterance = new SpeechSynthesisUtterance(holyName.name)
+      utterance.lang = 'ar-SA'
+      utterance.rate = 0.82
+      utterance.pitch = 1.0
+
+      const voices = window.speechSynthesis.getVoices()
+      const arVoice = voices.find(
+        (v) => v.lang.startsWith('ar') || v.lang.includes('Arabic')
+      )
+      if (arVoice) {
+        utterance.voice = arVoice
+      }
+
+      utterance.onend = () => {
+        isPlayingAudio.value = false
+      }
+      utterance.onerror = () => {
+        isPlayingAudio.value = false
+      }
+
+      window.speechSynthesis.speak(utterance)
+    } catch {
+      isPlayingAudio.value = false
+    }
+  } else {
+    setTimeout(() => {
+      isPlayingAudio.value = false
+    }, 800)
+  }
+}
+
+function playChimeTone() {
+  try {
+    const AudioContextClass =
+      window.AudioContext || (window as any).webkitAudioContext
+    if (!AudioContextClass) return
+    const ctx = new AudioContextClass()
+    const osc = ctx.createOscillator()
+    const gain = ctx.createGain()
+    osc.type = 'sine'
+    osc.frequency.setValueAtTime(528, ctx.currentTime)
+    osc.frequency.exponentialRampToValueAtTime(1056, ctx.currentTime + 0.3)
+    gain.gain.setValueAtTime(0.12, ctx.currentTime)
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6)
+    osc.connect(gain)
+    gain.connect(ctx.destination)
+    osc.start()
+    osc.stop(ctx.currentTime + 0.65)
+  } catch {}
+}
+
+function playBeadClick() {
+  try {
+    const AudioContextClass =
+      window.AudioContext || (window as any).webkitAudioContext
+    if (!AudioContextClass) return
+    const ctx = new AudioContextClass()
+    const osc = ctx.createOscillator()
+    const gain = ctx.createGain()
+    osc.type = 'triangle'
+    osc.frequency.setValueAtTime(440, ctx.currentTime)
+    gain.gain.setValueAtTime(0.08, ctx.currentTime)
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08)
+    osc.connect(gain)
+    gain.connect(ctx.destination)
+    osc.start()
+    osc.stop(ctx.currentTime + 0.09)
+  } catch {}
+}
+
+// Copy & Share
+async function shareOrCopyName(item: HolyNameWithMeta) {
+  const trans = t(item.transliterationKey)
+  const meaning = t(item.meaningKey)
+  const text = `${item.name} (${item.text}) - ${trans}\nMeaning: ${meaning}\nReflect on the 99 Names of Allah: https://peace2074.com/holynames?id=${item.id}`
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: `${item.name} - ${item.text}`,
+        text,
+        url: `https://peace2074.com/holynames?id=${item.id}`,
+      })
+      return
+    } catch {}
+  }
+
+  if (navigator.clipboard) {
+    await navigator.clipboard.writeText(text)
+    $q.notify({
+      message: 'Holy name & meaning copied to clipboard',
+      color: 'positive',
+      icon: 'check',
+      timeout: 1800,
+    })
+  }
+}
+
+// Keyboard shortcuts
+function handleKeydown(e: KeyboardEvent) {
+  if (
+    e.target instanceof HTMLInputElement ||
+    e.target instanceof HTMLTextAreaElement
+  ) {
+    return
+  }
+  if (e.key === ' ' || e.code === 'Space') {
+    e.preventDefault()
+    if (activeModalName.value) {
+      incrementModalDhikr()
+    } else if (viewMode.value === 'random') {
+      incrementDhikr()
+    }
+  } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+    e.preventDefault()
+    if (activeModalName.value) {
+      nextModalName()
+    } else if (viewMode.value === 'random') {
+      pickRandomName()
+    }
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    e.preventDefault()
+    if (activeModalName.value) {
+      prevModalName()
+    } else if (viewMode.value === 'random') {
+      pickRandomName()
+    }
+  }
+}
+
+onMounted(() => {
+  // Load bookmarks
+  try {
+    const saved = localStorage.getItem('peace2074_holy_bookmarks')
+    if (saved) {
+      bookmarkedIds.value = JSON.parse(saved)
+    }
+  } catch {}
+
+  // Check URL query parameters
+  if (route.query.id) {
+    const qId = parseInt(route.query.id as string, 10)
+    if (!isNaN(qId) && qId >= 1 && qId <= 99) {
+      randomNameIndex.value = qId - 1
+    }
+  }
+  if (
+    route.query.mode &&
+    ['random', 'shuffled', 'all'].includes(route.query.mode as string)
+  ) {
+    viewMode.value = route.query.mode as 'random' | 'shuffled' | 'all'
+  }
+
+  // Pre-shuffle for shuffled mode
+  const arr = enrichedNames.map((_, i) => i)
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+  shuffledIndices.value = arr
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('keydown', handleKeydown)
+  }
+})
+
+onUnmounted(() => {
+  if (autoPlayTimer) clearInterval(autoPlayTimer)
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('keydown', handleKeydown)
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel()
+    }
+  }
+})
 </script>
 
 <template>
@@ -779,23 +1249,444 @@ const holynames: HolyNameI[] = [
         {{ $t('The 99 Holy Names of Allah') }}
       </h1>
 
-      <div class="subtitle text-subtitle1 q-mb-lg">
+      <div class="subtitle text-subtitle1 q-mb-md">
         {{ $t("Asma' Allah Al-Husna") }}
       </div>
 
-      <div class="names-grid">
-        <div
-          v-for="one in holynames"
-          :key="one.text"
-          class="glory-card islamic-border"
+      <!-- View Mode Tabs: Random (Default), Shuffled 99, or All 99 -->
+      <div class="view-mode-bar q-mb-lg">
+        <button
+          type="button"
+          class="mode-pill"
+          :class="{ active: viewMode === 'random' }"
+          @click="viewMode = 'random'"
         >
-          <span class="arabic-name">{{ one.name }}</span>
-          <span v-if="locale !== 'ar'" class="latin-name">{{ one.text }}</span>
-          <span class="transliteration">{{ $t(one.transliterationKey) }}</span>
-          <span class="meaning">{{ $t(one.meaningKey) }}</span>
+          <q-icon name="casino" size="18px" class="q-mr-xs" />
+          <span>{{ $t('Random Reflection') || 'Random Reflection' }}</span>
+        </button>
+        <button
+          type="button"
+          class="mode-pill"
+          :class="{ active: viewMode === 'shuffled' }"
+          @click="
+            () => {
+              viewMode = 'shuffled'
+              if (shuffledIndices.length === 0) shuffleNames()
+            }
+          "
+        >
+          <q-icon name="shuffle" size="18px" class="q-mr-xs" />
+          <span>{{ $t('Shuffled Names') || 'Shuffled (Non-Iterative)' }}</span>
+        </button>
+        <button
+          type="button"
+          class="mode-pill"
+          :class="{ active: viewMode === 'all' }"
+          @click="viewMode = 'all'"
+        >
+          <q-icon name="format_list_numbered" size="18px" class="q-mr-xs" />
+          <span>{{ $t('All 99 Names') || 'All 99 (Sequential)' }}</span>
+        </button>
+      </div>
+
+      <!-- ── MODE 1: RANDOM REFLECTION (DEFAULT FOCUS CARD) ── -->
+      <section v-if="viewMode === 'random'" class="random-section">
+        <div class="random-hero-card islamic-border">
+          <div class="card-top-bar">
+            <span class="random-badge">
+              <q-icon name="auto_awesome" size="14px" class="q-mr-xs" />
+              <span>Name #{{ currentRandomName.id }} of 99</span>
+            </span>
+
+            <span class="category-pill">
+              {{ currentRandomName.category }}
+            </span>
+
+            <div class="card-quick-actions">
+              <button
+                type="button"
+                class="icon-action-btn"
+                :class="{ bookmarked: isBookmarked(currentRandomName.id) }"
+                title="Bookmark"
+                @click="toggleBookmark(currentRandomName.id)"
+              >
+                <q-icon
+                  :name="
+                    isBookmarked(currentRandomName.id) ? 'star' : 'star_outline'
+                  "
+                  size="20px"
+                />
+              </button>
+              <button
+                type="button"
+                class="icon-action-btn"
+                title="Share or Copy"
+                @click="shareOrCopyName(currentRandomName)"
+              >
+                <q-icon name="share" size="18px" />
+              </button>
+            </div>
+          </div>
+
+          <!-- Majestic Arabic Calligraphy -->
+          <div class="hero-arabic-wrap">
+            <div class="hero-arabic-name">{{ currentRandomName.name }}</div>
+          </div>
+
+          <!-- Transliteration & Meaning -->
+          <div class="hero-info">
+            <div class="hero-latin-name">{{ currentRandomName.text }}</div>
+            <div class="hero-transliteration">
+              {{ $t(currentRandomName.transliterationKey) }}
+            </div>
+            <div class="hero-meaning">
+              {{ $t(currentRandomName.meaningKey) }}
+            </div>
+          </div>
+
+          <!-- Pronunciation & Recitation Audio -->
+          <div class="hero-audio-row q-mt-md">
+            <button
+              type="button"
+              class="hero-audio-btn"
+              :class="{ playing: isPlayingAudio }"
+              @click="playPronunciation(currentRandomName)"
+            >
+              <q-icon
+                :name="isPlayingAudio ? 'volume_up' : 'volume_up'"
+                size="20px"
+                class="q-mr-xs"
+              />
+              <span>
+                {{
+                  isPlayingAudio
+                    ? 'Reciting...'
+                    : 'Listen Pronunciation (صوت النطق)'
+                }}
+              </span>
+            </button>
+          </div>
+
+          <!-- Interactive Dhikr Counter (Tasbeeh Beads) -->
+          <div class="hero-dhikr-box q-mt-lg">
+            <div class="dhikr-label">
+              <span>Reflective Dhikr / الذكر</span>
+              <button
+                type="button"
+                class="dhikr-reset-btn"
+                title="Reset counter"
+                @click="resetDhikr"
+              >
+                <q-icon name="refresh" size="16px" class="q-mr-xs" />
+                <span>Reset</span>
+              </button>
+            </div>
+
+            <div class="dhikr-counter-orb" @click="incrementDhikr">
+              <div class="dhikr-num">{{ dhikrCount }}</div>
+              <div class="dhikr-target">
+                /
+                {{
+                  dhikrTarget === 999999 ? '∞' : dhikrTarget
+                }}
+              </div>
+              <div class="dhikr-subtext">Tap to count • انقر للذكر</div>
+            </div>
+
+            <div class="target-chips-row q-mt-sm">
+              <span class="target-title">Target:</span>
+              <button
+                v-for="opt in targetOptions"
+                :key="opt"
+                type="button"
+                class="target-pill"
+                :class="{ active: dhikrTarget === opt }"
+                @click="setDhikrTarget(opt)"
+              >
+                {{ opt === 999999 ? '∞' : opt }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Hero Action Controls -->
+          <div class="hero-actions-row q-mt-xl">
+            <button
+              type="button"
+              class="cta-random-btn"
+              @click="pickRandomName"
+            >
+              <q-icon name="casino" size="24px" class="q-mr-sm" />
+              <span>{{ $t('Pick Another Random Name') || 'Next Random Name (اسم آخر عشوائي)' }}</span>
+            </button>
+
+            <button
+              type="button"
+              class="ambient-btn"
+              :class="{ active: isAutoPlaying }"
+              @click="toggleAutoPlay"
+            >
+              <q-icon
+                :name="isAutoPlaying ? 'pause_circle' : 'play_circle'"
+                size="20px"
+                class="q-mr-xs"
+              />
+              <span>{{ isAutoPlaying ? 'Pause Ambient' : 'Auto-Cycle (7s)' }}</span>
+            </button>
+          </div>
+
+          <div class="keyboard-hints q-mt-sm">
+            <span>Tip: Press <code>Space</code> to count Dhikr, <code>→</code> for Next Random</span>
+          </div>
+
+          <!-- Jump to grid link -->
+          <div class="jump-link-row q-mt-lg">
+            <button
+              type="button"
+              class="text-link-btn"
+              @click="viewMode = 'shuffled'"
+            >
+              <q-icon name="grid_view" size="16px" class="q-mr-xs" />
+              <span>Browse All 99 Names in Shuffled Order ↓</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── MODE 2 & 3: SHUFFLED / ALL 99 GRID ── -->
+      <section v-else class="grid-section">
+        <!-- Banner for Shuffled Mode -->
+        <div v-if="viewMode === 'shuffled'" class="shuffled-banner q-mb-md">
+          <div class="shuffled-banner-text">
+            <q-icon name="shuffle" size="20px" class="q-mr-xs" />
+            <span>
+              <strong>Randomized Non-Iterative Grid:</strong> The 99 names are
+              shuffled randomly for spontaneous reflection.
+            </span>
+          </div>
+          <button
+            type="button"
+            class="reshuffle-btn"
+            @click="shuffleNames"
+          >
+            <q-icon name="shuffle" size="16px" class="q-mr-xs" />
+            <span>Reshuffle</span>
+          </button>
+        </div>
+
+        <!-- Interactive Search & Category Filters -->
+        <div class="filter-controls q-mb-lg">
+          <div class="search-input-wrap">
+            <q-icon name="search" size="20px" class="search-icon" />
+            <input
+              v-model="searchQuery"
+              type="text"
+              class="search-input"
+              placeholder="Search by Arabic name, English, transliteration, or meaning..."
+            />
+            <button
+              v-if="searchQuery"
+              type="button"
+              class="clear-search-btn"
+              @click="searchQuery = ''"
+            >
+              <q-icon name="close" size="16px" />
+            </button>
+          </div>
+
+          <div class="category-chips-scroll">
+            <button
+              v-for="cat in categories"
+              :key="cat.key"
+              type="button"
+              class="cat-chip"
+              :class="{ active: selectedCategory === cat.key }"
+              @click="selectedCategory = cat.key"
+            >
+              <q-icon :name="cat.icon" size="15px" class="q-mr-xs" />
+              <span>{{ cat.label }}</span>
+            </button>
+          </div>
+
+          <div class="result-count-row">
+            <span>Showing {{ filteredNames.length }} of 99 names</span>
+            <button
+              type="button"
+              class="switch-to-random-btn"
+              @click="viewMode = 'random'"
+            >
+              <q-icon name="casino" size="14px" class="q-mr-xs" />
+              <span>Random Focus Card</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Empty state -->
+        <div v-if="filteredNames.length === 0" class="empty-state">
+          <q-icon name="search_off" size="48px" color="amber-8" />
+          <div class="empty-title">No matching Holy Names found</div>
+          <button
+            type="button"
+            class="reset-filters-btn"
+            @click="
+              () => {
+                searchQuery = ''
+                selectedCategory = 'all'
+              }
+            "
+          >
+            Clear Filters
+          </button>
+        </div>
+
+        <!-- Masonry Grid with Interactive Cards -->
+        <div v-else class="names-grid">
+          <div
+            v-for="one in filteredNames"
+            :key="one.id"
+            class="glory-card islamic-border interactive"
+            @click="openNameModal(one)"
+          >
+            <div class="card-meta-top">
+              <span class="card-id-badge">#{{ one.id }}</span>
+              <div class="card-mini-actions" @click.stop>
+                <button
+                  type="button"
+                  class="mini-audio-btn"
+                  title="Listen"
+                  @click.stop="playPronunciation(one)"
+                >
+                  <q-icon name="volume_up" size="16px" />
+                </button>
+                <button
+                  type="button"
+                  class="mini-bookmark-btn"
+                  :class="{ bookmarked: isBookmarked(one.id) }"
+                  title="Bookmark"
+                  @click.stop="toggleBookmark(one.id)"
+                >
+                  <q-icon
+                    :name="isBookmarked(one.id) ? 'star' : 'star_outline'"
+                    size="16px"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <span class="arabic-name">{{ one.name }}</span>
+            <span v-if="locale !== 'ar'" class="latin-name">{{ one.text }}</span>
+            <span class="transliteration">{{ $t(one.transliterationKey) }}</span>
+            <span class="meaning">{{ $t(one.meaningKey) }}</span>
+
+            <div class="card-footer-tap">
+              <span>Tap for Tasbeeh & reflection ➔</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ── INTERACTIVE MODAL DIALOG FOR ANY CLICKED NAME ── -->
+    <q-dialog v-model="isModalOpen">
+      <div v-if="activeModalName" class="holy-dialog-card islamic-border">
+        <div class="dialog-header">
+          <span class="random-badge">
+            #{{ activeModalName.id }} of 99 • {{ activeModalName.category }}
+          </span>
+          <button
+            type="button"
+            class="dialog-close-btn"
+            @click="closeNameModal"
+          >
+            <q-icon name="close" size="20px" />
+          </button>
+        </div>
+
+        <div class="dialog-arabic-name">{{ activeModalName.name }}</div>
+        <div class="dialog-latin-name">{{ activeModalName.text }}</div>
+        <div class="dialog-transliteration">
+          {{ $t(activeModalName.transliterationKey) }}
+        </div>
+        <div class="dialog-meaning">
+          {{ $t(activeModalName.meaningKey) }}
+        </div>
+
+        <!-- Audio recitation in modal -->
+        <div class="dialog-audio-row q-mt-md">
+          <button
+            type="button"
+            class="hero-audio-btn"
+            :class="{ playing: isPlayingAudio }"
+            @click="playPronunciation(activeModalName)"
+          >
+            <q-icon name="volume_up" size="18px" class="q-mr-xs" />
+            <span>Listen Pronunciation</span>
+          </button>
+        </div>
+
+        <!-- Tasbeeh Counter in modal -->
+        <div class="modal-dhikr-box q-mt-md">
+          <div class="dhikr-counter-orb" @click="incrementModalDhikr">
+            <div class="dhikr-num">{{ modalDhikrCount }}</div>
+            <div class="dhikr-subtext">Tap to praise • ذكر</div>
+          </div>
+          <button
+            type="button"
+            class="dhikr-reset-btn q-mt-xs"
+            @click="resetModalDhikr"
+          >
+            Reset Count
+          </button>
+        </div>
+
+        <!-- Modal Controls: Prev, Random, Next, Share -->
+        <div class="modal-nav-row q-mt-lg">
+          <button type="button" class="nav-arrow-btn" @click="prevModalName">
+            <q-icon name="arrow_back" size="18px" />
+            <span>Prev</span>
+          </button>
+          <button type="button" class="modal-random-btn" @click="randomModalName">
+            <q-icon name="casino" size="18px" class="q-mr-xs" />
+            <span>Random</span>
+          </button>
+          <button type="button" class="nav-arrow-btn" @click="nextModalName">
+            <span>Next</span>
+            <q-icon name="arrow_forward" size="18px" />
+          </button>
+        </div>
+
+        <div class="modal-bottom-actions q-mt-md">
+          <button
+            type="button"
+            class="modal-share-btn"
+            @click="shareOrCopyName(activeModalName)"
+          >
+            <q-icon name="share" size="16px" class="q-mr-xs" />
+            <span>Share / Copy</span>
+          </button>
+          <button
+            type="button"
+            class="modal-fav-btn"
+            :class="{ bookmarked: isBookmarked(activeModalName.id) }"
+            @click="toggleBookmark(activeModalName.id)"
+          >
+            <q-icon
+              :name="
+                isBookmarked(activeModalName.id) ? 'star' : 'star_outline'
+              "
+              size="16px"
+              class="q-mr-xs"
+            />
+            <span>
+              {{
+                isBookmarked(activeModalName.id)
+                  ? 'Bookmarked'
+                  : 'Add to Bookmarks'
+              }}
+            </span>
+          </button>
         </div>
       </div>
-    </div>
+    </q-dialog>
   </q-page>
 </template>
 

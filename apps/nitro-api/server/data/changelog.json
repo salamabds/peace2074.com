@@ -1,0 +1,291 @@
+[
+  {
+    "version": "4.0.0",
+    "date": "October 25, 2026",
+    "message": "Shazam Karaoke Lyrics Theater",
+    "icon": "lyrics",
+    "color": "deep-purple",
+    "features": [
+      "**Shazam Video & Synchronized Karaoke Lyrics Theater**: Apple Music and Shazam-style full-screen modal featuring luminous word-level karaoke, animated audio radar, smooth scoped lyrics centering, and interactive reciter selection.",
+      "**Holy Names (Asma Allah Al Husna) Suite**: comprehensive revamp with grid/card view modes, random hero discovery card, category filters, interactive dhikr counter, audio pronunciation, and multilingual translations.",
+      "**YouTube 114 Surahs Automation Engine**: complete batch generator producing 1080p synchronized recitation videos with persistent security watermarks, automated playlist indexing, and daily LaunchAgent scheduling.",
+      "**Enhanced Site Search & Quick Actions**: new searchable pages, direct Ayah/Surah deep linking, and expanded query-driven actions in `useSiteSearch`.",
+      "**Sign in with Apple Integration**: native OAuth flow for seamless user profile and bookmark sync across iOS and web platforms."
+    ],
+    "fixes": [
+      "**Karaoke & Recitation Stability**: eliminate layout shifts and viewport jumping by replacing root `scrollIntoView` with scoped container scrolling and stabilizing word typography without scale re-flow.",
+      "**Audio Reciter State**: fix reciter dropdown synchronization and prevent audio playback state collisions during view transitions."
+    ],
+    "chores": [
+      "bump project version to `4.0.0` across web manifests, Nitro API, and mobile configurations."
+    ]
+  },
+  {
+    "version": "3.4.0",
+    "date": "August 30, 2026",
+    "message": "Turkish locale and Quran improvements",
+    "icon": "translate",
+    "color": "info",
+    "features": [
+      "add United Nations Flag Circle interactive 3D locale switcher supporting 10 languages",
+      "add complete Persian (`fa`) UI language translation and Persian Quran translators",
+      "add Persian welcome blog post and sync static blog fallback data across `/blog` and Home",
+      "generate chapter verse timestamps for YouTube 114 Surahs automated upload workflow"
+    ],
+    "fixes": [
+      "fix settings persistence for guest/offline users by preventing setting reverts on network errors",
+      "fix recitation highlight logic so word-by-word highlight (`word` mode) does not highlight full-sentence blocks",
+      "ensure Service Worker activation before subscribing to Web Push notifications"
+    ],
+    "chores": [
+      "bump project version to `3.4.0` in root and Nitro API package manifests",
+      "update Playwright E2E testing suite to 100% pass rate (67/67 tests passing)"
+    ]
+  },
+  {
+    "version": "3.3.0",
+    "date": "June 11, 2026",
+    "message": "add a cursor diamond trail that spawns falling, shimmering diamonds at the pointer with a \"God bless my mom\" blessing label",
+    "icon": "rocket_launch",
+    "color": "secondary",
+    "features": [
+      "add a cursor diamond trail that spawns falling, shimmering diamonds at the pointer with a \"God bless my mom\" blessing label",
+      "render the cursor trail globally across every layout, including the plain Quran reader pages",
+      "support touch devices so the diamond trail follows finger movement on mobile and tablet"
+    ],
+    "chores": [
+      "bump root and Nitro API package versions to `3.3.0`"
+    ]
+  },
+  {
+    "version": "3.2.0",
+    "date": "May 6, 2026",
+    "message": "add `/social` page with TikTok video embeds, artist credit, copyright notices",
+    "icon": "rocket_launch",
+    "color": "secondary",
+    "features": [
+      "add `/social` page with TikTok video embeds, artist credit, copyright notices",
+      "complete i18n for `/social` across all 8 locales",
+      "remove Chat from drawer, merged under Support",
+      "remove Preferences from drawer navigation"
+    ],
+    "chores": [
+      "bump root and Nitro API package versions to `3.2.0`",
+      "bump nav localStorage key to `v3` to reset cached nav for all users"
+    ]
+  },
+  {
+    "version": "3.2.0",
+    "date": "May 6, 2026",
+    "message": "add `/social` page with TikTok video embeds, artist credit, copyright notices",
+    "icon": "rocket_launch",
+    "color": "secondary",
+    "features": [
+      "add `/social` page with TikTok video embeds, artist credit, copyright notices",
+      "complete i18n for `/social` across all 8 locales",
+      "remove Chat from drawer, merged under Support",
+      "remove Preferences from drawer navigation"
+    ],
+    "chores": [
+      "bump root and Nitro API package versions to `3.2.0`",
+      "bump nav localStorage key to `v3` to reset cached nav for all users"
+    ]
+  },
+  {
+    "version": "3.1.3",
+    "date": "April 26, 2026",
+    "message": "bump root, Nitro API, and NativeScript mobile package versions to `3.1.3`",
+    "icon": "build",
+    "color": "grey-7",
+    "chores": [
+      "bump root, Nitro API, and NativeScript mobile package versions to `3.1.3`",
+      "align iOS and Android native build metadata with the `3.1.3` release batch",
+      "update `CHANGELOG.md` so `/deploys` reflects the current `3.1.3` release"
+    ]
+  },
+  {
+    "version": "3.1.2",
+    "date": "April 20, 2026",
+    "message": "add a public `/about` page that introduces PEACE2074, its mission, and the core reading and reflection experience",
+    "icon": "rocket_launch",
+    "color": "secondary",
+    "features": [
+      "add a public `/about` page that introduces PEACE2074, its mission, and the core reading and reflection experience",
+      "include the new About page in public discovery metadata used by the sitemap and AI-facing content index"
+    ],
+    "fixes": [
+      "update the GitHub releases `/repos` fetch in the admin view to use the current `Islam2074/peace2074.com` repository owner"
+    ],
+    "chores": [
+      "bump root and Nitro API package versions to `3.1.2`",
+      "align iOS marketing/build versions with the `3.1.2` release batch before native sync"
+    ]
+  },
+  {
+    "version": "3.1.1",
+    "date": "April 18, 2026",
+    "message": "Turkish locale and Quran improvements",
+    "icon": "translate",
+    "color": "info",
+    "features": [
+      "add locale-prefixed public document URLs so privacy, support, and storefront links resolve per supported language",
+      "refresh localized App Store metadata and release notes for the latest iOS submission-readiness batch"
+    ],
+    "fixes": [
+      "mark the iOS app as using only exempt encryption for the current standard-crypto configuration"
+    ],
+    "chores": [
+      "bump root and Nitro API package versions to `3.1.1`",
+      "align iOS marketing/build versions with the current release batch and native sync"
+    ]
+  },
+  {
+    "version": "3.1.0",
+    "date": "April 12, 2026",
+    "message": "activate the public `/chat` route so community messaging is directly reachable",
+    "icon": "rocket_launch",
+    "color": "secondary",
+    "features": [
+      "activate the public `/chat` route so community messaging is directly reachable",
+      "update chat route metadata and locale copy to reflect that live chat, rooms, and history are active"
+    ],
+    "documentation": [
+      "document the Quran ayah hover/tap action menu as a supported interaction contract"
+    ],
+    "chores": [
+      "bump root and Nitro API package versions to `3.1.0`"
+    ]
+  },
+  {
+    "version": "3.0.0",
+    "date": "April 3, 2026",
+    "message": "merge mobile branding and icon updates across iOS and Android assets",
+    "icon": "rocket_launch",
+    "color": "secondary",
+    "features": [
+      "merge mobile branding and icon updates across iOS and Android assets",
+      "add Fastlane metadata and iOS release automation files"
+    ],
+    "fixes": [
+      "resolve branch merge conflicts for mobile branding sync and iOS project files"
+    ],
+    "chores": [
+      "bump iOS app `MARKETING_VERSION` to `3.0` for Debug and Release builds"
+    ]
+  },
+  {
+    "version": "0.2.9",
+    "date": "March 16, 2026",
+    "message": "add blog likes system with heart icons and like counts for all blog posts",
+    "icon": "rocket_launch",
+    "color": "secondary",
+    "features": [
+      "add blog likes system with heart icons and like counts for all blog posts",
+      "add ReaderStats database schema to track Quran reading analytics per user",
+      "add bilingual (Arabic/English) inspirational blog post: \"Light in Darkness: Finding Strength in Difficult Times\"",
+      "add Quran list 2-column grid layout with even height cards",
+      "add daily rotating banner messages (7 messages, one for each day of week)",
+      "expand inspirational verses collection to 114 (one verse per surah for complete coverage)",
+      "add reader stats API endpoints for recording and fetching reading analytics",
+      "add Pinia store for managing reader statistics and analytics",
+      "add blog likes API endpoints (`GET /api/blog/likes` and `POST /api/blog/likes`)",
+      "add like toggle functionality requiring authentication with login prompt"
+    ],
+    "fixes": [
+      "fix Dialog plugin not registered in Quasar configuration",
+      "fix i18n translation key for blog delete button (use `pages.blog.editor.delete`)",
+      "fix corrupted verses.json and restore clean data from backup",
+      "fix verses.json missing from src/app/data/ directory"
+    ],
+    "chores": [
+      "generate Prisma client for new BlogLike and ReaderStats models",
+      "create server utilities for reader stats operations and analytics",
+      "add service functions for blog likes and reader stats API calls",
+      "create comprehensive reader stats documentation"
+    ]
+  },
+  {
+    "version": "0.2.8",
+    "date": "March 7, 2026",
+    "message": "add auto-continue feature for Quran recitation",
+    "icon": "auto_awesome",
+    "color": "positive",
+    "features": [
+      "add auto-continue feature for Quran recitation - automatically progress through all 114 suras",
+      "add UI toggle switch in playback controls to enable/disable auto-continue",
+      "add localStorage persistence for auto-continue preference (`quran-auto-continue`)",
+      "add automatic sura completion marking when recitation finishes",
+      "add notification \"Starting Sura X...\" before auto-navigation to next sura",
+      "add full i18n support for auto-continue across all 6 languages (en, ar, he, de, ru, tr)",
+      "add 1-second delay between suras for smooth transitions"
+    ],
+    "chores": [
+      "bump project version to `0.2.8` in root and Nitro API package manifests"
+    ]
+  },
+  {
+    "version": "0.2.7",
+    "date": "March 3, 2026",
+    "message": "Improved user registration",
+    "icon": "person_add",
+    "color": "secondary",
+    "features": [
+      "add prominent Sign Up button to header navigation menu (visible when not authenticated)",
+      "improve user registration discoverability - signup now accessible from main header, not just login page"
+    ],
+    "chores": [
+      "bump project version to `0.2.7` in root and Nitro API package manifests"
+    ]
+  },
+  {
+    "version": "0.2.6",
+    "date": "March 1, 2026",
+    "message": "Ramadan campaign features",
+    "icon": "campaign",
+    "color": "amber",
+    "features": [
+      "add Ramadan campaign home banner with daily prompts and analytics tracking (`ramadan_banner_view`, `ramadan_cta_click`, `ramadan_daily_prompt_apply`)",
+      "add push notification campaign preset support (`campaign: \"ramadan\"`) in `/api/push/send`"
+    ],
+    "chores": [
+      "bump project version to `0.2.6` in root and Nitro API package manifests"
+    ]
+  },
+  {
+    "version": "0.2.4",
+    "date": "February 21, 2026",
+    "message": "Turkish locale and Quran improvements",
+    "icon": "translate",
+    "color": "info",
+    "features": [
+      "add Turkish (`tr`) locale as a first-class language with UI selector support",
+      "add complete `src/locale/tr.json` translations and register locale across i18n wiring",
+      "add Quran verse deep-link route support in `/quran/{sura}:{ayah}` format (example: `/quran/2:255`)",
+      "add bookmark share/copy action for Quran verse links",
+      "add Bismillah intro clip before user-initiated Quran recitation starts (same reciter source)"
+    ],
+    "fixes": [
+      "sync missing locale keys in `ar`, `de`, `ru`, and `he` so `pnpm check:locales` passes",
+      "improve bookmark durability by syncing guest bookmarks into authenticated bookmark collections (deduplicated)"
+    ],
+    "chores": [
+      "bump project patch version from `0.2.3` to `0.2.4` in root and Nitro API package manifests"
+    ]
+  },
+  {
+    "version": "1.1.0",
+    "date": "December 5, 2025",
+    "message": "add automated versioning with standard-version and GitHub Actions ([4620a34](https://github.com/peace2074/peace2074.com/commit/4620a3479866ef839909ee669e481472434b9c60))",
+    "icon": "rocket_launch",
+    "color": "secondary",
+    "features": [
+      "add automated versioning with standard-version and GitHub Actions ([4620a34](https://github.com/peace2074/peace2074.com/commit/4620a3479866ef839909ee669e481472434b9c60))"
+    ],
+    "fixes": [
+      "correct changelog extraction pattern and use pnpm lock file ([e68b021](https://github.com/peace2074/peace2074.com/commit/e68b021707b459de756e0c99af2fcbf29655e034))"
+    ],
+    "documentation": [
+      "improve release workflow and add versioning guide ([2e0c41f](https://github.com/peace2074/peace2074.com/commit/2e0c41ff90204f9580d23495ddd389d39baeed56))"
+    ]
+  }
+]

@@ -1,2 +1,0 @@
-import{d as o,w as t}from"../../../nitro/nitro.mjs";import"node:buffer";import"node:crypto";import"node:util";import"node:stream";import"node:url";import"node:events";import"node:net";import"node:tls";import"node:assert";import"node:process";import"cloudflare:workers";import"node:timers";const e=o(async o=>{let e;try{e=await t(o)}catch{e={}}const r=null==e?void 0:e.payload;return console.log("[apple/notifications] Received notification, payload:",r),{received:!0}});export{e as default};
-//# sourceMappingURL=notifications.post.mjs.map

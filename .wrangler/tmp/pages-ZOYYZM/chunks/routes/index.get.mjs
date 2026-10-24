@@ -1,2 +1,0 @@
-import{d as e}from"../nitro/nitro.mjs";import"node:buffer";import"node:crypto";import"node:util";import"node:stream";import"node:url";import"node:events";import"node:net";import"node:tls";import"node:assert";import"node:process";import"cloudflare:workers";import"node:timers";const o=e(()=>({name:"Peace2074 API",version:"1.0.0",routes:["GET /","GET /health","GET /quran","GET /quran/:id","POST /kimi"],message:"Nitro API ready. Override PORT to change the default 3000 listener."}));export{o as default};
-//# sourceMappingURL=index.get.mjs.map

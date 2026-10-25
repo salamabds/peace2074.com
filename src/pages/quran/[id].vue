@@ -605,7 +605,6 @@ const { highlightMode, setHighlightMode, loadProfileSettings, saveRecitationProg
 
 // YouTube Video Recitation Player State
 const showYoutubePlayer = ref(false)
-const showRecitationBanner = ref(false)
 const youtubeBannerIframe = ref<HTMLIFrameElement | null>(null)
 let youtubeBannerPollInterval: any = null
 
@@ -769,9 +768,6 @@ function closeYoutubeBanner() {
     router.replace({ query: q })
   }
 }
-
-// Autoplay unlock state ref
-const isAutoplayBlocked = ref(false)
 
 // Shazam Quran Audio Recitation Matcher & Microphone Sync State
 const isListeningShazam = ref(false)
@@ -2467,11 +2463,9 @@ function playAyah(index: number) {
     const playPromise = el.play()
     if (playPromise !== undefined) {
       playPromise.catch((err) => {
-        console.warn('[Audio] Autoplay blocked by browser policy:', err)
-        isAutoplayBlocked.value = true
+        console.warn('[Audio] Autoplay deferred by browser policy:', err)
         if (typeof window !== 'undefined') {
           const unlockAudio = () => {
-            isAutoplayBlocked.value = false
             void el.play().then(() => {
               isPlayingAudio.value = true
             }).catch(() => {})
@@ -3918,91 +3912,6 @@ watch(
       to="/quran"
       :label="`← ${t('pages.quran.backToList')}`"
     />
-
-    <!-- Autoplay Unlocking Banner (Appears if Chrome defers initial unprompted audio) -->
-    <Transition name="slide-down">
-      <q-banner
-        v-if="isAutoplayBlocked"
-        class="bg-primary text-white q-mb-md rounded-borders shadow-4 cursor-pointer"
-        @click="isAutoplayBlocked = false"
-      >
-        <template v-slot:avatar>
-          <q-icon name="volume_up" size="32px" class="pulse-icon" />
-        </template>
-        <div class="text-weight-bold text-subtitle1">
-          ▶ Click or Tap Anywhere to Start Audio Recitation
-        </div>
-        <div class="text-caption">
-          Browser security paused initial audio. Tap anywhere on screen to listen and follow along!
-        </div>
-        <template v-slot:action>
-          <q-btn flat label="Start Recitation" color="white" icon="play_arrow" />
-          <q-btn flat round dense icon="close" color="white" @click.stop="isAutoplayBlocked = false" />
-        </template>
-      </q-banner>
-    </Transition>
-
-
-
-    <!-- Recitation Indicator (Only visible during active recitation if enabled) -->
-    <Transition name="slide-down">
-      <q-banner
-        v-if="!loading && !error && sura && (isPlayingAudio || isPaused) && showRecitationBanner"
-        class="paused-indicator-banner"
-        rounded
-        dense
-      >
-        <template v-slot:avatar>
-          <q-icon
-            :name="playbackStatus.icon"
-            :color="playbackStatus.color"
-            size="28px"
-            class="pulse-icon"
-          />
-        </template>
-        <div class="paused-info">
-          <div class="text-weight-bold">{{ recitationStatusTitle }}</div>
-          <div class="text-caption">
-            {{ t('pages.quran.sura.id') }} {{ currentSuraId }} •
-            {{ t('pages.quran.verses') }}
-            {{ recitationVerseDisplay }} / {{ sura?.total_verses || 0 }} •
-            {{
-              playbackStatus.mode === 'audio'
-                ? t('pages.quran.readerMode.audio')
-                : t('pages.quran.readerMode.tts')
-            }}
-          </div>
-        </div>
-        <template v-slot:action>
-          <div class="recitation-switch-wrap">
-            <span class="recitation-switch-label">{{
-              recitationSwitchLabel
-            }}</span>
-            <q-toggle
-              :model-value="isRecitationSwitchOn"
-              checked-icon="volume_up"
-              unchecked-icon="play_arrow"
-              color="primary"
-              keep-color
-              :disable="
-                (readerMode === 'audio' && !audioList.length) ||
-                isStartingRecitation
-              "
-              @update:model-value="handleRecitationSwitchChange"
-            />
-            <q-btn
-              flat
-              round
-              dense
-              icon="close"
-              size="sm"
-              class="q-ml-sm"
-              @click="showRecitationBanner = false"
-            />
-          </div>
-        </template>
-      </q-banner>
-    </Transition>
 
     <div v-if="loading" class="status">{{ t('pages.quran.loading') }}</div>
     <div v-else-if="error" class="status error">{{ error }}</div>

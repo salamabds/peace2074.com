@@ -606,6 +606,14 @@ const { highlightMode, setHighlightMode, loadProfileSettings, saveRecitationProg
 // YouTube Video Recitation Player State
 const showYoutubePlayer = ref(false)
 const showRecitationBanner = ref(false)
+const youtubeBannerIframe = ref<HTMLIFrameElement | null>(null)
+let youtubeBannerPollInterval: any = null
+
+interface YoutubeChapterItem {
+  verse: number
+  start: number
+  end: number
+}
 
 const activeYoutubeVideo = computed(() => {
   return (
@@ -613,15 +621,147 @@ const activeYoutubeVideo = computed(() => {
   )
 })
 
-const activeYoutubeEmbedUrl = computed(() => {
-  if (activeYoutubeVideo.value?.embedUrl) {
-    return activeYoutubeVideo.value.embedUrl
+function parseChaptersFromDesc(desc: string): YoutubeChapterItem[] {
+  const lines = (desc || '').split('\n')
+  const chapters: YoutubeChapterItem[] = []
+  const regex = /(?:(\d+):)?(\d{2}):(\d{2})\s*[-–—]\s*(?:Ayah|Verse)\s*(\d+)/i
+  for (const line of lines) {
+    const m = line.match(regex)
+    if (m) {
+      const hours = m[1] ? parseInt(m[1], 10) : 0
+      const mins = parseInt(m[2], 10)
+      const secs = parseInt(m[3], 10)
+      const start = hours * 3600 + mins * 60 + secs
+      const verse = parseInt(m[4], 10)
+      chapters.push({ verse, start, end: 0 })
+    }
   }
-  return `https://www.youtube.com/embed/videoseries?list=UUiuUJUpeWXxWwDSpPKoEVbQ&index=${Math.max(0, currentSuraId.value - 1)}&autoplay=1`
+  for (let i = 0; i < chapters.length; i++) {
+    chapters[i].end =
+      i + 1 < chapters.length ? chapters[i + 1].start : chapters[i].start + 30
+  }
+  return chapters
+}
+
+const parsedYoutubeChapters = computed<YoutubeChapterItem[]>(() => {
+  if (!activeYoutubeVideo.value?.description) return []
+  return parseChaptersFromDesc(activeYoutubeVideo.value.description)
+})
+
+const activeYoutubeEmbedUrl = computed(() => {
+  const origin = typeof window !== 'undefined' ? window.location.origin : ''
+  const originParam = origin ? `&origin=${encodeURIComponent(origin)}` : ''
+  if (activeYoutubeVideo.value?.embedUrl) {
+    const raw = activeYoutubeVideo.value.embedUrl
+    const glue = raw.includes('?') ? '&' : '?'
+    return `${raw}${glue}enablejsapi=1${originParam}`
+  }
+  return `https://www.youtube.com/embed/videoseries?list=UUiuUJUpeWXxWwDSpPKoEVbQ&index=${Math.max(0, currentSuraId.value - 1)}&autoplay=1&enablejsapi=1${originParam}`
+})
+
+function sendYoutubeBannerCommand(func: string, args: any[] = []) {
+  if (!youtubeBannerIframe.value?.contentWindow) return
+  try {
+    youtubeBannerIframe.value.contentWindow.postMessage(
+      JSON.stringify({ event: 'command', func, args }),
+      '*'
+    )
+  } catch {}
+}
+
+function onYoutubeBannerLoad() {
+  sendYoutubeBannerCommand('listening')
+}
+
+function handleYoutubeBannerTimeUpdate(currentTime: number) {
+  if (!showYoutubePlayer.value || !parsedYoutubeChapters.value.length) return
+  const chapters = parsedYoutubeChapters.value
+
+  let activeIdx = -1
+  for (let i = 0; i < chapters.length; i++) {
+    if (currentTime >= chapters[i].start) {
+      activeIdx = i
+    } else {
+      break
+    }
+  }
+
+  if (activeIdx < 0 && chapters.length > 0) activeIdx = 0
+
+  if (activeIdx >= 0) {
+    const currentChapter = chapters[activeIdx]
+    const verseIndex = currentChapter.verse - 1
+    const verseRelativeTime = Math.max(0, currentTime - currentChapter.start)
+
+    let activeWord = -1
+    const timings = wordTimings.value?.[verseIndex] || []
+    if (timings.length > 0) {
+      for (let w = 0; w < timings.length; w++) {
+        if (verseRelativeTime >= timings[w].start) {
+          activeWord = w
+        } else {
+          break
+        }
+      }
+      if (activeWord < 0 && verseRelativeTime >= timings[0].start - 0.08) {
+        activeWord = 0
+      }
+      activeWord = Math.min(activeWord, timings.length - 1)
+    }
+
+    if (currentAyahIndex.value !== verseIndex) {
+      currentAyahIndex.value = verseIndex
+      quranSync.updatePosition(Number(currentSuraId.value), verseIndex + 1, layoutMode.value)
+    }
+    if (currentWordIndex.value !== activeWord) {
+      currentWordIndex.value = activeWord
+      if (activeWord >= 0) {
+        scrollToCurrentWord(verseIndex, activeWord)
+      }
+    }
+  }
+}
+
+function startYoutubeBannerPolling() {
+  stopYoutubeBannerPolling()
+  youtubeBannerPollInterval = setInterval(() => {
+    if (showYoutubePlayer.value) {
+      sendYoutubeBannerCommand('listening')
+      sendYoutubeBannerCommand('getCurrentTime')
+    }
+  }, 350)
+}
+
+function stopYoutubeBannerPolling() {
+  if (youtubeBannerPollInterval) {
+    clearInterval(youtubeBannerPollInterval)
+    youtubeBannerPollInterval = null
+  }
+}
+
+function onYoutubeBannerWindowMessage(event: MessageEvent) {
+  if (typeof event.data !== 'string') return
+  try {
+    const data = JSON.parse(event.data)
+    if (data.event === 'infoDelivery' && data.info) {
+      if (typeof data.info.currentTime === 'number') {
+        handleYoutubeBannerTimeUpdate(data.info.currentTime)
+      }
+    }
+  } catch {}
+}
+
+watch(showYoutubePlayer, (isOpen) => {
+  if (isOpen) {
+    startYoutubeBannerPolling()
+  } else {
+    stopYoutubeBannerPolling()
+  }
 })
 
 function closeYoutubeBanner() {
   showYoutubePlayer.value = false
+  stopYoutubeBannerPolling()
   if (route.query.video || route.query.youtube) {
     const q = { ...route.query }
     delete q.video
@@ -1202,6 +1342,19 @@ function seekToWord(verseNumber: number, wordIndex: number) {
   const ayahIdx = verseNumber - 1
   const timings = wordTimings.value[ayahIdx]
   const targetTiming = timings?.[wordIndex]
+
+  // If YouTube HD video banner is active, seek video directly
+  if (showYoutubePlayer.value && parsedYoutubeChapters.value.length) {
+    const ch = parsedYoutubeChapters.value.find((c) => c.verse === verseNumber)
+    if (ch) {
+      const seekSec = ch.start + (targetTiming ? targetTiming.start : 0)
+      sendYoutubeBannerCommand('seekTo', [seekSec, true])
+      sendYoutubeBannerCommand('playVideo')
+      currentAyahIndex.value = ayahIdx
+      currentWordIndex.value = wordIndex
+      return
+    }
+  }
 
   if (currentAyahIndex.value === ayahIdx && audioEl.value && targetTiming) {
     audioEl.value.currentTime = Math.max(0, targetTiming.start)
@@ -3494,6 +3647,7 @@ onMounted(async () => {
       onHighlightModeChanged
     )
     window.addEventListener('storage', onStorageChanged)
+    window.addEventListener('message', onYoutubeBannerWindowMessage)
   }
 
   // Load list of cached suras for offline detection
@@ -3672,7 +3826,9 @@ onUnmounted(() => {
       onHighlightModeChanged
     )
     window.removeEventListener('storage', onStorageChanged)
+    window.removeEventListener('message', onYoutubeBannerWindowMessage)
   }
+  stopYoutubeBannerPolling()
 })
 
 function onHighlightModeChanged(event: Event) {
@@ -3866,11 +4022,13 @@ watch(
           </div>
           <div class="video-ratio-box">
             <iframe
+              ref="youtubeBannerIframe"
               :src="activeYoutubeEmbedUrl"
               title="YouTube Quran Recitation"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
+              @load="onYoutubeBannerLoad"
             ></iframe>
           </div>
         </div>

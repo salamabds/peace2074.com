@@ -445,7 +445,15 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string):
   const videoDir = path.join(tempDir, 'pw_video')
   if (!fs.existsSync(videoDir)) fs.mkdirSync(videoDir, { recursive: true })
 
-  const launchOptions: any = { headless: true }
+  const launchOptions: any = {
+    headless: true,
+    args: [
+      '--autoplay-policy=no-user-gesture-required',
+      '--disable-web-security',
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+    ],
+  }
   const chromePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
   if (fs.existsSync(chromePath)) {
     launchOptions.executablePath = chromePath
@@ -461,9 +469,10 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string):
   // Set localStorage for word-level highlighting before navigating
   await page.addInitScript(() => {
     localStorage.setItem('quran-highlight-mode', 'word')
-    localStorage.setItem('auto-continue-banner-dismissed', 'true')
+    localStorage.setItem('quran-feature-auto-continue-announced', 'true')
     localStorage.setItem('consent-accepted', 'true')
     localStorage.setItem('cookie-consent', 'true')
+    localStorage.setItem('quran-view-mode', 'mushaf')
   })
 
   // Prefer local Vite dev server if running, otherwise use production peace2074.com
@@ -476,34 +485,10 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string):
   }
   const url = `${baseUrl}/quran/${chapter.id}?play=true&theme=dark`
   console.log(`[Surah ${chapter.id}] 🌐 Opening ${url}`)
+  const recordingStartTime = Date.now()
   await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 })
 
-  // Wait for verse text to fully render
-  await page.waitForSelector('[class*="verse"], .arabic-text', { timeout: 20000 }).catch(() => {})
-  await page.waitForTimeout(3000)
-
-  // Step 1: Click the autoplay unlock banner to start recitation
-  const startClicked = await page.evaluate(() => {
-    const banner = document.querySelector('.bg-primary.text-white.q-banner, .q-banner.bg-primary')
-    if (banner) {
-      (banner as HTMLElement).click()
-      return 'autoplay-banner-click'
-    }
-    const allBtns = Array.from(document.querySelectorAll('.q-btn'))
-    for (const btn of allBtns) {
-      const text = (btn as HTMLElement).textContent?.trim() || ''
-      if (text.includes('Start Recitation') || text.includes('START RECITATION')) {
-        (btn as HTMLElement).click()
-        return 'start-recitation-btn'
-      }
-    }
-    document.body.click()
-    return 'body-click'
-  })
-  console.log(`[Surah ${chapter.id}] ▶ Triggered playback via: ${startClicked}`)
-  await page.waitForTimeout(2000)
-
-  // Step 2: Hide all banners AND inject permanent brand watermark badge
+  // Clean UI and inject permanent brand watermark badge
   await page.evaluate(() => {
     function hideAllBanners() {
       document.querySelectorAll('.q-banner, .announcement-banner, .paused-indicator-banner').forEach((el: any) => {
@@ -567,10 +552,18 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string):
     hideAllBanners()
     setInterval(hideAllBanners, 200)
   })
-  await page.waitForTimeout(500)
 
-  // Add buffer and wait recording
-  const waitMs = Math.ceil((expectedDuration + 3) * 1000)
+  // Wait until first active word or active ayah appears to synchronize start time
+  console.log(`[Surah ${chapter.id}] Waiting for recitation to start...`)
+  await page.waitForFunction(() => {
+    return document.querySelectorAll('.is-current-word, .is-active-verse-container, .is-current-ayah').length > 0
+  }, { timeout: 30000 }).catch(() => {})
+
+  const startOffsetSec = Math.max(0, (Date.now() - recordingStartTime) / 1000)
+  console.log(`[Surah ${chapter.id}] Recitation active at ${startOffsetSec.toFixed(2)}s into recording.`)
+
+  // Record for the expected audio duration + 1.5s buffer
+  const waitMs = Math.ceil((expectedDuration + 1.5) * 1000)
   console.log(`[Surah ${chapter.id}] ⏱️ Recording for ${Math.ceil(expectedDuration)}s (${chapter.total_verses} verses)...`)
   await page.waitForTimeout(waitMs)
 
@@ -598,9 +591,9 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string):
   const fullAudio = path.join(tempDir, 'full_audio.mp3')
   execSync(`"${ffmpeg}" -y -f concat -safe 0 -i "${audioListFile}" -c copy "${fullAudio}"`, { stdio: 'ignore' })
 
-  // 2. Merge screen recording video + real recitation audio → final HD MP4
+  // 2. Merge screen recording video (with start offset trimmed) + real recitation audio → final HD MP4
   execSync(
-    `"${ffmpeg}" -y -i "${videoFile}" -i "${fullAudio}" -c:v libx264 -preset fast -crf 23 -c:a aac -b:a 192k -shortest -pix_fmt yuv420p "${outputVideo}"`,
+    `"${ffmpeg}" -y -ss ${startOffsetSec.toFixed(2)} -i "${videoFile}" -i "${fullAudio}" -c:v libx264 -preset fast -crf 22 -c:a aac -b:a 192k -shortest -pix_fmt yuv420p "${outputVideo}"`,
     { stdio: 'ignore' }
   )
 

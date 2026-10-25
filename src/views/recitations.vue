@@ -79,11 +79,13 @@
           <q-card v-else flat class="video-card">
             <div class="video-aspect relative-position" @contextmenu.prevent>
               <iframe
+                ref="youtubeIframe"
                 :src="activeYoutubeEmbedUrl"
                 title="Quran Recitation HD Video"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
+                @load="onIframeLoad"
               ></iframe>
               <div class="player-watermark">
                 <span class="watermark-pill">✨ Peace2074 • peace2074.com</span>
@@ -160,10 +162,11 @@
               <div v-if="readerMode === 'card'" class="verse-cards-list">
                 <div
                   v-for="(aya, idx) in currentSuraData?.ayat || []"
+                  :id="`recitation-card-verse-${idx}`"
                   :key="idx"
-                  class="verse-card-item q-pa-md q-mb-sm"
+                  class="verse-card-item q-pa-md q-mb-sm cursor-pointer"
                   :class="{ 'active-verse': activeVerseIndex === idx }"
-                  @click="activeVerseIndex = idx"
+                  @click="seekToVerse(idx)"
                 >
                   <div class="row items-center justify-between q-mb-sm">
                     <span class="verse-badge">Verse {{ idx + 1 }}</span>
@@ -182,10 +185,11 @@
               <div v-else class="mushaf-paragraph font-amiri text-h5 dir-rtl text-justify">
                 <span
                   v-for="(aya, idx) in currentSuraData?.ayat || []"
+                  :id="`recitation-mushaf-verse-${idx}`"
                   :key="idx"
-                  class="aya-inline"
+                  class="aya-inline cursor-pointer"
                   :class="{ 'active-verse-inline': activeVerseIndex === idx }"
-                  @click="activeVerseIndex = idx"
+                  @click="seekToVerse(idx)"
                 >
                   {{ aya.text }}
                   <span class="verse-num">({{ idx + 1 }})</span>
@@ -280,11 +284,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import useQ2P from '@/composables/useQ2P'
 import curatedVideos from '@/shared/data/youtube-videos'
+
+interface ChapterItem {
+  verse: number
+  start: number
+  end: number
+}
 
 const { t } = useI18n()
 const route = useRoute()
@@ -297,6 +307,8 @@ const activeVerseIndex = ref<number>(0)
 const readerMode = ref<'card' | 'mushaf'>('card')
 const displayMode = ref<'text' | 'youtube'>('text')
 const liveVideos = ref<any[]>([])
+const youtubeIframe = ref<HTMLIFrameElement | null>(null)
+let pollInterval: any = null
 
 const UPLOADS_PLAYLIST_ID = 'UUiuUJUpeWXxWwDSpPKoEVbQ'
 
@@ -305,7 +317,7 @@ const allSurahs = computed(() => q2p.GetQ.value || [])
 
 // Map surahId -> video info
 const surahVideoMap = computed(() => {
-  const map: Record<number, { id: string; url: string; embedUrl: string }> = {}
+  const map: Record<number, { id: string; url: string; embedUrl: string; description?: string }> = {}
 
   // Base: from curated verified list
   for (const v of curatedVideos) {
@@ -314,6 +326,7 @@ const surahVideoMap = computed(() => {
         id: v.id,
         url: v.url,
         embedUrl: v.embedUrl,
+        description: v.description,
       }
     }
   }
@@ -325,6 +338,7 @@ const surahVideoMap = computed(() => {
         id: v.id,
         url: v.url,
         embedUrl: v.embedUrl,
+        description: v.description,
       }
     }
   }
@@ -334,6 +348,34 @@ const surahVideoMap = computed(() => {
 
 const activeSurahVideo = computed(() => {
   return surahVideoMap.value[activeSuraId.value] || null
+})
+
+function parseChaptersFromDescription(desc: string): ChapterItem[] {
+  const lines = (desc || '').split('\n')
+  const chapters: ChapterItem[] = []
+  const regex = /(?:(\d+):)?(\d{2}):(\d{2})\s*[-–—]\s*(?:Ayah|Verse)\s*(\d+)/i
+  for (const line of lines) {
+    const m = line.match(regex)
+    if (m) {
+      const hours = m[1] ? parseInt(m[1], 10) : 0
+      const mins = parseInt(m[2], 10)
+      const secs = parseInt(m[3], 10)
+      const start = hours * 3600 + mins * 60 + secs
+      const verse = parseInt(m[4], 10)
+      chapters.push({ verse, start, end: 0 })
+    }
+  }
+  for (let i = 0; i < chapters.length; i++) {
+    chapters[i].end = i + 1 < chapters.length ? chapters[i + 1].start : chapters[i].start + 30
+  }
+  return chapters
+}
+
+const parsedChapters = computed<ChapterItem[]>(() => {
+  if (activeSurahVideo.value?.description) {
+    return parseChaptersFromDescription(activeSurahVideo.value.description)
+  }
+  return []
 })
 
 const filteredSurahList = computed(() => {
@@ -353,10 +395,14 @@ const currentSuraData = computed(() => {
 })
 
 const activeYoutubeEmbedUrl = computed(() => {
+  const origin = typeof window !== 'undefined' ? window.location.origin : ''
+  const originParam = origin ? `&origin=${encodeURIComponent(origin)}` : ''
   if (activeSurahVideo.value) {
-    return activeSurahVideo.value.embedUrl
+    const raw = activeSurahVideo.value.embedUrl
+    const glue = raw.includes('?') ? '&' : '?'
+    return `${raw}${glue}enablejsapi=1${originParam}`
   }
-  return `https://www.youtube.com/embed/videoseries?list=${UPLOADS_PLAYLIST_ID}&index=${activeSuraId.value - 1}&autoplay=1`
+  return `https://www.youtube.com/embed/videoseries?list=${UPLOADS_PLAYLIST_ID}&index=${activeSuraId.value - 1}&autoplay=1&enablejsapi=1${originParam}`
 })
 
 const activeYoutubeDirectUrl = computed(() => {
@@ -366,13 +412,117 @@ const activeYoutubeDirectUrl = computed(() => {
   return `https://www.youtube.com/watch?v=videoseries&list=${UPLOADS_PLAYLIST_ID}&index=${activeSuraId.value - 1}`
 })
 
+function sendYouTubeCommand(func: string, args: any[] = []) {
+  if (!youtubeIframe.value?.contentWindow) return
+  try {
+    youtubeIframe.value.contentWindow.postMessage(
+      JSON.stringify({ event: 'command', func, args }),
+      '*'
+    )
+  } catch {}
+}
+
+function onIframeLoad() {
+  sendYouTubeCommand('listening')
+}
+
+function handleVideoTimeUpdate(currentTime: number) {
+  if (!parsedChapters.value.length) return
+  const chapters = parsedChapters.value
+
+  let activeIdx = -1
+  for (let i = 0; i < chapters.length; i++) {
+    if (currentTime >= chapters[i].start) {
+      activeIdx = i
+    } else {
+      break
+    }
+  }
+
+  if (activeIdx < 0 && chapters.length > 0) {
+    activeIdx = 0
+  }
+
+  if (activeIdx >= 0) {
+    const currentChapter = chapters[activeIdx]
+    const verseIndex = currentChapter.verse - 1
+    if (activeVerseIndex.value !== verseIndex) {
+      activeVerseIndex.value = verseIndex
+      scrollToVerse(verseIndex)
+    }
+  }
+}
+
+function scrollToVerse(verseIndex: number) {
+  const targetId = readerMode.value === 'card'
+    ? `recitation-card-verse-${verseIndex}`
+    : `recitation-mushaf-verse-${verseIndex}`
+  const el = document.getElementById(targetId)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  }
+}
+
+function seekToVerse(idx: number) {
+  activeVerseIndex.value = idx
+  const ch = parsedChapters.value.find((c) => c.verse === idx + 1)
+  if (ch) {
+    sendYouTubeCommand('seekTo', [ch.start, true])
+    sendYouTubeCommand('playVideo')
+  }
+}
+
+function onWindowMessage(event: MessageEvent) {
+  if (typeof event.data !== 'string') return
+  try {
+    const data = JSON.parse(event.data)
+    if (data.event === 'infoDelivery' && data.info) {
+      if (typeof data.info.currentTime === 'number') {
+        handleVideoTimeUpdate(data.info.currentTime)
+      }
+    }
+  } catch {}
+}
+
+function startVideoPolling() {
+  stopVideoPolling()
+  pollInterval = setInterval(() => {
+    if (displayMode.value === 'youtube') {
+      sendYouTubeCommand('listening')
+      sendYouTubeCommand('getCurrentTime')
+    }
+  }, 350)
+}
+
+function stopVideoPolling() {
+  if (pollInterval) {
+    clearInterval(pollInterval)
+    pollInterval = null
+  }
+}
+
 function selectSurah(id: number) {
   activeSuraId.value = id
   activeVerseIndex.value = 0
   router.replace({ query: { ...route.query, surah: String(id) } })
 }
 
+watch(displayMode, (newMode) => {
+  if (newMode === 'youtube') {
+    startVideoPolling()
+  } else {
+    stopVideoPolling()
+  }
+})
+
 onMounted(async () => {
+  if (typeof window !== 'undefined') {
+    window.addEventListener('message', onWindowMessage)
+  }
+  if (displayMode.value === 'youtube') {
+    startVideoPolling()
+  }
+
   q2p.init(1)
   const querySurah = Number(route.query.surah || route.query.id || 1)
   if (querySurah >= 1 && querySurah <= 114) {
@@ -389,6 +539,13 @@ onMounted(async () => {
     }
   } catch (err) {
     console.warn('[Recitations] Failed to fetch live videos:', err)
+  }
+})
+
+onUnmounted(() => {
+  stopVideoPolling()
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('message', onWindowMessage)
   }
 })
 

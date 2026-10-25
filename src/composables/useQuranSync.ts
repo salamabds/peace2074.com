@@ -17,7 +17,7 @@ import { useStorageRef } from './useUStore'
 export interface QuranReadingPosition {
   suraId: number
   verseId: number
-  readerMode: 'mushaf' | 'reader' | 'audio'
+  readerMode: 'mushaf' | 'reader' | 'audio' | 'native'
   updatedAt: string
 }
 

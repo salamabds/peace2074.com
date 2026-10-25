@@ -25,6 +25,7 @@ import {
   TRANSLATOR_PREF_KEY,
 } from '@shared/data/quran-translators'
 import curatedVideos from '@/shared/data/youtube-videos'
+import { useQuranSync } from '@/composables/useQuranSync'
 
 // Define component name for keep-alive
 defineOptions({
@@ -48,6 +49,7 @@ const q2p = useQ2P()
 const $q = useQuasar()
 const bookmarksStore = useBookmarksStore()
 const authStore = useAuthStore()
+const quranSync = useQuranSync()
 const QURAN_TRANSLATION_KEY = 'quran-show-translation'
 
 /** Strip HTML tags that quran.com injects into some translation texts (e.g. <sup> footnotes). */
@@ -1177,12 +1179,7 @@ function ensureWordTimingsForAyah(index: number, duration: number) {
 }
 
 function isActiveAyah(verseNumber: number) {
-  if (currentAyahIndex.value !== verseNumber - 1) return false
-  // If highlight mode is set to 'word', do NOT highlight the entire sentence box
-  if (highlightMode.value === 'word') {
-    return false
-  }
-  return true
+  return currentAyahIndex.value === verseNumber - 1
 }
 
 function isActiveWord(verseNumber: number, wordIndex: number) {
@@ -1790,8 +1787,22 @@ async function loadAudioFromCacheWithQuality(
 
     isLoadingFromCache.value = true
     audioList.value = []
-    wordTimings.value = {} // Word timings not available offline
-    syncedVerseWords.value = {}
+
+    // Restore cached exact word timings if previously saved
+    try {
+      if (typeof localStorage !== 'undefined') {
+        const cachedTimings = localStorage.getItem(
+          `quran-timings-${id}-${selectedReciterId.value}`
+        )
+        if (cachedTimings) {
+          const parsed = JSON.parse(cachedTimings)
+          if (parsed.syncedWords) syncedVerseWords.value = parsed.syncedWords
+          if (parsed.wordTimings) wordTimings.value = parsed.wordTimings
+        }
+      }
+    } catch {
+      // Ignore cache read error
+    }
 
     // Load each verse from cache
     for (let verse = 1; verse <= suraData.total_verses; verse++) {
@@ -1843,22 +1854,19 @@ async function loadAudioAndTimings(id: number) {
   const preferredOfflineQuality =
     offlineRecitationStatus.value?.preferredQuality || null
 
+  let loadedFromCache = false
   if (preferredOfflineQuality) {
     // Prefer downloaded/on-device audio to reduce internet dependency.
-    const loadedFromCache = await loadAudioFromCacheWithQuality(
+    loadedFromCache = await loadAudioFromCacheWithQuality(
       id,
       preferredOfflineQuality
     )
     if (loadedFromCache) {
-      // Audio is offline — load translations from bundled editions.
       await loadTranslationsFromBundled(id)
-      return
     }
-    // If cache load failed, continue to online loading
   }
 
   const AUDIO_BASE_URL = 'https://verses.quran.com/'
-
   const translatorId = readTranslatorIdForLocale(locale.value || 'en')
 
   try {
@@ -1867,10 +1875,12 @@ async function loadAudioAndTimings(id: number) {
     const res = await fetch(sourceUrl)
     if (!res.ok) {
       trackApi5xx('quran_com_verses', res.status, sourceUrl)
-      console.warn(
-        '[Quran Audio] Failed to load from quran.com, falling back to alquran.cloud'
-      )
-      await loadAudioListFallback(id)
+      if (!audioList.value.length) {
+        console.warn(
+          '[Quran Audio] Failed to load from quran.com, falling back to alquran.cloud'
+        )
+        await loadAudioListFallback(id)
+      }
       await loadTranslationsFromBundled(id)
       return
     }
@@ -1882,10 +1892,17 @@ async function loadAudioAndTimings(id: number) {
       const verseNum = verse?.verse_number
       if (!verseNum) return
 
-      // Build full audio URL
-      const audioPath = verse?.audio?.url
-      if (audioPath) {
-        audioList.value[verseNum - 1] = `${AUDIO_BASE_URL}${audioPath}`
+      // Build full audio URL only if not loaded from cache
+      if (!loadedFromCache) {
+        const audioPath = verse?.audio?.url
+        if (audioPath) {
+          const fullAudioUrl = audioPath.startsWith('http')
+            ? audioPath
+            : audioPath.startsWith('//')
+              ? `https:${audioPath}`
+              : `${AUDIO_BASE_URL}${audioPath}`
+          audioList.value[verseNum - 1] = fullAudioUrl
+        }
       }
 
       // Extract word timings from segments
@@ -1941,23 +1958,53 @@ async function loadAudioAndTimings(id: number) {
       }
     })
 
-    // Compact the list: fill holes with empty string then filter,
-    // but preserve index alignment by only removing trailing empty slots.
-    // Use a dense array built from the max verse index so playback
-    // indices always match actual ayah numbers.
-    const maxVerse = verses.reduce((max: number, v: any) => Math.max(max, v?.verse_number || 0), 0)
-    const dense: string[] = []
-    for (let i = 0; i < maxVerse; i++) {
-      dense.push(audioList.value[i] || '')
+    // Persist exact timings locally for offline sync
+    try {
+      if (typeof localStorage !== 'undefined') {
+        const cachePayload = {
+          syncedWords: syncedVerseWords.value,
+          wordTimings: wordTimings.value,
+        }
+        localStorage.setItem(
+          `quran-timings-${id}-${selectedReciterId.value}`,
+          JSON.stringify(cachePayload)
+        )
+      }
+    } catch {}
+
+    if (!loadedFromCache) {
+      const maxVerse = verses.reduce(
+        (max: number, v: any) => Math.max(max, v?.verse_number || 0),
+        0
+      )
+      const dense: string[] = []
+      for (let i = 0; i < maxVerse; i++) {
+        dense.push(audioList.value[i] || '')
+      }
+      audioList.value = dense
     }
-    audioList.value = dense
 
     console.debug(
       `[Quran Audio] Loaded ${audioList.value.length} verses with ${Object.keys(wordTimings.value).length} word timing sets and ${Object.keys(syncedVerseWords.value).length} synced word maps for sura ${id}`
     )
   } catch (err) {
     console.error('[Quran Audio] Failed to load from quran.com:', err)
-    await loadAudioListFallback(id)
+    // Try restoring exact timings from local cache
+    try {
+      if (typeof localStorage !== 'undefined') {
+        const cached = localStorage.getItem(
+          `quran-timings-${id}-${selectedReciterId.value}`
+        )
+        if (cached) {
+          const parsed = JSON.parse(cached)
+          if (parsed.syncedWords) syncedVerseWords.value = parsed.syncedWords
+          if (parsed.wordTimings) wordTimings.value = parsed.wordTimings
+        }
+      }
+    } catch {}
+    if (!audioList.value.length) {
+      await loadAudioListFallback(id)
+    }
     await loadTranslationsFromBundled(id)
   }
 }
@@ -2159,6 +2206,7 @@ function playAyah(index: number) {
     currentAyahIndex.value = index
     isPlayingAudio.value = true
     currentWordIndex.value = -1
+    quranSync.updatePosition(Number(currentSuraId.value), index + 1, layoutMode.value)
 
     el.onloadedmetadata = () => {
       ensureWordTimingsForAyah(index, el.duration)
@@ -3145,19 +3193,22 @@ function updateCurrentWord(time: number) {
   const words = getSyncedVerseWords(idx + 1)
   const maxWordIdx = Math.max(0, (words.length || timings.length) - 1)
 
+  // Apply slight audio hardware latency compensation (30ms)
+  const audioTime = Math.max(0, time - 0.03)
+
   // Find the latest word segment that has started
   let found = -1
   for (let i = 0; i < timings.length; i++) {
-    if (time >= timings[i].start) {
+    if (audioTime >= timings[i].start) {
       found = i
     } else {
       break
     }
   }
 
-  // Before the first word's start timestamp: only match word 0 if within 50ms of beginning
+  // Match word 0 slightly before start (up to 80ms) for smooth visual transition
   if (found < 0) {
-    if (timings.length > 0 && time >= timings[0].start - 0.05) {
+    if (timings.length > 0 && audioTime >= timings[0].start - 0.08) {
       found = 0
     }
   }
@@ -3502,6 +3553,23 @@ onDeactivated(() => {
   persistRecitationBeforeLeave()
 })
 
+function handleModalSyncPosition(ayahIdx: number, wordIdx: number) {
+  if (currentAyahIndex.value !== ayahIdx) {
+    currentAyahIndex.value = ayahIdx
+    quranSync.updatePosition(Number(currentSuraId.value), ayahIdx + 1, layoutMode.value)
+  }
+  currentWordIndex.value = wordIdx
+}
+
+watch(showShazamLyricsModal, (isOpen) => {
+  if (isOpen && audioEl.value && !audioEl.value.paused) {
+    // Pause background HTML5 audio so YouTube video recitation has clear audio stage without echoing
+    audioEl.value.pause()
+    isPlayingAudio.value = false
+    stopSyncLoop()
+  }
+})
+
 // Lifecycle Hook: starts playback ONLY when play=true (or alias) is in the URL and everything is loaded
 watch(
   [sura, audioList],
@@ -3646,45 +3714,7 @@ watch(
       </q-banner>
     </Transition>
 
-    <!-- Announcement Banner -->
-    <Transition name="slide-down">
-      <q-banner
-        v-if="showAnnouncementBanner && currentAnnouncement"
-        class="announcement-banner q-mb-md"
-        rounded
-        dense
-      >
-        <template v-slot:avatar>
-          <q-icon
-            :name="currentAnnouncement.icon"
-            color="primary"
-            size="32px"
-            class="pulse-icon"
-          />
-        </template>
-        <div class="announcement-content">
-          <div class="text-weight-bold text-h6">
-            {{ currentAnnouncement.message }}
-          </div>
-        </div>
-        <template v-slot:action>
-          <q-btn
-            v-for="(action, idx) in currentAnnouncement.actions"
-            :key="idx"
-            flat
-            :label="action.label"
-            :color="action.color || 'primary'"
-            @click.prevent="handleAnnouncementAction(action)"
-          />
-          <q-btn
-            flat
-            icon="close"
-            @click.prevent="dismissAnnouncement"
-            :aria-label="t('pages.quran.dismissAnnouncement')"
-          />
-        </template>
-      </q-banner>
-    </Transition>
+
 
     <!-- Recitation Indicator (Only visible during active recitation if enabled) -->
     <Transition name="slide-down">
@@ -4547,6 +4577,7 @@ watch(
       :reciter-id="selectedReciterId"
       :reciters="QURAN_RECITERS"
       :get-synced-words="getSyncedVerseWords"
+      :word-timings="wordTimings"
       @toggle-play="toggleAudioRecitation"
       @prev-ayah="playPreviousAyah"
       @next-ayah="playNextAyah"
@@ -4555,6 +4586,7 @@ watch(
       @set-highlight-mode="setHighlightMode"
       @trigger-shazam="triggerQuranShazam"
       @change-reciter="handleChangeReciter"
+      @sync-position="handleModalSyncPosition"
     />
   </div>
 </template>

@@ -22,7 +22,7 @@
           <div class="shazam-badge-glow row items-center no-wrap">
             <div
               class="shazam-equalizer-bars"
-              :class="{ 'is-active': isPlaying }"
+              :class="{ 'is-active': effectiveIsPlaying }"
             >
               <span class="bar bar-1" />
               <span class="bar bar-2" />
@@ -96,7 +96,7 @@
               </q-btn-dropdown>
               <span class="q-mx-xs">•</span>
               <span
-                >Verse {{ currentAyahIndex + 1 }} of
+                >Verse {{ effectiveAyahIndex + 1 }} of
                 {{ sura?.total_verses }}</span
               >
             </div>
@@ -192,6 +192,7 @@
               <!-- Case A: YouTube Video Embed (When video is available or user opted for channel video) -->
               <template v-if="videoEmbedUrl">
                 <iframe
+                  ref="youtubeIframe"
                   :src="videoEmbedUrl"
                   title="Official Recitation Video"
                   frameborder="0"
@@ -205,6 +206,7 @@
                   "
                   allowfullscreen
                   class="video-iframe"
+                  @load="onIframeLoad"
                 />
                 <q-btn
                   v-if="!hasSpecificVideo"
@@ -318,7 +320,7 @@
               <div class="row items-center gap-md">
                 <div
                   class="shazam-pulse-ring"
-                  :class="{ 'is-pulsing': isPlaying }"
+                  :class="{ 'is-pulsing': effectiveIsPlaying }"
                 >
                   <q-icon name="graphic_eq" color="cyan-3" size="24px" />
                 </div>
@@ -326,7 +328,7 @@
                   <div
                     class="text-subtitle2 text-weight-bolder text-white row items-center gap-xs"
                   >
-                    <span>Now Reciting Verse {{ currentAyahIndex + 1 }}</span>
+                    <span>Now Reciting Verse {{ effectiveAyahIndex + 1 }}</span>
                     <q-badge
                       color="cyan-9"
                       text-color="white"
@@ -367,15 +369,15 @@
                   dense
                   color="grey-4"
                   icon="skip_previous"
-                  :disable="currentAyahIndex <= 0"
-                  @click="$emit('prev-ayah')"
+                  :disable="effectiveAyahIndex <= 0"
+                  @click="onPrevAyah"
                 />
                 <q-btn
                   round
                   unelevated
                   color="purple-6"
-                  :icon="isPlaying ? 'pause' : 'play_arrow'"
-                  @click="$emit('toggle-play')"
+                  :icon="effectiveIsPlaying ? 'pause' : 'play_arrow'"
+                  @click="onTogglePlay"
                 />
                 <q-btn
                   round
@@ -383,8 +385,8 @@
                   dense
                   color="grey-4"
                   icon="skip_next"
-                  :disable="currentAyahIndex >= (sura?.ayat?.length || 0) - 1"
-                  @click="$emit('next-ayah')"
+                  :disable="effectiveAyahIndex >= (sura?.ayat?.length || 0) - 1"
+                  @click="onNextAyah"
                 />
               </div>
             </div>
@@ -418,9 +420,9 @@
               :key="`lyric-${ayah.verse}`"
               class="lyric-line-card"
               :class="{
-                'is-active': index === currentAyahIndex,
-                'is-past': index < currentAyahIndex,
-                'is-future': index > currentAyahIndex,
+                'is-active': index === effectiveAyahIndex,
+                'is-past': index < effectiveAyahIndex,
+                'is-future': index > effectiveAyahIndex,
               }"
               @click="onSelectAyah(index)"
             >
@@ -431,19 +433,19 @@
                 <div class="row items-center gap-xs">
                   <span
                     class="verse-num-pill"
-                    :class="{ 'is-active': index === currentAyahIndex }"
+                    :class="{ 'is-active': index === effectiveAyahIndex }"
                   >
                     {{ ayah.verse }}
                   </span>
                   <span
-                    v-if="index === currentAyahIndex"
+                    v-if="index === effectiveAyahIndex"
                     class="live-glow-dot"
                   />
                 </div>
 
                 <div class="lyric-actions-hint text-caption">
                   <span
-                    v-if="index === currentAyahIndex"
+                    v-if="index === effectiveAyahIndex"
                     class="text-cyan-3 text-weight-bold"
                   >
                     {{
@@ -506,7 +508,7 @@
               Surah {{ sura?.id }}. {{ sura?.e_name }} ({{ sura?.name }})
             </div>
             <div class="text-caption text-grey-4 text-truncate-1">
-              Verse {{ currentAyahIndex + 1 }} · {{ reciterName }}
+              Verse {{ effectiveAyahIndex + 1 }} · {{ reciterName }}
             </div>
           </div>
         </div>
@@ -519,8 +521,8 @@
             color="grey-4"
             icon="skip_previous"
             size="md"
-            :disable="currentAyahIndex <= 0"
-            @click="$emit('prev-ayah')"
+            :disable="effectiveAyahIndex <= 0"
+            @click="onPrevAyah"
           >
             <q-tooltip>Previous Verse</q-tooltip>
           </q-btn>
@@ -531,11 +533,11 @@
             color="deep-purple-6"
             size="lg"
             class="dock-play-btn shadow-xl"
-            :icon="isPlaying ? 'pause' : 'play_arrow'"
-            @click="$emit('toggle-play')"
+            :icon="effectiveIsPlaying ? 'pause' : 'play_arrow'"
+            @click="onTogglePlay"
           >
             <q-tooltip>{{
-              isPlaying ? 'Pause Recitation' : 'Play Recitation'
+              effectiveIsPlaying ? 'Pause Recitation' : 'Play Recitation'
             }}</q-tooltip>
           </q-btn>
 
@@ -545,8 +547,8 @@
             color="grey-4"
             icon="skip_next"
             size="md"
-            :disable="currentAyahIndex >= (sura?.ayat?.length || 0) - 1"
-            @click="$emit('next-ayah')"
+            :disable="effectiveAyahIndex >= (sura?.ayat?.length || 0) - 1"
+            @click="onNextAyah"
           >
             <q-tooltip>Next Verse</q-tooltip>
           </q-btn>
@@ -598,7 +600,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, nextTick } from 'vue'
+import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
+import curatedVideos from '@/shared/data/youtube-videos'
 
 interface AyahItem {
   verse: number
@@ -621,6 +624,12 @@ interface QuranReciter {
   hasKaraoke?: boolean
 }
 
+interface ChapterItem {
+  verse: number
+  start: number
+  end: number
+}
+
 const props = withDefaults(
   defineProps<{
     modelValue: boolean
@@ -634,6 +643,7 @@ const props = withDefaults(
     reciterId?: number
     reciters?: QuranReciter[]
     getSyncedWords?: (verseNumber: number) => string[]
+    wordTimings?: Record<number, Array<{ start: number; end: number }>>
   }>(),
   {
     highlightMode: 'word',
@@ -650,6 +660,7 @@ const props = withDefaults(
       { id: 4, name: 'Abu Bakr al-Shatri', nameAr: 'أبو بكر الشاطري', hasKaraoke: false },
     ],
     getSyncedWords: () => [],
+    wordTimings: () => ({}),
   }
 )
 
@@ -663,49 +674,252 @@ const emit = defineEmits<{
   (e: 'set-highlight-mode', mode: 'word' | 'ayah'): void
   (e: 'trigger-shazam'): void
   (e: 'change-reciter', reciterId: number): void
+  (e: 'sync-position', ayahIndex: number, wordIndex: number): void
 }>()
 
 const activeLayout = ref<'split' | 'lyrics' | 'video'>('split')
 const lyricsViewport = ref<HTMLElement | null>(null)
+const youtubeIframe = ref<HTMLIFrameElement | null>(null)
 
-// Known official uploaded YouTube video IDs for Surahs
-const SURAH_VIDEO_IDS: Record<number, string> = {
-  1: 'IkyNchnSCpU', // Surah 1: Al-Fatihah (Official Peace2074 video)
-}
-
-const currentSurahVideoId = computed(() => {
-  const id = props.sura?.id || 1
-  return SURAH_VIDEO_IDS[id] || null
-})
-
-const hasSpecificVideo = computed(() => Boolean(currentSurahVideoId.value))
-
+// Video state tracking
+const isVideoPlaying = ref(false)
+const videoCurrentAyahIndex = ref<number>(-1)
+const videoCurrentWordIndex = ref<number>(-1)
 const showChannelTrailerFallback = ref(false)
 
-// Reset trailer fallback whenever sura changes
+function parseChaptersFromDescription(desc: string): ChapterItem[] {
+  const lines = (desc || '').split('\n')
+  const chapters: ChapterItem[] = []
+  const regex = /(?:(\d+):)?(\d{2}):(\d{2})\s*[-–—]\s*(?:Ayah|Verse)\s*(\d+)/i
+  for (const line of lines) {
+    const m = line.match(regex)
+    if (m) {
+      const hours = m[1] ? parseInt(m[1], 10) : 0
+      const mins = parseInt(m[2], 10)
+      const secs = parseInt(m[3], 10)
+      const start = hours * 3600 + mins * 60 + secs
+      const verse = parseInt(m[4], 10)
+      chapters.push({ verse, start, end: 0 })
+    }
+  }
+  for (let i = 0; i < chapters.length; i++) {
+    chapters[i].end =
+      i + 1 < chapters.length ? chapters[i + 1].start : chapters[i].start + 30
+  }
+  return chapters
+}
+
+const currentSurahVideo = computed(() => {
+  const id = props.sura?.id || 1
+  return (
+    (curatedVideos as any[]).find((v: any) => v.surahId === id && v.id) || null
+  )
+})
+
+const currentSurahVideoId = computed(() => currentSurahVideo.value?.id || null)
+const hasSpecificVideo = computed(() => Boolean(currentSurahVideoId.value))
+
+const parsedChapters = computed<ChapterItem[]>(() => {
+  if (!currentSurahVideo.value?.description) return []
+  return parseChaptersFromDescription(currentSurahVideo.value.description)
+})
+
+// Unified active indicators
+const effectiveAyahIndex = computed(() => {
+  if (hasSpecificVideo.value && videoCurrentAyahIndex.value >= 0) {
+    return videoCurrentAyahIndex.value
+  }
+  return props.currentAyahIndex
+})
+
+const effectiveWordIndex = computed(() => {
+  if (hasSpecificVideo.value && videoCurrentWordIndex.value >= 0) {
+    return videoCurrentWordIndex.value
+  }
+  return props.currentWordIndex
+})
+
+const effectiveIsPlaying = computed(() => {
+  if (hasSpecificVideo.value) {
+    return isVideoPlaying.value
+  }
+  return props.isPlaying
+})
+
+// Reset video state whenever sura changes
 watch(
   () => props.sura?.id,
   () => {
     showChannelTrailerFallback.value = false
+    videoCurrentAyahIndex.value = -1
+    videoCurrentWordIndex.value = -1
+    isVideoPlaying.value = false
   }
 )
 
 // YouTube official video or channel preview URL
 const videoEmbedUrl = computed<string | null>(() => {
+  const origin = typeof window !== 'undefined' ? window.location.origin : ''
+  const originParam = origin ? `&origin=${encodeURIComponent(origin)}` : ''
   if (currentSurahVideoId.value) {
-    return `https://www.youtube.com/embed/${currentSurahVideoId.value}?autoplay=1&enablejsapi=1&rel=0`
+    return `https://www.youtube.com/embed/${currentSurahVideoId.value}?autoplay=1&enablejsapi=1&rel=0${originParam}`
   }
   if (showChannelTrailerFallback.value) {
-    return 'https://www.youtube.com/embed/IkyNchnSCpU?autoplay=1&enablejsapi=1&rel=0'
+    return `https://www.youtube.com/embed/IkyNchnSCpU?autoplay=1&enablejsapi=1&rel=0${originParam}`
   }
   return null
 })
 
 // Current Ayah Translation for header ticker
 const currentAyahTranslation = computed(() => {
-  if (!props.sura?.ayat || props.currentAyahIndex < 0) return ''
-  return props.sura.ayat[props.currentAyahIndex]?.translation || ''
+  if (!props.sura?.ayat || effectiveAyahIndex.value < 0) return ''
+  return props.sura.ayat[effectiveAyahIndex.value]?.translation || ''
 })
+
+function sendYouTubeCommand(func: string, args: any[] = []) {
+  if (!youtubeIframe.value?.contentWindow) return
+  try {
+    youtubeIframe.value.contentWindow.postMessage(
+      JSON.stringify({ event: 'command', func, args }),
+      '*'
+    )
+  } catch {
+    // Cross-origin restriction fallback
+  }
+}
+
+function handleVideoTimeUpdate(currentTime: number) {
+  if (!parsedChapters.value.length) return
+  const chapters = parsedChapters.value
+
+  let activeIdx = -1
+  for (let i = 0; i < chapters.length; i++) {
+    if (currentTime >= chapters[i].start) {
+      activeIdx = i
+    } else {
+      break
+    }
+  }
+
+  if (activeIdx < 0 && chapters.length > 0) {
+    activeIdx = 0
+  }
+
+  if (activeIdx >= 0) {
+    const currentChapter = chapters[activeIdx]
+    const verseIndex = currentChapter.verse - 1
+    const verseRelativeTime = Math.max(0, currentTime - currentChapter.start)
+
+    // Calculate word index within this verse from wordTimings
+    let activeWord = -1
+    const timings = props.wordTimings?.[verseIndex] || []
+    if (timings.length > 0) {
+      for (let w = 0; w < timings.length; w++) {
+        if (verseRelativeTime >= timings[w].start) {
+          activeWord = w
+        } else {
+          break
+        }
+      }
+      if (activeWord < 0 && verseRelativeTime >= timings[0].start - 0.08) {
+        activeWord = 0
+      }
+      activeWord = Math.min(activeWord, timings.length - 1)
+    }
+
+    if (
+      videoCurrentAyahIndex.value !== verseIndex ||
+      videoCurrentWordIndex.value !== activeWord
+    ) {
+      videoCurrentAyahIndex.value = verseIndex
+      videoCurrentWordIndex.value = activeWord
+      emit('sync-position', verseIndex, activeWord)
+    }
+  }
+}
+
+function onWindowMessage(event: MessageEvent) {
+  if (typeof event.data !== 'string') return
+  try {
+    const data = JSON.parse(event.data)
+    if (data.event === 'infoDelivery' && data.info) {
+      if (typeof data.info.currentTime === 'number') {
+        handleVideoTimeUpdate(data.info.currentTime)
+      }
+      if (typeof data.info.playerState === 'number') {
+        isVideoPlaying.value = data.info.playerState === 1
+      }
+    } else if (data.event === 'onStateChange') {
+      isVideoPlaying.value = data.info === 1
+    }
+  } catch {
+    // Non-JSON message from other sources, ignore
+  }
+}
+
+function onIframeLoad() {
+  sendYouTubeCommand('listening')
+}
+
+let pollInterval: any = null
+
+function startVideoPolling() {
+  stopVideoPolling()
+  pollInterval = setInterval(() => {
+    if (props.modelValue && hasSpecificVideo.value) {
+      sendYouTubeCommand('listening')
+      sendYouTubeCommand('getCurrentTime')
+      sendYouTubeCommand('getPlayerState')
+    }
+  }, 250)
+}
+
+function stopVideoPolling() {
+  if (pollInterval) {
+    clearInterval(pollInterval)
+    pollInterval = null
+  }
+}
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    window.addEventListener('message', onWindowMessage)
+  }
+  if (props.modelValue) {
+    startVideoPolling()
+  }
+})
+
+onUnmounted(() => {
+  stopVideoPolling()
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('message', onWindowMessage)
+  }
+})
+
+watch(
+  () => props.modelValue,
+  (isOpen) => {
+    if (isOpen) {
+      startVideoPolling()
+      if (hasSpecificVideo.value && props.currentAyahIndex >= 0) {
+        const chapter = parsedChapters.value.find(
+          (c) => c.verse === props.currentAyahIndex + 1
+        )
+        if (chapter) {
+          setTimeout(() => {
+            sendYouTubeCommand('seekTo', [chapter.start, true])
+            sendYouTubeCommand('playVideo')
+          }, 600)
+        }
+      }
+    } else {
+      stopVideoPolling()
+      sendYouTubeCommand('pauseVideo')
+      isVideoPlaying.value = false
+    }
+  }
+)
 
 function getVerseWords(verseNumber: number): string[] {
   if (props.getSyncedWords) {
@@ -717,19 +931,55 @@ function getVerseWords(verseNumber: number): string[] {
 }
 
 function isWordActive(verseIndex: number, wordIndex: number): boolean {
-  if (verseIndex !== props.currentAyahIndex) return false
+  if (verseIndex !== effectiveAyahIndex.value) return false
   if (props.highlightMode === 'ayah') return true
-  return wordIndex === props.currentWordIndex
+  return wordIndex === effectiveWordIndex.value
 }
 
 function isWordPassed(verseIndex: number, wordIndex: number): boolean {
-  if (verseIndex !== props.currentAyahIndex) return false
+  if (verseIndex !== effectiveAyahIndex.value) return false
   if (props.highlightMode === 'ayah') return false
-  return props.currentWordIndex > wordIndex
+  return effectiveWordIndex.value > wordIndex
 }
 
 function onSelectAyah(index: number) {
+  if (hasSpecificVideo.value) {
+    const chapter = parsedChapters.value.find((c) => c.verse === index + 1)
+    if (chapter) {
+      sendYouTubeCommand('seekTo', [chapter.start, true])
+      sendYouTubeCommand('playVideo')
+      videoCurrentAyahIndex.value = index
+      videoCurrentWordIndex.value = 0
+      emit('sync-position', index, 0)
+      return
+    }
+  }
   emit('seek-ayah', index)
+}
+
+function onPrevAyah() {
+  const nextIdx = Math.max(0, effectiveAyahIndex.value - 1)
+  onSelectAyah(nextIdx)
+}
+
+function onNextAyah() {
+  const maxIdx = (props.sura?.ayat?.length || 1) - 1
+  const nextIdx = Math.min(maxIdx, effectiveAyahIndex.value + 1)
+  onSelectAyah(nextIdx)
+}
+
+function onTogglePlay() {
+  if (hasSpecificVideo.value) {
+    if (isVideoPlaying.value) {
+      sendYouTubeCommand('pauseVideo')
+      isVideoPlaying.value = false
+    } else {
+      sendYouTubeCommand('playVideo')
+      isVideoPlaying.value = true
+    }
+    return
+  }
+  emit('toggle-play')
 }
 
 function cycleMobileLayout() {
@@ -740,7 +990,7 @@ function cycleMobileLayout() {
 
 // Auto-scroll to center active verse smoothly inside modal container
 watch(
-  () => props.currentAyahIndex,
+  () => effectiveAyahIndex.value,
   async (newIdx) => {
     if (!props.modelValue || newIdx < 0) return
     await nextTick()
@@ -767,7 +1017,7 @@ watch(
       await nextTick()
       const container = lyricsViewport.value
       const targetEl = document.getElementById(
-        `shazam-lyric-verse-${props.currentAyahIndex + 1}`
+        `shazam-lyric-verse-${effectiveAyahIndex.value + 1}`
       )
       if (targetEl && container) {
         const containerRect = container.getBoundingClientRect()

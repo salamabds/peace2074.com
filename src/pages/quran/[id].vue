@@ -24,6 +24,7 @@ import {
   readTranslatorIdForLocale,
   TRANSLATOR_PREF_KEY,
 } from '@shared/data/quran-translators'
+import curatedVideos from '@/shared/data/youtube-videos'
 
 // Define component name for keep-alive
 defineOptions({
@@ -217,13 +218,10 @@ function dismissAnnouncement(event?: MouseEvent | Event) {
 
   showAnnouncementBanner.value = false
   currentAnnouncement.value = null
-
-  // Show next announcement after a short delay
-  setTimeout(() => {
-    if (announcementQueue.value.length > 0) {
-      showNextAnnouncement()
-    }
-  }, 500)
+  if (typeof localStorage !== 'undefined') {
+    localStorage.setItem('quran-feature-auto-continue-announced', 'true')
+  }
+  announcementQueue.value = []
 }
 
 function handleAnnouncementAction(action?: { handler?: () => void }) {
@@ -599,6 +597,30 @@ const { highlightMode, setHighlightMode, loadProfileSettings, saveRecitationProg
 
 // YouTube Video Recitation Player State
 const showYoutubePlayer = ref(false)
+const showRecitationBanner = ref(false)
+
+const activeYoutubeVideo = computed(() => {
+  return (
+    curatedVideos.find((v: any) => v.surahId === currentSuraId.value) || null
+  )
+})
+
+const activeYoutubeEmbedUrl = computed(() => {
+  if (activeYoutubeVideo.value?.embedUrl) {
+    return activeYoutubeVideo.value.embedUrl
+  }
+  return `https://www.youtube.com/embed/videoseries?list=UUiuUJUpeWXxWwDSpPKoEVbQ&index=${Math.max(0, currentSuraId.value - 1)}&autoplay=1`
+})
+
+function closeYoutubeBanner() {
+  showYoutubePlayer.value = false
+  if (route.query.video || route.query.youtube) {
+    const q = { ...route.query }
+    delete q.video
+    delete q.youtube
+    router.replace({ query: q })
+  }
+}
 
 // Autoplay unlock state ref
 const isAutoplayBlocked = ref(false)
@@ -3357,28 +3379,9 @@ onMounted(async () => {
     }
   }
 
-  // Show feature announcement for auto-continue (only once)
   const FEATURE_ANNOUNCEMENT_KEY = 'quran-feature-auto-continue-announced'
-  const hasSeenAnnouncement = localStorage.getItem(FEATURE_ANNOUNCEMENT_KEY)
-  if (!hasSeenAnnouncement) {
-    setTimeout(() => {
-      notify({
-        type: 'info',
-        message: t('pages.quran.autoContinueAnnouncement'),
-        icon: 'auto_awesome',
-        announce: true,
-        actions: [
-          {
-            label: t('general.close'),
-            color: 'white',
-            handler: () => {
-              localStorage.setItem(FEATURE_ANNOUNCEMENT_KEY, 'true')
-              dismissAnnouncement()
-            },
-          },
-        ],
-      })
-    }, 2000) // Show after 2 seconds to avoid overwhelming user
+  if (typeof localStorage !== 'undefined' && !localStorage.getItem(FEATURE_ANNOUNCEMENT_KEY)) {
+    localStorage.setItem(FEATURE_ANNOUNCEMENT_KEY, 'true')
   }
 })
 
@@ -3528,6 +3531,7 @@ watch(
         </div>
         <template v-slot:action>
           <q-btn flat label="Start Recitation" color="white" icon="play_arrow" />
+          <q-btn flat round dense icon="close" color="white" @click.stop="isAutoplayBlocked = false" />
         </template>
       </q-banner>
     </Transition>
@@ -3572,10 +3576,10 @@ watch(
       </q-banner>
     </Transition>
 
-    <!-- Recitation Indicator (always visible while sura is loaded) -->
+    <!-- Recitation Indicator (Only visible during active recitation if enabled) -->
     <Transition name="slide-down">
       <q-banner
-        v-if="!loading && !error && sura"
+        v-if="!loading && !error && sura && (isPlayingAudio || isPaused) && showRecitationBanner"
         class="paused-indicator-banner"
         rounded
         dense
@@ -3618,6 +3622,15 @@ watch(
               "
               @update:model-value="handleRecitationSwitchChange"
             />
+            <q-btn
+              flat
+              round
+              dense
+              icon="close"
+              size="sm"
+              class="q-ml-sm"
+              @click="showRecitationBanner = false"
+            />
           </div>
         </template>
       </q-banner>
@@ -3629,7 +3642,7 @@ watch(
       <!-- YouTube HD Video Player Banner -->
       <Transition name="slide-down">
         <div
-          v-if="showYoutubePlayer || route.query.video === 'true' || route.query.youtube === 'true'"
+          v-if="showYoutubePlayer"
           class="youtube-banner-wrapper q-mb-md"
         >
           <div class="video-bar-header row items-center justify-between q-px-md q-py-xs bg-grey-10 text-white">
@@ -3637,11 +3650,11 @@ watch(
               <q-icon name="smart_display" color="red" size="24px" />
               <span class="text-weight-bold">YouTube Official HD Video Recitation · Surah {{ currentSuraId }}</span>
             </div>
-            <q-btn flat round dense icon="close" color="white" @click="showYoutubePlayer = false" />
+            <q-btn flat round dense icon="close" color="white" @click="closeYoutubeBanner" />
           </div>
           <div class="video-ratio-box">
             <iframe
-              :src="`https://www.youtube.com/embed/videoseries?list=PLEJ9VLBcEoKg&index=${currentSuraId - 1}&autoplay=1`"
+              :src="activeYoutubeEmbedUrl"
               title="YouTube Quran Recitation"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

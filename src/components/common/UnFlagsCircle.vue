@@ -81,7 +81,7 @@ type FlagItem = {
 }
 
 const flagList: FlagItem[] = [
-  { code: 'en', name: 'English', nativeName: 'English', flag: '🇬🇧' },
+  { code: 'en', name: 'English', nativeName: 'English', flag: '🇺🇸' },
   { code: 'ar', name: 'Arabic', nativeName: 'العربية', flag: '🇸🇦' },
   { code: 'de', name: 'German', nativeName: 'Deutsch', flag: '🇩🇪' },
   { code: 'es', name: 'Spanish', nativeName: 'Español', flag: '🇪🇸' },

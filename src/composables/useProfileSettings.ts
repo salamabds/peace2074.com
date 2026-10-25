@@ -221,6 +221,14 @@ export function useProfileSettings() {
 
         writeLocalHighlightMode(nextMode)
 
+        if (typeof window !== 'undefined') {
+            window.dispatchEvent(
+                new CustomEvent('quran-highlight-mode-changed', {
+                    detail: nextMode,
+                })
+            )
+        }
+
         await authStore.hydrateSession()
 
         const userId = String(authStore.user?.id || '') || null

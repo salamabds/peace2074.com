@@ -8,6 +8,7 @@ import { useBookmarksStore } from '@/stores/bookmarks.pinia'
 import {
   useProfileSettings,
   readLocalHighlightMode,
+  refreshHighlightMode,
   HIGHLIGHT_MODE_STORAGE_KEY,
   type QuranHighlightMode,
   type RecitationPlaybackPosition,
@@ -3464,7 +3465,7 @@ onDeactivated(() => {
 })
 
 onActivated(async () => {
-  highlightMode.value = readLocalHighlightMode()
+  refreshHighlightMode()
   await loadProfileSettings(true)
   if (currentWordIndex.value >= 0 && currentAyahIndex.value >= 0) {
     scrollToCurrentWord(currentAyahIndex.value, currentWordIndex.value)
@@ -3677,15 +3678,15 @@ onUnmounted(() => {
 function onHighlightModeChanged(event: Event) {
   const customEvent = event as CustomEvent<QuranHighlightMode>
   if (customEvent.detail && ['word', 'ayah'].includes(customEvent.detail)) {
-    highlightMode.value = customEvent.detail
+    refreshHighlightMode(customEvent.detail)
   } else {
-    highlightMode.value = readLocalHighlightMode()
+    refreshHighlightMode()
   }
 }
 
 function onStorageChanged(event: StorageEvent) {
   if (event.key === HIGHLIGHT_MODE_STORAGE_KEY) {
-    highlightMode.value = readLocalHighlightMode()
+    refreshHighlightMode()
   }
 }
 

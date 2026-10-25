@@ -74,6 +74,12 @@ const isLoading = ref(false)
 const loadedUserId = ref<string | null>(null)
 let loadPromise: Promise<void> | null = null
 
+export function refreshHighlightMode(explicitMode?: unknown): QuranHighlightMode {
+    const mode = explicitMode ? normalizeHighlightMode(explicitMode) : readLocalHighlightMode()
+    highlightMode.value = mode
+    return mode
+}
+
 function normalizePlaybackPosition(
     value: unknown
 ): RecitationPlaybackPosition | null {
@@ -314,6 +320,7 @@ export function useProfileSettings() {
         profileSettingsLoading: computed(() => isLoading.value),
         loadProfileSettings,
         setHighlightMode,
+        refreshHighlightMode,
         saveRecitationProgress,
     }
 }

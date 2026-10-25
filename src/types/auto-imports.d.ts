@@ -114,6 +114,7 @@ declare global {
   const refDefault: typeof import('@vueuse/core')['refDefault']
   const refThrottled: typeof import('@vueuse/core')['refThrottled']
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
+  const refreshHighlightMode: typeof import('../composables/useProfileSettings').refreshHighlightMode
   const registerCache: typeof import('../composables/useCache').registerCache
   const resolveComponent: typeof import('vue').resolveComponent
   const resolveOfflineRecitationStatus: typeof import('../composables/useOfflineRecitation').resolveOfflineRecitationStatus
@@ -432,6 +433,7 @@ declare module 'vue' {
     readonly readLocalHighlightMode: UnwrapRef<typeof import('../composables/useProfileSettings')['readLocalHighlightMode']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
+    readonly refreshHighlightMode: UnwrapRef<typeof import('../composables/useProfileSettings')['refreshHighlightMode']>
     readonly registerCache: UnwrapRef<typeof import('../composables/useCache')['registerCache']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveOfflineRecitationStatus: UnwrapRef<typeof import('../composables/useOfflineRecitation')['resolveOfflineRecitationStatus']>

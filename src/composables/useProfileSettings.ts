@@ -17,10 +17,10 @@ type ProfileSettingsResponse = {
     settings?: Record<string, any>
 }
 
-const DEFAULT_HIGHLIGHT_MODE: QuranHighlightMode = 'word'
-const HIGHLIGHT_MODE_STORAGE_KEY = 'quran-highlight-mode'
+export const DEFAULT_HIGHLIGHT_MODE: QuranHighlightMode = 'word'
+export const HIGHLIGHT_MODE_STORAGE_KEY = 'quran-highlight-mode'
 
-function normalizeHighlightMode(value: unknown): QuranHighlightMode {
+export function normalizeHighlightMode(value: unknown): QuranHighlightMode {
     return value === 'ayah' ? 'ayah' : 'word'
 }
 
@@ -42,7 +42,7 @@ function readHighlightModeFromSettings(settings: unknown): QuranHighlightMode {
     return normalizeHighlightMode((quran as Record<string, any>).highlightMode)
 }
 
-function readLocalHighlightMode(): QuranHighlightMode {
+export function readLocalHighlightMode(): QuranHighlightMode {
     if (typeof window === 'undefined') {
         return DEFAULT_HIGHLIGHT_MODE
     }

@@ -7,7 +7,9 @@
 export {}
 declare global {
   const ATHAN_RECITERS: typeof import('../composables/useAthanPlayer').ATHAN_RECITERS
+  const DEFAULT_HIGHLIGHT_MODE: typeof import('../composables/useProfileSettings').DEFAULT_HIGHLIGHT_MODE
   const EffectScope: typeof import('vue').EffectScope
+  const HIGHLIGHT_MODE_STORAGE_KEY: typeof import('../composables/useProfileSettings').HIGHLIGHT_MODE_STORAGE_KEY
   const TOTAL_QURAN_SURAS: typeof import('../composables/useOfflineRecitation').TOTAL_QURAN_SURAS
   const acceptHMRUpdate: typeof import('pinia').acceptHMRUpdate
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
@@ -74,6 +76,7 @@ declare global {
   const mapWritableState: typeof import('pinia').mapWritableState
   const markRaw: typeof import('vue').markRaw
   const nextTick: typeof import('vue').nextTick
+  const normalizeHighlightMode: typeof import('../composables/useProfileSettings').normalizeHighlightMode
   const onActivated: typeof import('vue').onActivated
   const onBeforeMount: typeof import('vue').onBeforeMount
   const onBeforeRouteLeave: typeof import('vue-router').onBeforeRouteLeave
@@ -103,6 +106,7 @@ declare global {
   const reactiveComputed: typeof import('@vueuse/core')['reactiveComputed']
   const reactiveOmit: typeof import('@vueuse/core')['reactiveOmit']
   const reactivePick: typeof import('@vueuse/core')['reactivePick']
+  const readLocalHighlightMode: typeof import('../composables/useProfileSettings').readLocalHighlightMode
   const readonly: typeof import('vue').readonly
   const ref: typeof import('vue').ref
   const refAutoReset: typeof import('@vueuse/core')['refAutoReset']
@@ -372,7 +376,9 @@ declare module 'vue' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
     readonly ATHAN_RECITERS: UnwrapRef<typeof import('../composables/useAthanPlayer')['ATHAN_RECITERS']>
+    readonly DEFAULT_HIGHLIGHT_MODE: UnwrapRef<typeof import('../composables/useProfileSettings')['DEFAULT_HIGHLIGHT_MODE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly HIGHLIGHT_MODE_STORAGE_KEY: UnwrapRef<typeof import('../composables/useProfileSettings')['HIGHLIGHT_MODE_STORAGE_KEY']>
     readonly TOTAL_QURAN_SURAS: UnwrapRef<typeof import('../composables/useOfflineRecitation')['TOTAL_QURAN_SURAS']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly clearAllCaches: UnwrapRef<typeof import('../composables/useCache')['clearAllCaches']>
@@ -404,6 +410,7 @@ declare module 'vue' {
     readonly mapWritableState: UnwrapRef<typeof import('pinia')['mapWritableState']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
+    readonly normalizeHighlightMode: UnwrapRef<typeof import('../composables/useProfileSettings')['normalizeHighlightMode']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
     readonly onBeforeRouteLeave: UnwrapRef<typeof import('vue-router')['onBeforeRouteLeave']>
@@ -422,6 +429,7 @@ declare module 'vue' {
     readonly onWatcherCleanup: UnwrapRef<typeof import('vue')['onWatcherCleanup']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
+    readonly readLocalHighlightMode: UnwrapRef<typeof import('../composables/useProfileSettings')['readLocalHighlightMode']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly registerCache: UnwrapRef<typeof import('../composables/useCache')['registerCache']>

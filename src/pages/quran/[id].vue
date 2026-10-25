@@ -5,8 +5,13 @@ import { useI18n } from 'vue-i18n'
 import { ref, onMounted, onUnmounted, onActivated, onDeactivated, watch, computed, nextTick } from 'vue'
 import { useQuasar, Dark } from 'quasar'
 import { useBookmarksStore } from '@/stores/bookmarks.pinia'
-import { useStorageRef } from '@/composables/useUStore'
-import { useProfileSettings, type RecitationPlaybackPosition } from '@/composables/useProfileSettings'
+import {
+  useProfileSettings,
+  readLocalHighlightMode,
+  HIGHLIGHT_MODE_STORAGE_KEY,
+  type QuranHighlightMode,
+  type RecitationPlaybackPosition,
+} from '@/composables/useProfileSettings'
 import { useAuthStore } from '@/stores/auth.pinia'
 import {
   applySeoMeta,
@@ -1061,13 +1066,13 @@ function buildPreciseWordTimings(
 
   const validSegments = segments
     .filter((s) => Array.isArray(s) && s.length >= 4)
-    .sort((a, b) => a[2] - b[2])
+    .sort((a, b) => Number(a[2]) - Number(b[2]))
 
   for (const seg of validSegments) {
-    const rawFrom = Math.floor(seg[0])
-    const rawTo = Math.floor(seg[1])
-    const startSec = (seg[2] ?? 0) / 1000
-    const endSec = (seg[3] ?? 0) / 1000
+    const rawFrom = Math.floor(Number(seg[0]))
+    const rawTo = Math.floor(Number(seg[1]))
+    const startSec = Number(seg[2] ?? 0) / 1000
+    const endSec = Number(seg[3] ?? 0) / 1000
     const duration = Math.max(0.02, endSec - startSec)
 
     if (rawTo - rawFrom === 1 && rawFrom >= 0 && rawFrom < words.length) {
@@ -1179,14 +1184,53 @@ function ensureWordTimingsForAyah(index: number, duration: number) {
 }
 
 function isActiveAyah(verseNumber: number) {
-  return currentAyahIndex.value === verseNumber - 1
+  if (currentAyahIndex.value !== verseNumber - 1) return false
+  if (highlightMode.value === 'ayah') return true
+  // In 'word' mode, only highlight entire ayah as fallback if word-level timings are unavailable
+  return !hasTimingMatchedWords(verseNumber)
 }
 
 function isActiveWord(verseNumber: number, wordIndex: number) {
-  if (highlightMode.value === 'ayah') return false
+  if (highlightMode.value !== 'word') return false
   if (currentAyahIndex.value !== verseNumber - 1) return false
   if (currentWordIndex.value < 0) return false
   return wordIndex === currentWordIndex.value
+}
+
+function seekToWord(verseNumber: number, wordIndex: number) {
+  const ayahIdx = verseNumber - 1
+  const timings = wordTimings.value[ayahIdx]
+  const targetTiming = timings?.[wordIndex]
+
+  if (currentAyahIndex.value === ayahIdx && audioEl.value && targetTiming) {
+    audioEl.value.currentTime = Math.max(0, targetTiming.start)
+    currentWordIndex.value = wordIndex
+    if (audioEl.value.paused) {
+      void audioEl.value
+        .play()
+        .then(() => {
+          isPlayingAudio.value = true
+          startSyncLoop()
+        })
+        .catch(() => {})
+    }
+  } else if (targetTiming) {
+    void playAyahAndSeek(ayahIdx, targetTiming.start, wordIndex)
+  }
+}
+
+async function playAyahAndSeek(
+  index: number,
+  seekSec: number,
+  targetWordIndex?: number
+) {
+  await playAyah(index)
+  if (audioEl.value && seekSec > 0) {
+    audioEl.value.currentTime = seekSec
+    if (typeof targetWordIndex === 'number' && targetWordIndex >= 0) {
+      currentWordIndex.value = targetWordIndex
+    }
+  }
 }
 
 // Mark sura as read in localStorage
@@ -2920,10 +2964,7 @@ const isPaused = computed(() => {
 })
 
 const showRecitationStickyHeader = computed(
-  () =>
-    isReading.value ||
-    isPaused.value ||
-    (currentAyahIndex.value >= 0 && highlightMode.value === 'word')
+  () => isReading.value || isPaused.value || currentAyahIndex.value >= 0
 )
 
 const toolsVisible = ref(false)
@@ -3173,6 +3214,13 @@ function stopSyncLoop() {
 }
 
 function updateCurrentWord(time: number) {
+  if (highlightMode.value === 'ayah') {
+    if (currentWordIndex.value !== -1) {
+      currentWordIndex.value = -1
+    }
+    return
+  }
+
   const idx = currentAyahIndex.value
   if (idx < 0) return
   if (!hasTimingMatchedWords(idx + 1)) {
@@ -3416,9 +3464,14 @@ onDeactivated(() => {
 })
 
 onActivated(async () => {
+  highlightMode.value = readLocalHighlightMode()
   await loadProfileSettings(true)
   if (currentWordIndex.value >= 0 && currentAyahIndex.value >= 0) {
     scrollToCurrentWord(currentAyahIndex.value, currentWordIndex.value)
+  }
+  await nextTick()
+  if (audioList.value.length > 0) {
+    await restorePlaybackPosition()
   }
 })
 
@@ -3435,6 +3488,11 @@ onMounted(async () => {
       syncShowTranslationPreference
     )
     window.addEventListener('quran-translator-changed', onTranslatorChanged)
+    window.addEventListener(
+      'quran-highlight-mode-changed',
+      onHighlightModeChanged
+    )
+    window.addEventListener('storage', onStorageChanged)
   }
 
   // Load list of cached suras for offline detection
@@ -3596,13 +3654,6 @@ watch(
   { immediate: true }
 )
 
-onActivated(async () => {
-  await nextTick()
-  if (audioList.value.length > 0) {
-    await restorePlaybackPosition()
-  }
-})
-
 onUnmounted(() => {
   stopSyncLoop()
   persistRecitationBeforeLeave()
@@ -3615,8 +3666,28 @@ onUnmounted(() => {
       syncShowTranslationPreference
     )
     window.removeEventListener('quran-translator-changed', onTranslatorChanged)
+    window.removeEventListener(
+      'quran-highlight-mode-changed',
+      onHighlightModeChanged
+    )
+    window.removeEventListener('storage', onStorageChanged)
   }
 })
+
+function onHighlightModeChanged(event: Event) {
+  const customEvent = event as CustomEvent<QuranHighlightMode>
+  if (customEvent.detail && ['word', 'ayah'].includes(customEvent.detail)) {
+    highlightMode.value = customEvent.detail
+  } else {
+    highlightMode.value = readLocalHighlightMode()
+  }
+}
+
+function onStorageChanged(event: StorageEvent) {
+  if (event.key === HIGHLIGHT_MODE_STORAGE_KEY) {
+    highlightMode.value = readLocalHighlightMode()
+  }
+}
 
 function onTranslatorChanged() {
   if (!sura.value) return
@@ -4232,6 +4303,7 @@ watch(
             :class="{
               'is-selected': isVerseSelected(a.verse),
               'is-current-ayah': isActiveAyah(a.verse),
+              'is-active-verse-container': currentAyahIndex === a.verse - 1,
             }"
             @click="handleVerseTap($event, a.verse)"
             @dblclick="handleVerseDoubleClick($event, a.verse)"
@@ -4282,6 +4354,10 @@ watch(
                       :class="{
                         'is-current-word': isActiveWord(a.verse, wIdx),
                       }"
+                      @click.stop="seekToWord(a.verse, wIdx)"
+                      role="button"
+                      tabindex="0"
+                      :aria-label="word"
                       >{{ word }}</span
                     >{{ ' ' }}
                   </template>
@@ -4329,6 +4405,7 @@ watch(
                   :class="{
                     'is-selected': isVerseSelected(a.verse),
                     'is-current-ayah': isActiveAyah(a.verse),
+                    'is-active-verse-container': currentAyahIndex === a.verse - 1,
                   }"
                   @click="handleVerseTap($event, a.verse)"
                   @dblclick="handleVerseDoubleClick($event, a.verse)"
@@ -4345,6 +4422,10 @@ watch(
                         :class="{
                           'is-current-word': isActiveWord(a.verse, wIdx),
                         }"
+                        @click.stop="seekToWord(a.verse, wIdx)"
+                        role="button"
+                        tabindex="0"
+                        :aria-label="word"
                         >{{ word }}</span
                       >{{ ' ' }}
                     </template>
@@ -4379,6 +4460,7 @@ watch(
             :class="{
               'is-selected': isVerseSelected(a.verse),
               'is-current-ayah': isActiveAyah(a.verse),
+              'is-active-verse-container': currentAyahIndex === a.verse - 1,
             }"
             @click="handleVerseTap($event, a.verse)"
             @dblclick="handleVerseDoubleClick($event, a.verse)"
@@ -4428,6 +4510,10 @@ watch(
                     :class="{
                       'is-current-word': isActiveWord(a.verse, wIdx),
                     }"
+                    @click.stop="seekToWord(a.verse, wIdx)"
+                    role="button"
+                    tabindex="0"
+                    :aria-label="word"
                     >{{ word }}</span
                   >{{ ' ' }}
                 </template>
@@ -5152,11 +5238,19 @@ watch(
 .verse-row.is-current-ayah,
 .mushaf-ayah-inline.is-current-ayah,
 .verse-paragraph.is-current-ayah {
-  background: rgba(245, 158, 11, 0.12) !important;
+  background: rgba(245, 158, 11, 0.14) !important;
   border-inline-start: 4px solid #f59e0b !important;
   box-shadow: 0 4px 16px rgba(245, 158, 11, 0.15) !important;
   border-radius: 12px;
   transition: all 0.25s ease-in-out;
+}
+
+/* Word mode container accent (subtle indicator without full background wash) */
+.verse-row.is-active-verse-container:not(.is-current-ayah),
+.verse-paragraph.is-active-verse-container:not(.is-current-ayah) {
+  border-inline-start: 4px solid rgba(245, 158, 11, 0.45) !important;
+  border-radius: 12px;
+  transition: border-inline-start 0.25s ease-in-out;
 }
 
 /* Recitation Highlight: Word (Light Mode) */
@@ -5166,20 +5260,30 @@ watch(
   font-weight: 700 !important;
   padding: 2px 8px !important;
   border-radius: 6px !important;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4) !important;
-  transition: background 0.12s ease-in-out, color 0.12s ease-in-out;
+  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.5) !important;
+  transform: scale(1.05);
+  transition: background 0.12s ease-in-out, color 0.12s ease-in-out, transform 0.12s ease-in-out;
   display: inline-block;
+  cursor: pointer;
 }
 
 /* Recitation Highlight: Whole Ayah / Sentence (Dark Mode) */
 body.body--dark .verse-row.is-current-ayah,
 body.body--dark .mushaf-ayah-inline.is-current-ayah,
 body.body--dark .verse-paragraph.is-current-ayah {
-  background: rgba(251, 191, 36, 0.16) !important;
+  background: rgba(251, 191, 36, 0.18) !important;
   border-inline-start: 4px solid #fbbf24 !important;
-  box-shadow: 0 0 24px rgba(251, 191, 36, 0.2) !important;
+  box-shadow: 0 0 24px rgba(251, 191, 36, 0.22) !important;
   border-radius: 12px;
   transition: all 0.25s ease-in-out;
+}
+
+/* Word mode container accent (Dark Mode) */
+body.body--dark .verse-row.is-active-verse-container:not(.is-current-ayah),
+body.body--dark .verse-paragraph.is-active-verse-container:not(.is-current-ayah) {
+  border-inline-start: 4px solid rgba(251, 191, 36, 0.5) !important;
+  border-radius: 12px;
+  transition: border-inline-start 0.25s ease-in-out;
 }
 
 /* Recitation Highlight: Word (Dark Mode) */
@@ -5189,9 +5293,32 @@ body.body--dark .is-current-word {
   font-weight: 700 !important;
   padding: 2px 8px !important;
   border-radius: 6px !important;
-  box-shadow: 0 0 14px rgba(251, 191, 36, 0.6) !important;
-  transition: background 0.12s ease-in-out, color 0.12s ease-in-out;
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.7) !important;
+  transform: scale(1.05);
+  transition: background 0.12s ease-in-out, color 0.12s ease-in-out, transform 0.12s ease-in-out;
   display: inline-block;
+  cursor: pointer;
+}
+
+/* Interactive hover on Quran words */
+.arabic-text span[id^="word-"],
+.mushaf-ayah-inline span[id^="word-"],
+.verse-paragraph span[id^="word-"] {
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.arabic-text span[id^="word-"]:hover:not(.is-current-word),
+.mushaf-ayah-inline span[id^="word-"]:hover:not(.is-current-word),
+.verse-paragraph span[id^="word-"]:hover:not(.is-current-word) {
+  background-color: rgba(245, 158, 11, 0.12);
+}
+
+body.body--dark .arabic-text span[id^="word-"]:hover:not(.is-current-word),
+body.body--dark .mushaf-ayah-inline span[id^="word-"]:hover:not(.is-current-word),
+body.body--dark .verse-paragraph span[id^="word-"]:hover:not(.is-current-word) {
+  background-color: rgba(251, 191, 36, 0.18);
 }
 
 body.body--dark .sura-heading.is-reciting {

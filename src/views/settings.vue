@@ -43,9 +43,22 @@ const { highlightMode, loadProfileSettings, setHighlightMode } =
 const selectedHighlightMode = computed<QuranHighlightMode>({
   get: () => highlightMode.value,
   set: (mode) => {
-    void setHighlightMode(mode).catch((error) => {
-      console.warn('Failed to save highlight mode:', error)
-    })
+    void setHighlightMode(mode)
+      .then(() => {
+        $q.notify({
+          type: 'positive',
+          message:
+            mode === 'word'
+              ? `${t('pages.preferences.quran.highlightMode')}: ${t('pages.preferences.quran.highlightWord')}`
+              : `${t('pages.preferences.quran.highlightMode')}: ${t('pages.preferences.quran.highlightSentence')}`,
+          icon: mode === 'word' ? 'auto_awesome' : 'format_align_left',
+          timeout: 1800,
+          position: 'top',
+        })
+      })
+      .catch((error) => {
+        console.warn('Failed to save highlight mode:', error)
+      })
   },
 })
 

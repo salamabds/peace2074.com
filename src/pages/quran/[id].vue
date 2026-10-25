@@ -1048,6 +1048,71 @@ function hasTimingMatchedWords(verseNumber: number) {
   return words.length > 0
 }
 
+function buildPreciseWordTimings(
+  segments: number[][],
+  words: string[]
+): Array<{ start: number; end: number }> {
+  if (!words.length) return []
+  if (!segments || !segments.length) return []
+
+  const result: Array<{ start: number; end: number }> = new Array(words.length)
+
+  const validSegments = segments
+    .filter((s) => Array.isArray(s) && s.length >= 4)
+    .sort((a, b) => a[2] - b[2])
+
+  for (const seg of validSegments) {
+    const rawFrom = Math.floor(seg[0])
+    const rawTo = Math.floor(seg[1])
+    const startSec = (seg[2] ?? 0) / 1000
+    const endSec = (seg[3] ?? 0) / 1000
+    const duration = Math.max(0.02, endSec - startSec)
+
+    if (rawTo - rawFrom === 1 && rawFrom >= 0 && rawFrom < words.length) {
+      result[rawFrom] = { start: startSec, end: endSec }
+    } else if (rawTo > rawFrom && rawFrom >= 0 && rawFrom < words.length) {
+      const toIndex = Math.min(words.length, rawTo)
+      const count = toIndex - rawFrom
+      const sliceWords = words.slice(rawFrom, toIndex)
+      const totalWeight = sliceWords.reduce(
+        (sum, w) => sum + Math.max(1, w.length),
+        0
+      )
+      let cursor = startSec
+      for (let w = 0; w < count; w++) {
+        const wordWeight = Math.max(1, sliceWords[w].length)
+        const wordDur = (wordWeight / totalWeight) * duration
+        result[rawFrom + w] = {
+          start: cursor,
+          end: cursor + wordDur,
+        }
+        cursor += wordDur
+      }
+    }
+  }
+
+  // Smoothly fill any missing word timings between known segment boundaries
+  let lastEnd = 0.03
+  for (let i = 0; i < words.length; i++) {
+    if (!result[i]) {
+      let nextStart = lastEnd + 0.4
+      for (let j = i + 1; j < words.length; j++) {
+        if (result[j]) {
+          nextStart = result[j].start
+          break
+        }
+      }
+      result[i] = {
+        start: lastEnd,
+        end: Math.max(lastEnd + 0.05, nextStart),
+      }
+    }
+    lastEnd = result[i].end
+  }
+
+  return result
+}
+
 function alignTimingsToWords(
   timings: Array<{ start: number; end: number }>,
   words: string[]
@@ -1824,14 +1889,7 @@ async function loadAudioAndTimings(id: number) {
       }
 
       // Extract word timings from segments
-      // Segment format: [char_start, char_end, start_ms, end_ms]
       const segments: number[][] = verse?.audio?.segments || []
-      const timings = segments
-        .filter((seg: number[]) => seg.length >= 4)
-        .map((seg: number[]) => ({
-          start: (seg[2] ?? 0) / 1000,
-          end: (seg[3] ?? 0) / 1000,
-        }))
 
       const words = Array.isArray(verse?.words)
         ? verse.words
@@ -1858,7 +1916,18 @@ async function loadAudioAndTimings(id: number) {
         syncedVerseWords.value[verseNum - 1] = finalWords
       }
 
-      if (timings.length > 0) {
+      if (segments.length > 0 && finalWords.length > 0) {
+        wordTimings.value[verseNum - 1] = buildPreciseWordTimings(
+          segments,
+          finalWords
+        )
+      } else if (segments.length > 0) {
+        const timings = segments
+          .filter((seg: number[]) => seg.length >= 4)
+          .map((seg: number[]) => ({
+            start: (seg[2] ?? 0) / 1000,
+            end: (seg[3] ?? 0) / 1000,
+          }))
         wordTimings.value[verseNum - 1] = alignTimingsToWords(timings, finalWords)
       }
 
@@ -2089,11 +2158,17 @@ function playAyah(index: number) {
     audioEl.value = el
     currentAyahIndex.value = index
     isPlayingAudio.value = true
-    currentWordIndex.value = 0
-    scrollToCurrentWord(index, 0)
+    currentWordIndex.value = -1
 
     el.onloadedmetadata = () => {
       ensureWordTimingsForAyah(index, el.duration)
+    }
+
+    el.onplay = () => {
+      startSyncLoop()
+    }
+    el.onpause = () => {
+      stopSyncLoop()
     }
 
     // Preload next ayah for seamless playback
@@ -2104,6 +2179,7 @@ function playAyah(index: number) {
       savePlaybackPosition()
     }
     el.onended = () => {
+      stopSyncLoop()
       if (stopRequested.value) {
         stopAudio()
       } else if (index + 1 >= audioList.value.length) {
@@ -2207,8 +2283,11 @@ async function startSuraAudio() {
 }
 
 function stopAudio() {
+  stopSyncLoop()
   stopRequested.value = true
   if (audioEl.value) {
+    audioEl.value.onplay = null
+    audioEl.value.onpause = null
     audioEl.value.onended = null
     audioEl.value.onerror = null
     audioEl.value.ontimeupdate = null

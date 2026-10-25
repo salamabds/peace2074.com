@@ -890,35 +890,6 @@ const filteredNames = computed(() => {
   })
 })
 
-// Dhikr Tasbeeh counter
-const dhikrCount = ref(0)
-const dhikrTarget = ref<number>(33)
-const targetOptions = [33, 99, 100, 999999]
-
-function incrementDhikr() {
-  dhikrCount.value++
-  playBeadClick()
-  if (navigator.vibrate) {
-    navigator.vibrate(35)
-  }
-  if (dhikrCount.value === dhikrTarget.value) {
-    playChimeTone()
-    $q.notify({
-      message: `Masha'Allah! Completed ${dhikrTarget.value} praises`,
-      color: 'positive',
-      icon: 'check_circle',
-      timeout: 2000,
-    })
-  }
-}
-
-function resetDhikr() {
-  dhikrCount.value = 0
-}
-
-function setDhikrTarget(val: number) {
-  dhikrTarget.value = val
-}
 
 // Bookmarks
 const bookmarkedIds = ref<number[]>([])
@@ -948,7 +919,6 @@ function pickRandomName() {
     nextIdx = (nextIdx + 1) % enrichedNames.length
   }
   randomNameIndex.value = nextIdx
-  resetDhikr()
   playChimeTone()
 }
 
@@ -976,7 +946,6 @@ function toggleAutoPlay() {
 
 // Interactive Modal for card clicks
 const activeModalName = ref<HolyNameWithMeta | null>(null)
-const modalDhikrCount = ref(0)
 const isModalOpen = computed({
   get: () => !!activeModalName.value,
   set: (val: boolean) => {
@@ -986,24 +955,11 @@ const isModalOpen = computed({
 
 function openNameModal(item: HolyNameWithMeta) {
   activeModalName.value = item
-  modalDhikrCount.value = 0
   playChimeTone()
 }
 
 function closeNameModal() {
   activeModalName.value = null
-}
-
-function incrementModalDhikr() {
-  modalDhikrCount.value++
-  playBeadClick()
-  if (navigator.vibrate) {
-    navigator.vibrate(35)
-  }
-}
-
-function resetModalDhikr() {
-  modalDhikrCount.value = 0
 }
 
 function nextModalName() {
@@ -1013,7 +969,6 @@ function nextModalName() {
   )
   const nextIdx = (currentIdx + 1) % enrichedNames.length
   activeModalName.value = enrichedNames[nextIdx]
-  modalDhikrCount.value = 0
 }
 
 function prevModalName() {
@@ -1024,7 +979,6 @@ function prevModalName() {
   const prevIdx =
     (currentIdx - 1 + enrichedNames.length) % enrichedNames.length
   activeModalName.value = enrichedNames[prevIdx]
-  modalDhikrCount.value = 0
 }
 
 function randomModalName() {
@@ -1036,7 +990,6 @@ function randomModalName() {
     nextIdx = (nextIdx + 1) % enrichedNames.length
   }
   activeModalName.value = enrichedNames[nextIdx]
-  modalDhikrCount.value = 0
   playChimeTone()
 }
 
@@ -1102,24 +1055,6 @@ function playChimeTone() {
   } catch {}
 }
 
-function playBeadClick() {
-  try {
-    const AudioContextClass =
-      window.AudioContext || (window as any).webkitAudioContext
-    if (!AudioContextClass) return
-    const ctx = new AudioContextClass()
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.type = 'triangle'
-    osc.frequency.setValueAtTime(440, ctx.currentTime)
-    gain.gain.setValueAtTime(0.08, ctx.currentTime)
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08)
-    osc.connect(gain)
-    gain.connect(ctx.destination)
-    osc.start()
-    osc.stop(ctx.currentTime + 0.09)
-  } catch {}
-}
 
 // Copy & Share
 async function shareOrCopyName(item: HolyNameWithMeta) {
@@ -1160,9 +1095,9 @@ function handleKeydown(e: KeyboardEvent) {
   if (e.key === ' ' || e.code === 'Space') {
     e.preventDefault()
     if (activeModalName.value) {
-      incrementModalDhikr()
+      randomModalName()
     } else if (viewMode.value === 'random') {
-      incrementDhikr()
+      pickRandomName()
     }
   } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
     e.preventDefault()
@@ -1371,46 +1306,7 @@ onUnmounted(() => {
             </button>
           </div>
 
-          <!-- Interactive Dhikr Counter (Tasbeeh Beads) -->
-          <div class="hero-dhikr-box q-mt-lg">
-            <div class="dhikr-label">
-              <span>Reflective Dhikr / الذكر</span>
-              <button
-                type="button"
-                class="dhikr-reset-btn"
-                title="Reset counter"
-                @click="resetDhikr"
-              >
-                <q-icon name="refresh" size="16px" class="q-mr-xs" />
-                <span>Reset</span>
-              </button>
-            </div>
 
-            <div class="dhikr-counter-orb" @click="incrementDhikr">
-              <div class="dhikr-num">{{ dhikrCount }}</div>
-              <div class="dhikr-target">
-                /
-                {{
-                  dhikrTarget === 999999 ? '∞' : dhikrTarget
-                }}
-              </div>
-              <div class="dhikr-subtext">Tap to count • انقر للذكر</div>
-            </div>
-
-            <div class="target-chips-row q-mt-sm">
-              <span class="target-title">Target:</span>
-              <button
-                v-for="opt in targetOptions"
-                :key="opt"
-                type="button"
-                class="target-pill"
-                :class="{ active: dhikrTarget === opt }"
-                @click="setDhikrTarget(opt)"
-              >
-                {{ opt === 999999 ? '∞' : opt }}
-              </button>
-            </div>
-          </div>
 
           <!-- Hero Action Controls -->
           <div class="hero-actions-row q-mt-xl">
@@ -1439,7 +1335,7 @@ onUnmounted(() => {
           </div>
 
           <div class="keyboard-hints q-mt-sm">
-            <span>Tip: Press <code>Space</code> to count Dhikr, <code>→</code> for Next Random</span>
+            <span>Tip: Press <code>Space</code> or <code>→</code> for Next Random Name</span>
           </div>
 
           <!-- Jump to grid link -->
@@ -1582,7 +1478,7 @@ onUnmounted(() => {
             <span class="meaning">{{ $t(one.meaningKey) }}</span>
 
             <div class="card-footer-tap">
-              <span>Tap for Tasbeeh & reflection ➔</span>
+              <span>Tap for details & reflection ➔</span>
             </div>
           </div>
         </div>
@@ -1627,20 +1523,7 @@ onUnmounted(() => {
           </button>
         </div>
 
-        <!-- Tasbeeh Counter in modal -->
-        <div class="modal-dhikr-box q-mt-md">
-          <div class="dhikr-counter-orb" @click="incrementModalDhikr">
-            <div class="dhikr-num">{{ modalDhikrCount }}</div>
-            <div class="dhikr-subtext">Tap to praise • ذكر</div>
-          </div>
-          <button
-            type="button"
-            class="dhikr-reset-btn q-mt-xs"
-            @click="resetModalDhikr"
-          >
-            Reset Count
-          </button>
-        </div>
+
 
         <!-- Modal Controls: Prev, Random, Next, Share -->
         <div class="modal-nav-row q-mt-lg">
@@ -2223,125 +2106,7 @@ onUnmounted(() => {
   }
 }
 
-/* Dhikr Tasbeeh section */
-.hero-dhikr-box {
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px dashed rgba(191, 161, 74, 0.45);
-  border-radius: 1.5rem;
-  padding: 1.2rem 1rem;
-  margin: 1.5rem auto 0 auto;
-  max-width: 440px;
-}
 
-.dhikr-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: #7c6f57;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.8rem;
-}
-
-.dhikr-reset-btn {
-  background: transparent;
-  border: none;
-  color: #947225;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  padding: 0.2rem 0.4rem;
-  border-radius: 6px;
-
-  &:hover {
-    background: rgba(191, 161, 74, 0.15);
-  }
-}
-
-.dhikr-counter-orb {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  margin: 0.5rem auto;
-  background: radial-gradient(circle, #ffffff 0%, #fff7d6 75%, #f2e3ad 100%);
-  border: 3px solid #bfa14a;
-  box-shadow:
-    0 8px 24px rgba(191, 161, 74, 0.25),
-    inset 0 0 12px rgba(191, 161, 74, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  user-select: none;
-  transition:
-    transform 0.1s ease,
-    box-shadow 0.15s ease;
-
-  &:active {
-    transform: scale(0.94);
-    box-shadow: 0 4px 12px rgba(191, 161, 74, 0.35);
-  }
-}
-
-.dhikr-num {
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: #176a3a;
-  line-height: 1;
-}
-
-.dhikr-target {
-  font-size: 0.82rem;
-  color: #7c6f57;
-  font-weight: 600;
-}
-
-.dhikr-subtext {
-  font-size: 0.65rem;
-  color: #8c6d1f;
-  margin-top: 0.2rem;
-}
-
-.target-chips-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.target-title {
-  font-size: 0.8rem;
-  color: #7c6f57;
-  font-weight: 600;
-}
-
-.target-pill {
-  background: transparent;
-  border: 1px solid rgba(191, 161, 74, 0.35);
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #7c6f57;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    border-color: #bfa14a;
-    color: #176a3a;
-  }
-
-  &.active {
-    background: #bfa14a;
-    color: #ffffff;
-    border-color: #bfa14a;
-  }
-}
 
 /* Hero primary actions */
 .hero-actions-row {
@@ -2741,14 +2506,6 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.modal-dhikr-box {
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px dashed rgba(191, 161, 74, 0.45);
-  border-radius: 1.2rem;
-  padding: 1rem;
-  max-width: 320px;
-  margin: 1rem auto;
-}
 
 .modal-nav-row {
   display: flex;
@@ -2913,62 +2670,7 @@ onUnmounted(() => {
     }
   }
 
-  .hero-dhikr-box {
-    background: rgba(20, 20, 20, 0.85);
-    border-color: rgba(191, 161, 74, 0.3);
-  }
 
-  .dhikr-label {
-    color: #a0937a;
-  }
-
-  .dhikr-reset-btn {
-    color: #f1d37a;
-
-    &:hover {
-      background: rgba(191, 161, 74, 0.2);
-    }
-  }
-
-  .dhikr-counter-orb {
-    background: radial-gradient(circle, #252525 0%, #151515 70%, #0d0d0d 100%);
-    border-color: #d4af37;
-    box-shadow:
-      0 8px 28px rgba(0, 0, 0, 0.8),
-      inset 0 0 16px rgba(212, 175, 55, 0.2);
-  }
-
-  .dhikr-num {
-    color: #f1d37a;
-  }
-
-  .dhikr-target {
-    color: #a0937a;
-  }
-
-  .dhikr-subtext {
-    color: #d8bb64;
-  }
-
-  .target-title {
-    color: #a0937a;
-  }
-
-  .target-pill {
-    border-color: rgba(191, 161, 74, 0.3);
-    color: #a0937a;
-
-    &:hover {
-      border-color: #f1d37a;
-      color: #f1d37a;
-    }
-
-    &.active {
-      background: #d4af37;
-      color: #000000;
-      border-color: #d4af37;
-    }
-  }
 
   .cta-random-btn {
     background: linear-gradient(135deg, #f1d37a 0%, #d4af37 100%);
@@ -3148,10 +2850,7 @@ onUnmounted(() => {
     color: #a7d2b4;
   }
 
-  .modal-dhikr-box {
-    background: rgba(20, 20, 20, 0.85);
-    border-color: rgba(191, 161, 74, 0.3);
-  }
+
 
   .nav-arrow-btn {
     background: rgba(20, 20, 20, 0.85);

@@ -3030,6 +3030,7 @@ function handleRecitationSwitchChange(enabled: boolean) {
 }
 
 function pauseAudio() {
+  stopSyncLoop()
   if (audioEl.value && !audioEl.value.paused) {
     audioEl.value.pause()
     isPlayingAudio.value = false
@@ -3049,6 +3050,7 @@ function resumeAudio() {
   if (audioEl.value && audioEl.value.paused) {
     audioEl.value.play()
     isPlayingAudio.value = true
+    startSyncLoop()
     notify({
       type: 'positive',
       message: t('pages.quran.resumed') || 'Resumed',
@@ -3099,6 +3101,29 @@ function resumeTTS() {
   }
 }
 
+let syncRafId: number | null = null
+
+function startSyncLoop() {
+  stopSyncLoop()
+  if (typeof window === 'undefined') return
+  function tick() {
+    if (audioEl.value && !audioEl.value.paused && isPlayingAudio.value) {
+      updateCurrentWord(audioEl.value.currentTime)
+      syncRafId = requestAnimationFrame(tick)
+    } else {
+      syncRafId = null
+    }
+  }
+  syncRafId = requestAnimationFrame(tick)
+}
+
+function stopSyncLoop() {
+  if (syncRafId !== null && typeof window !== 'undefined') {
+    cancelAnimationFrame(syncRafId)
+    syncRafId = null
+  }
+}
+
 function updateCurrentWord(time: number) {
   const idx = currentAyahIndex.value
   if (idx < 0) return
@@ -3130,19 +3155,23 @@ function updateCurrentWord(time: number) {
     }
   }
 
-  // Before the first word's start timestamp, default to word 0 once audio is playing
-  if (found < 0 && timings.length > 0) {
-    found = 0
+  // Before the first word's start timestamp: only match word 0 if within 50ms of beginning
+  if (found < 0) {
+    if (timings.length > 0 && time >= timings[0].start - 0.05) {
+      found = 0
+    }
   }
 
   if (found > maxWordIdx) {
     found = maxWordIdx
   }
 
-  if (found !== currentWordIndex.value && found >= 0) {
+  if (found !== currentWordIndex.value) {
     currentWordIndex.value = found
-    // Scroll to the current word
-    scrollToCurrentWord(idx, found)
+    if (found >= 0) {
+      // Scroll to the current word
+      scrollToCurrentWord(idx, found)
+    }
   }
 }
 
@@ -3329,6 +3358,7 @@ onBeforeRouteLeave(() => {
 
 // Keep-alive hooks (AppShell wraps QuranDetail) — onUnmounted does NOT run when cached
 onDeactivated(() => {
+  stopSyncLoop()
   if (currentAyahIndex.value >= 0) {
     savePlaybackPosition(true)
   }
@@ -3506,6 +3536,7 @@ onActivated(async () => {
 })
 
 onUnmounted(() => {
+  stopSyncLoop()
   persistRecitationBeforeLeave()
   if (typeof window !== 'undefined') {
     window.removeEventListener('beforeunload', handleRecitationBeforeUnload)

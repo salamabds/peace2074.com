@@ -3803,6 +3803,20 @@ watch(
   { immediate: true }
 )
 
+// Expose automation API for synchronized YouTube recording without banners or autoplay lag
+if (typeof window !== 'undefined') {
+  (window as any).__PEACE_RECORDER__ = {
+    isReady: () => Boolean(sura.value) && audioList.value.length > 0 && !loading.value,
+    start: (opts: { withIntro?: boolean } = {}) => {
+      void startAudioRecitation(0, { withIntro: Boolean(opts.withIntro) })
+    },
+    getCurrentAyah: () => currentAyahIndex.value,
+    getCurrentWord: () => currentWordIndex.value,
+    isPlaying: () => isPlayingAudio.value,
+  }
+}
+
+
 onUnmounted(() => {
   stopSyncLoop()
   persistRecitationBeforeLeave()
@@ -3907,6 +3921,7 @@ watch(
 <template>
   <div class="quran-detail-page">
     <q-btn
+      v-if="!route.query.record"
       flat
       class="q-mb-md"
       to="/quran"
@@ -3965,7 +3980,7 @@ watch(
             {{ sura?.total_verses }}
           </div>
         </div>
-        <div class="heading-actions">
+        <div v-if="!route.query.record" class="heading-actions">
           <!-- Shazam Quran Audio Recitation Matcher -->
           <q-btn
             unelevated
@@ -4449,7 +4464,7 @@ watch(
 
       <div v-else-if="layoutMode === 'mushaf'" class="mushaf-layout">
         <!-- Floating tools toggle button -->
-        <button class="tools-toggle-btn" @click="toggleTools" :title="toolsVisible ? 'Hide tools' : 'Show tools'">
+        <button v-if="!route.query.record" class="tools-toggle-btn" @click="toggleTools" :title="toolsVisible ? 'Hide tools' : 'Show tools'">
           <span class="tools-toggle-icon">⚙</span>
           <span class="tools-toggle-chevron" :class="{ 'is-open': toolsVisible }">›</span>
         </button>

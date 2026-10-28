@@ -130,11 +130,16 @@ onMounted(async () => {
   ])
 
   const elapsed = performance.now() - splashStartedAt
-  const remaining = Math.max(0, MIN_SPLASH_MS - elapsed)
+  const isRecording = route.query.record === '1' || route.query.clean === '1'
+  const remaining = isRecording ? 0 : Math.max(0, MIN_SPLASH_MS - elapsed)
 
-  setTimeout(() => {
+  if (isRecording) {
     showSplash.value = false
-  }, remaining)
+  } else {
+    setTimeout(() => {
+      showSplash.value = false
+    }, remaining)
+  }
 
   if (!isNativeRuntime.value) {
     const idle = (window as any).requestIdleCallback as

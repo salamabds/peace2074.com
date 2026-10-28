@@ -10,7 +10,7 @@ const route = useRoute()
 
 onMounted(() => {
   try {
-    if (route.query.native === '1') {
+    if (route.query.native === '1' || route.query.clean === '1' || route.query.record === '1') {
       show.value = false
       return
     }

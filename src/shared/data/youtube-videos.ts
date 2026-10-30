@@ -10,6 +10,296 @@ export default [
     "description": "Recitation of Surah Al-Fatihah (الفاتحة - The Opener), Chapter 1 of the Holy Quran (7 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/1?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:06 - Ayah 2\n00:11 - Ayah 3\n00:16 - Ayah 4\n00:20 - Ayah 5\n00:27 - Ayah 6\n00:32 - Ayah 7\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
+    "id": "xXhVL7moojo",
+    "surahId": 2,
+    "title": "Surah 2. Al-Baqarah (البقرة) — Chapter 2 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=xXhVL7moojo",
+    "embedUrl": "https://www.youtube.com/embed/xXhVL7moojo?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/xXhVL7moojo/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Baqarah (البقرة - The Cow), Chapter 2 of the Holy Quran (286 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/2?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "4KPonjqvg3w",
+    "surahId": 3,
+    "title": "Surah 3. Ali 'Imran (آل عمران) — Chapter 3 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=4KPonjqvg3w",
+    "embedUrl": "https://www.youtube.com/embed/4KPonjqvg3w?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/4KPonjqvg3w/hqdefault.jpg",
+    "description": "Recitation of Surah Ali 'Imran (آل عمران - Family of Imran), Chapter 3 of the Holy Quran (200 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/3?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "sTxuv3Dlx3w",
+    "surahId": 4,
+    "title": "Surah 4. An-Nisa (النساء) — Chapter 4 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=sTxuv3Dlx3w",
+    "embedUrl": "https://www.youtube.com/embed/sTxuv3Dlx3w?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/sTxuv3Dlx3w/hqdefault.jpg",
+    "description": "Recitation of Surah An-Nisa (النساء - The Women), Chapter 4 of the Holy Quran (176 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/4?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "_oOFKSV8HYM",
+    "surahId": 5,
+    "title": "Surah 5. Al-Ma'idah (المائدة) — Chapter 5 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=_oOFKSV8HYM",
+    "embedUrl": "https://www.youtube.com/embed/_oOFKSV8HYM?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/_oOFKSV8HYM/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Ma'idah (المائدة - The Table Spread), Chapter 5 of the Holy Quran (120 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/5?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "Bg8llVN4g7Y",
+    "surahId": 6,
+    "title": "Surah 6. Al-An'am (الأنعام) — Chapter 6 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=Bg8llVN4g7Y",
+    "embedUrl": "https://www.youtube.com/embed/Bg8llVN4g7Y?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/Bg8llVN4g7Y/hqdefault.jpg",
+    "description": "Recitation of Surah Al-An'am (الأنعام - The Cattle), Chapter 6 of the Holy Quran (165 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/6?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "zRXTQUj0pKI",
+    "surahId": 7,
+    "title": "Surah 7. Al-A'raf (الأعراف) — Chapter 7 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=zRXTQUj0pKI",
+    "embedUrl": "https://www.youtube.com/embed/zRXTQUj0pKI?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/zRXTQUj0pKI/hqdefault.jpg",
+    "description": "Recitation of Surah Al-A'raf (الأعراف - The Heights), Chapter 7 of the Holy Quran (206 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/7?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "QqzM8x4ryL4",
+    "surahId": 8,
+    "title": "Surah 8. Al-Anfal (الأنفال) — Chapter 8 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=QqzM8x4ryL4",
+    "embedUrl": "https://www.youtube.com/embed/QqzM8x4ryL4?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/QqzM8x4ryL4/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Anfal (الأنفال - The Spoils of War), Chapter 8 of the Holy Quran (75 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/8?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "3G0M_ibsmVs",
+    "surahId": 9,
+    "title": "Surah 9. At-Tawbah (التوبة) — Chapter 9 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=3G0M_ibsmVs",
+    "embedUrl": "https://www.youtube.com/embed/3G0M_ibsmVs?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/3G0M_ibsmVs/hqdefault.jpg",
+    "description": "Recitation of Surah At-Tawbah (التوبة - The Repentance), Chapter 9 of the Holy Quran (129 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/9?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "TbVg8Ym9unY",
+    "surahId": 10,
+    "title": "Surah 10. Yunus (يونس) — Chapter 10 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=TbVg8Ym9unY",
+    "embedUrl": "https://www.youtube.com/embed/TbVg8Ym9unY?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/TbVg8Ym9unY/hqdefault.jpg",
+    "description": "Recitation of Surah Yunus (يونس - Jonah), Chapter 10 of the Holy Quran (109 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/10?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "q9QSyHkgZPs",
+    "surahId": 11,
+    "title": "Surah 11. Hud (هود) — Chapter 11 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=q9QSyHkgZPs",
+    "embedUrl": "https://www.youtube.com/embed/q9QSyHkgZPs?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/q9QSyHkgZPs/hqdefault.jpg",
+    "description": "Recitation of Surah Hud (هود - Hud), Chapter 11 of the Holy Quran (123 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/11?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "i3bdC56pCHc",
+    "surahId": 12,
+    "title": "Surah 12. Yusuf (يوسف) — Chapter 12 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=i3bdC56pCHc",
+    "embedUrl": "https://www.youtube.com/embed/i3bdC56pCHc?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/i3bdC56pCHc/hqdefault.jpg",
+    "description": "Recitation of Surah Yusuf (يوسف - Joseph), Chapter 12 of the Holy Quran (111 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/12?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "TASQxP7jZGo",
+    "surahId": 13,
+    "title": "Surah 13. Ar-Ra'd (الرعد) — Chapter 13 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=TASQxP7jZGo",
+    "embedUrl": "https://www.youtube.com/embed/TASQxP7jZGo?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/TASQxP7jZGo/hqdefault.jpg",
+    "description": "Recitation of Surah Ar-Ra'd (الرعد - The Thunder), Chapter 13 of the Holy Quran (43 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/13?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "fAVWQWHFjMw",
+    "surahId": 14,
+    "title": "Surah 14. Ibrahim (ابراهيم) — Chapter 14 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=fAVWQWHFjMw",
+    "embedUrl": "https://www.youtube.com/embed/fAVWQWHFjMw?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/fAVWQWHFjMw/hqdefault.jpg",
+    "description": "Recitation of Surah Ibrahim (ابراهيم - Abraham), Chapter 14 of the Holy Quran (52 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/14?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "nAAfgJDWcgw",
+    "surahId": 15,
+    "title": "Surah 15. Al-Hijr (الحجر) — Chapter 15 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=nAAfgJDWcgw",
+    "embedUrl": "https://www.youtube.com/embed/nAAfgJDWcgw?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/nAAfgJDWcgw/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Hijr (الحجر - The Rocky Tract), Chapter 15 of the Holy Quran (99 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/15?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "K9i3PZe3GwE",
+    "surahId": 16,
+    "title": "Surah 16. An-Nahl (النحل) — Chapter 16 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=K9i3PZe3GwE",
+    "embedUrl": "https://www.youtube.com/embed/K9i3PZe3GwE?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/K9i3PZe3GwE/hqdefault.jpg",
+    "description": "Recitation of Surah An-Nahl (النحل - The Bee), Chapter 16 of the Holy Quran (128 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/16?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "fPJ6ZN7-y-c",
+    "surahId": 17,
+    "title": "Surah 17. Al-Isra (الإسراء) — Chapter 17 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=fPJ6ZN7-y-c",
+    "embedUrl": "https://www.youtube.com/embed/fPJ6ZN7-y-c?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/fPJ6ZN7-y-c/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Isra (الإسراء - The Night Journey), Chapter 17 of the Holy Quran (111 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/17?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "1NsXDloW9OY",
+    "surahId": 18,
+    "title": "Surah 18. Al-Kahf (الكهف) — Chapter 18 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=1NsXDloW9OY",
+    "embedUrl": "https://www.youtube.com/embed/1NsXDloW9OY?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/1NsXDloW9OY/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Kahf (الكهف - The Cave), Chapter 18 of the Holy Quran (110 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/18?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "E9vOKGjQHI8",
+    "surahId": 19,
+    "title": "Surah 19. Maryam (مريم) — Chapter 19 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=E9vOKGjQHI8",
+    "embedUrl": "https://www.youtube.com/embed/E9vOKGjQHI8?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/E9vOKGjQHI8/hqdefault.jpg",
+    "description": "Recitation of Surah Maryam (مريم - Mary), Chapter 19 of the Holy Quran (98 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/19?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:13 - Ayah 2\n00:19 - Ayah 3\n00:26 - Ayah 4\n00:43 - Ayah 5\n00:59 - Ayah 6\n01:07 - Ayah 7\n01:22 - Ayah 8\n01:36 - Ayah 9\n01:48 - Ayah 10\n02:03 - Ayah 11\n02:17 - Ayah 12\n02:27 - Ayah 13\n02:35 - Ayah 14\n02:44 - Ayah 15\n02:53 - Ayah 16\n03:04 - Ayah 17\n03:25 - Ayah 18\n03:37 - Ayah 19\n03:48 - Ayah 20\n04:00 - Ayah 21\n04:30 - Ayah 22\n04:38 - Ayah 23\n05:01 - Ayah 24\n05:13 - Ayah 25\n05:25 - Ayah 26\n05:58 - Ayah 27\n06:10 - Ayah 28\n06:23 - Ayah 29\n06:36 - Ayah 30\n06:46 - Ayah 31\n06:59 - Ayah 32\n07:08 - Ayah 33\n07:18 - Ayah 34\n07:28 - Ayah 35\n07:50 - Ayah 36\n08:04 - Ayah 37\n08:22 - Ayah 38\n08:36 - Ayah 39\n08:49 - Ayah 40\n09:00 - Ayah 41\n09:12 - Ayah 42\n09:26 - Ayah 43\n09:46 - Ayah 44\n10:00 - Ayah 45\n10:17 - Ayah 46\n10:36 - Ayah 47\n10:48 - Ayah 48\n11:07 - Ayah 49\n11:27 - Ayah 50\n11:38 - Ayah 51\n11:51 - Ayah 52\n12:01 - Ayah 53\n12:10 - Ayah 54\n12:24 - Ayah 55\n12:36 - Ayah 56\n12:47 - Ayah 57\n12:51 - Ayah 58\n13:36 - Ayah 59\n13:48 - Ayah 60\n14:04 - Ayah 61\n14:19 - Ayah 62\n14:32 - Ayah 63\n14:42 - Ayah 64\n14:59 - Ayah 65\n15:13 - Ayah 66\n15:21 - Ayah 67\n15:33 - Ayah 68\n15:52 - Ayah 69\n16:05 - Ayah 70\n16:13 - Ayah 71\n16:25 - Ayah 72\n16:34 - Ayah 73\n16:59 - Ayah 74\n17:09 - Ayah 75\n17:42 - Ayah 76\n17:59 - Ayah 77\n18:11 - Ayah 78\n18:18 - Ayah 79\n18:27 - Ayah 80\n18:33 - Ayah 81\n18:41 - Ayah 82\n18:50 - Ayah 83\n19:02 - Ayah 84\n19:10 - Ayah 85\n19:16 - Ayah 86\n19:23 - Ayah 87\n19:32 - Ayah 88\n19:37 - Ayah 89\n19:41 - Ayah 90\n19:53 - Ayah 91\n19:57 - Ayah 92\n20:05 - Ayah 93\n20:17 - Ayah 94\n20:22 - Ayah 95\n20:28 - Ayah 96\n20:39 - Ayah 97\n20:52 - Ayah 98\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "AbDm5Q0BaXs",
+    "surahId": 20,
+    "title": "Surah 20. Taha (طه) — Chapter 20 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=AbDm5Q0BaXs",
+    "embedUrl": "https://www.youtube.com/embed/AbDm5Q0BaXs?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/AbDm5Q0BaXs/hqdefault.jpg",
+    "description": "Recitation of Surah Taha (طه - Ta-Ha), Chapter 20 of the Holy Quran (135 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/20?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:01 - Ayah 2\n00:10 - Ayah 3\n00:15 - Ayah 4\n00:25 - Ayah 5\n00:29 - Ayah 6\n00:39 - Ayah 7\n00:47 - Ayah 8\n00:57 - Ayah 9\n01:01 - Ayah 10\n01:31 - Ayah 11\n01:39 - Ayah 12\n01:52 - Ayah 13\n01:57 - Ayah 14\n02:13 - Ayah 15\n02:25 - Ayah 16\n02:35 - Ayah 17\n02:40 - Ayah 18\n02:52 - Ayah 19\n02:56 - Ayah 20\n03:02 - Ayah 21\n03:10 - Ayah 22\n03:23 - Ayah 23\n03:28 - Ayah 24\n03:33 - Ayah 25\n03:37 - Ayah 26\n03:42 - Ayah 27\n03:46 - Ayah 28\n03:49 - Ayah 29\n03:53 - Ayah 30\n03:56 - Ayah 31\n04:00 - Ayah 32\n04:04 - Ayah 33\n04:07 - Ayah 34\n04:10 - Ayah 35\n04:16 - Ayah 36\n04:21 - Ayah 37\n04:27 - Ayah 38\n04:35 - Ayah 39\n04:59 - Ayah 40\n05:39 - Ayah 41\n05:42 - Ayah 42\n05:50 - Ayah 43\n05:57 - Ayah 44\n06:06 - Ayah 45\n06:19 - Ayah 46\n06:28 - Ayah 47\n06:54 - Ayah 48\n07:07 - Ayah 49\n07:11 - Ayah 50\n07:21 - Ayah 51\n07:26 - Ayah 52\n07:38 - Ayah 53\n08:06 - Ayah 54\n08:16 - Ayah 55\n08:30 - Ayah 56\n08:37 - Ayah 57\n08:44 - Ayah 58\n09:03 - Ayah 59\n09:11 - Ayah 60\n09:18 - Ayah 61\n09:35 - Ayah 62\n09:44 - Ayah 63\n10:06 - Ayah 64\n10:16 - Ayah 65\n10:32 - Ayah 66\n10:45 - Ayah 67\n10:51 - Ayah 68\n10:57 - Ayah 69\n11:12 - Ayah 70\n11:24 - Ayah 71\n12:03 - Ayah 72\n12:28 - Ayah 73\n12:49 - Ayah 74\n13:04 - Ayah 75\n13:17 - Ayah 76\n13:35 - Ayah 77\n13:56 - Ayah 78\n14:06 - Ayah 79\n14:11 - Ayah 80\n14:33 - Ayah 81\n14:49 - Ayah 82\n15:02 - Ayah 83\n15:08 - Ayah 84\n15:18 - Ayah 85\n15:28 - Ayah 86\n15:55 - Ayah 87\n16:23 - Ayah 88\n16:38 - Ayah 89\n16:50 - Ayah 90\n17:10 - Ayah 91\n17:19 - Ayah 92\n17:26 - Ayah 93\n17:31 - Ayah 94\n17:52 - Ayah 95\n17:56 - Ayah 96\n18:14 - Ayah 97\n18:47 - Ayah 98\n19:01 - Ayah 99\n19:15 - Ayah 100\n19:24 - Ayah 101\n19:34 - Ayah 102\n19:43 - Ayah 103\n19:49 - Ayah 104\n20:00 - Ayah 105\n20:08 - Ayah 106\n20:13 - Ayah 107\n20:20 - Ayah 108\n20:35 - Ayah 109\n20:52 - Ayah 110\n21:01 - Ayah 111\n21:11 - Ayah 112\n21:23 - Ayah 113\n21:44 - Ayah 114\n22:02 - Ayah 115\n22:13 - Ayah 116\n22:26 - Ayah 117\n22:41 - Ayah 118\n22:47 - Ayah 119\n22:53 - Ayah 120\n23:06 - Ayah 121\n23:24 - Ayah 122\n23:31 - Ayah 123\n23:50 - Ayah 124\n24:05 - Ayah 125\n24:14 - Ayah 126\n24:24 - Ayah 127\n24:37 - Ayah 128\n24:53 - Ayah 129\n25:04 - Ayah 130\n25:25 - Ayah 131\n25:51 - Ayah 132\n26:05 - Ayah 133\n26:18 - Ayah 134\n26:45 - Ayah 135\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "K-fZw-VSFTc",
+    "surahId": 21,
+    "title": "Surah 21. Al-Anbya (الأنبياء) — Chapter 21 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=K-fZw-VSFTc",
+    "embedUrl": "https://www.youtube.com/embed/K-fZw-VSFTc?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/K-fZw-VSFTc/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Anbya (الأنبياء - The Prophets), Chapter 21 of the Holy Quran (112 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/21?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:10 - Ayah 2\n00:23 - Ayah 3\n00:43 - Ayah 4\n00:54 - Ayah 5\n01:14 - Ayah 6\n01:26 - Ayah 7\n01:45 - Ayah 8\n01:55 - Ayah 9\n02:07 - Ayah 10\n02:19 - Ayah 11\n02:32 - Ayah 12\n02:44 - Ayah 13\n03:00 - Ayah 14\n03:09 - Ayah 15\n03:19 - Ayah 16\n03:27 - Ayah 17\n03:42 - Ayah 18\n03:54 - Ayah 19\n04:09 - Ayah 20\n04:16 - Ayah 21\n04:25 - Ayah 22\n04:41 - Ayah 23\n04:48 - Ayah 24\n05:12 - Ayah 25\n05:30 - Ayah 26\n05:41 - Ayah 27\n05:49 - Ayah 28\n06:03 - Ayah 29\n06:20 - Ayah 30\n06:43 - Ayah 31\n06:57 - Ayah 32\n07:09 - Ayah 33\n07:21 - Ayah 34\n07:32 - Ayah 35\n07:50 - Ayah 36\n08:13 - Ayah 37\n08:23 - Ayah 38\n08:32 - Ayah 39\n09:00 - Ayah 40\n09:14 - Ayah 41\n09:28 - Ayah 42\n09:46 - Ayah 43\n10:04 - Ayah 44\n10:29 - Ayah 45\n10:46 - Ayah 46\n11:08 - Ayah 47\n11:32 - Ayah 48\n11:45 - Ayah 49\n11:55 - Ayah 50\n12:08 - Ayah 51\n12:20 - Ayah 52\n12:33 - Ayah 53\n12:41 - Ayah 54\n12:53 - Ayah 55\n13:02 - Ayah 56\n13:15 - Ayah 57\n13:26 - Ayah 58\n13:35 - Ayah 59\n13:47 - Ayah 60\n13:57 - Ayah 61\n14:07 - Ayah 62\n14:18 - Ayah 63\n14:29 - Ayah 64\n14:42 - Ayah 65\n14:55 - Ayah 66\n15:06 - Ayah 67\n15:19 - Ayah 68\n15:30 - Ayah 69\n15:41 - Ayah 70\n15:49 - Ayah 71\n15:59 - Ayah 72\n16:10 - Ayah 73\n16:38 - Ayah 74\n16:59 - Ayah 75\n17:08 - Ayah 76\n17:20 - Ayah 77\n17:37 - Ayah 78\n17:56 - Ayah 79\n18:16 - Ayah 80\n18:29 - Ayah 81\n18:48 - Ayah 82\n19:03 - Ayah 83\n19:17 - Ayah 84\n19:43 - Ayah 85\n19:52 - Ayah 86\n20:01 - Ayah 87\n20:27 - Ayah 88\n20:39 - Ayah 89\n20:53 - Ayah 90\n21:15 - Ayah 91\n21:34 - Ayah 92\n21:48 - Ayah 93\n21:57 - Ayah 94\n22:12 - Ayah 95\n22:23 - Ayah 96\n22:37 - Ayah 97\n22:55 - Ayah 98\n23:09 - Ayah 99\n23:23 - Ayah 100\n23:30 - Ayah 101\n23:44 - Ayah 102\n23:53 - Ayah 103\n24:09 - Ayah 104\n24:32 - Ayah 105\n24:44 - Ayah 106\n24:52 - Ayah 107\n25:00 - Ayah 108\n25:16 - Ayah 109\n25:34 - Ayah 110\n25:42 - Ayah 111\n25:51 - Ayah 112\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "W-2zvq7prlY",
+    "surahId": 22,
+    "title": "Surah 22. Al-Hajj (الحج) — Chapter 22 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=W-2zvq7prlY",
+    "embedUrl": "https://www.youtube.com/embed/W-2zvq7prlY?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/W-2zvq7prlY/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Hajj (الحج - The Pilgrimage), Chapter 22 of the Holy Quran (78 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/22?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:13 - Ayah 2\n00:43 - Ayah 3\n00:56 - Ayah 4\n01:10 - Ayah 5\n01:10 - Ayah 6\n01:26 - Ayah 7\n01:39 - Ayah 8\n01:54 - Ayah 9\n02:13 - Ayah 10\n02:24 - Ayah 11\n02:51 - Ayah 12\n03:06 - Ayah 13\n03:20 - Ayah 14\n03:41 - Ayah 15\n04:14 - Ayah 16\n04:28 - Ayah 17\n04:56 - Ayah 18\n05:43 - Ayah 19\n06:04 - Ayah 20\n06:12 - Ayah 21\n06:18 - Ayah 22\n06:37 - Ayah 23\n07:13 - Ayah 24\n07:27 - Ayah 25\n08:08 - Ayah 26\n08:32 - Ayah 27\n08:48 - Ayah 28\n09:19 - Ayah 29\n09:31 - Ayah 30\n09:55 - Ayah 31\n10:25 - Ayah 32\n10:39 - Ayah 33\n10:56 - Ayah 34\n11:27 - Ayah 35\n11:53 - Ayah 36\n12:32 - Ayah 37\n12:58 - Ayah 38\n13:13 - Ayah 39\n13:27 - Ayah 40\n13:27 - Ayah 41\n13:51 - Ayah 42\n14:03 - Ayah 43\n14:09 - Ayah 44\n14:24 - Ayah 45\n14:50 - Ayah 46\n15:17 - Ayah 47\n15:37 - Ayah 48\n15:56 - Ayah 49\n16:09 - Ayah 50\n16:22 - Ayah 51\n16:35 - Ayah 52\n17:17 - Ayah 53\n17:39 - Ayah 54\n18:05 - Ayah 55\n18:27 - Ayah 56\n18:44 - Ayah 57\n18:58 - Ayah 58\n19:25 - Ayah 59\n19:38 - Ayah 60\n19:59 - Ayah 61\n20:18 - Ayah 62\n20:44 - Ayah 63\n21:03 - Ayah 64\n21:15 - Ayah 65\n21:46 - Ayah 66\n22:02 - Ayah 67\n22:24 - Ayah 68\n22:33 - Ayah 69\n22:45 - Ayah 70\n23:05 - Ayah 71\n23:23 - Ayah 72\n24:01 - Ayah 73\n24:37 - Ayah 74\n24:48 - Ayah 75\n25:06 - Ayah 76\n25:17 - Ayah 77\n25:36 - Ayah 78\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "mPLPLYe41tQ",
+    "surahId": 23,
+    "title": "Surah 23. Al-Mu'minun (المؤمنون) — Chapter 23 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=mPLPLYe41tQ",
+    "embedUrl": "https://www.youtube.com/embed/mPLPLYe41tQ?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/mPLPLYe41tQ/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Mu'minun (المؤمنون - The Believers), Chapter 23 of the Holy Quran (118 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/23?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:06 - Ayah 2\n00:13 - Ayah 3\n00:20 - Ayah 4\n00:28 - Ayah 5\n00:36 - Ayah 6\n00:50 - Ayah 7\n01:02 - Ayah 8\n01:11 - Ayah 9\n01:19 - Ayah 10\n01:26 - Ayah 11\n01:35 - Ayah 12\n01:47 - Ayah 13\n01:56 - Ayah 14\n02:30 - Ayah 15\n02:39 - Ayah 16\n02:47 - Ayah 17\n03:00 - Ayah 18\n03:22 - Ayah 19\n03:45 - Ayah 20\n04:00 - Ayah 21\n04:19 - Ayah 22\n04:25 - Ayah 23\n04:41 - Ayah 24\n05:19 - Ayah 25\n05:31 - Ayah 26\n05:39 - Ayah 27\n06:22 - Ayah 28\n06:37 - Ayah 29\n06:51 - Ayah 30\n07:02 - Ayah 31\n07:10 - Ayah 32\n07:26 - Ayah 33\n08:03 - Ayah 34\n08:14 - Ayah 35\n08:28 - Ayah 36\n08:34 - Ayah 37\n08:45 - Ayah 38\n08:55 - Ayah 39\n09:02 - Ayah 40\n09:10 - Ayah 41\n09:24 - Ayah 42\n09:32 - Ayah 43\n09:41 - Ayah 44\n10:09 - Ayah 45\n10:21 - Ayah 46\n10:29 - Ayah 47\n10:40 - Ayah 48\n10:46 - Ayah 49\n10:55 - Ayah 50\n11:15 - Ayah 51\n11:30 - Ayah 52\n11:44 - Ayah 53\n11:57 - Ayah 54\n12:03 - Ayah 55\n12:13 - Ayah 56\n12:22 - Ayah 57\n12:31 - Ayah 58\n12:38 - Ayah 59\n12:45 - Ayah 60\n12:58 - Ayah 61\n13:08 - Ayah 62\n13:22 - Ayah 63\n13:36 - Ayah 64\n13:49 - Ayah 65\n14:01 - Ayah 66\n14:14 - Ayah 67\n14:21 - Ayah 68\n14:35 - Ayah 69\n14:43 - Ayah 70\n14:58 - Ayah 71\n15:20 - Ayah 72\n15:32 - Ayah 73\n15:41 - Ayah 74\n15:51 - Ayah 75\n16:03 - Ayah 76\n16:15 - Ayah 77\n16:31 - Ayah 78\n16:44 - Ayah 79\n16:52 - Ayah 80\n17:06 - Ayah 81\n17:13 - Ayah 82\n17:26 - Ayah 83\n17:42 - Ayah 84\n17:53 - Ayah 85\n18:01 - Ayah 86\n18:09 - Ayah 87\n18:18 - Ayah 88\n18:32 - Ayah 89\n18:41 - Ayah 90\n18:50 - Ayah 91\n19:12 - Ayah 92\n19:21 - Ayah 93\n19:29 - Ayah 94\n19:37 - Ayah 95\n19:46 - Ayah 96\n19:55 - Ayah 97\n20:02 - Ayah 98\n20:08 - Ayah 99\n20:19 - Ayah 100\n20:45 - Ayah 101\n20:59 - Ayah 102\n21:09 - Ayah 103\n21:27 - Ayah 104\n21:35 - Ayah 105\n21:46 - Ayah 106\n22:01 - Ayah 107\n22:11 - Ayah 108\n22:18 - Ayah 109\n22:46 - Ayah 110\n23:01 - Ayah 111\n23:14 - Ayah 112\n23:21 - Ayah 113\n23:33 - Ayah 114\n23:44 - Ayah 115\n23:56 - Ayah 116\n24:09 - Ayah 117\n24:30 - Ayah 118\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "QkaCe3PJKp8",
+    "surahId": 24,
+    "title": "Surah 24. An-Nur (النور) — Chapter 24 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=QkaCe3PJKp8",
+    "embedUrl": "https://www.youtube.com/embed/QkaCe3PJKp8?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/QkaCe3PJKp8/hqdefault.jpg",
+    "description": "Recitation of Surah An-Nur (النور - The Light), Chapter 24 of the Holy Quran (64 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/24?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:30 - Ayah 2\n01:06 - Ayah 3\n01:31 - Ayah 4\n02:02 - Ayah 5\n02:16 - Ayah 6\n02:45 - Ayah 7\n02:57 - Ayah 8\n03:13 - Ayah 9\n03:25 - Ayah 10\n03:38 - Ayah 11\n04:08 - Ayah 12\n04:29 - Ayah 13\n04:51 - Ayah 14\n05:10 - Ayah 15\n05:45 - Ayah 16\n06:05 - Ayah 17\n06:19 - Ayah 18\n06:33 - Ayah 19\n06:59 - Ayah 20\n07:10 - Ayah 21\n08:05 - Ayah 22\n08:38 - Ayah 23\n08:57 - Ayah 24\n09:11 - Ayah 25\n09:29 - Ayah 26\n10:06 - Ayah 27\n10:30 - Ayah 28\n10:53 - Ayah 29\n11:11 - Ayah 30\n11:30 - Ayah 31\n13:31 - Ayah 32\n13:56 - Ayah 33\n13:56 - Ayah 34\n14:19 - Ayah 35\n15:40 - Ayah 36\n15:59 - Ayah 37\n16:34 - Ayah 38\n16:53 - Ayah 39\n17:41 - Ayah 40\n18:21 - Ayah 41\n18:49 - Ayah 42\n18:59 - Ayah 43\n20:01 - Ayah 44\n20:15 - Ayah 45\n20:57 - Ayah 46\n21:19 - Ayah 47\n21:44 - Ayah 48\n21:59 - Ayah 49\n22:10 - Ayah 50\n22:32 - Ayah 51\n23:00 - Ayah 52\n23:16 - Ayah 53\n23:41 - Ayah 54\n24:11 - Ayah 55\n25:09 - Ayah 56\n25:20 - Ayah 57\n25:38 - Ayah 58\n26:40 - Ayah 59\n27:02 - Ayah 60\n27:39 - Ayah 61\n29:31 - Ayah 62\n30:26 - Ayah 63\n31:06 - Ayah 64\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "L8i9W_VF5h8",
+    "surahId": 25,
+    "title": "Surah 25. Al-Furqan (الفرقان) — Chapter 25 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=L8i9W_VF5h8",
+    "embedUrl": "https://www.youtube.com/embed/L8i9W_VF5h8?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/L8i9W_VF5h8/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Furqan (الفرقان - The Criterion), Chapter 25 of the Holy Quran (77 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/25?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:11 - Ayah 2\n00:39 - Ayah 3\n01:15 - Ayah 4\n01:39 - Ayah 5\n01:51 - Ayah 6\n02:05 - Ayah 7\n02:28 - Ayah 8\n02:50 - Ayah 9\n03:02 - Ayah 10\n03:27 - Ayah 11\n03:37 - Ayah 12\n03:50 - Ayah 13\n04:02 - Ayah 14\n04:12 - Ayah 15\n04:30 - Ayah 16\n04:44 - Ayah 17\n05:14 - Ayah 18\n05:43 - Ayah 19\n06:04 - Ayah 20\n06:33 - Ayah 21\n06:58 - Ayah 22\n07:12 - Ayah 23\n07:25 - Ayah 24\n07:36 - Ayah 25\n07:49 - Ayah 26\n08:01 - Ayah 27\n08:12 - Ayah 28\n08:19 - Ayah 29\n08:33 - Ayah 30\n08:43 - Ayah 31\n08:59 - Ayah 32\n09:16 - Ayah 33\n09:25 - Ayah 34\n09:44 - Ayah 35\n09:55 - Ayah 36\n10:09 - Ayah 37\n10:27 - Ayah 38\n10:37 - Ayah 39\n10:49 - Ayah 40\n11:07 - Ayah 41\n11:18 - Ayah 42\n11:38 - Ayah 43\n11:47 - Ayah 44\n12:04 - Ayah 45\n12:20 - Ayah 46\n12:27 - Ayah 47\n12:39 - Ayah 48\n12:58 - Ayah 49\n13:13 - Ayah 50\n13:26 - Ayah 51\n13:33 - Ayah 52\n13:42 - Ayah 53\n14:03 - Ayah 54\n14:17 - Ayah 55\n14:31 - Ayah 56\n14:39 - Ayah 57\n14:54 - Ayah 58\n15:07 - Ayah 59\n15:25 - Ayah 60\n15:43 - Ayah 61\n15:56 - Ayah 62\n16:09 - Ayah 63\n16:23 - Ayah 64\n16:31 - Ayah 65\n16:45 - Ayah 66\n16:53 - Ayah 67\n17:06 - Ayah 68\n17:29 - Ayah 69\n17:38 - Ayah 70\n18:04 - Ayah 71\n18:15 - Ayah 72\n18:25 - Ayah 73\n18:38 - Ayah 74\n18:55 - Ayah 75\n19:09 - Ayah 76\n19:16 - Ayah 77\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "EcMhuow-wMA",
+    "surahId": 26,
+    "title": "Surah 26. Ash-Shu'ara (الشعراء) — Chapter 26 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=EcMhuow-wMA",
+    "embedUrl": "https://www.youtube.com/embed/EcMhuow-wMA?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/EcMhuow-wMA/hqdefault.jpg",
+    "description": "Recitation of Surah Ash-Shu'ara (الشعراء - The Poets), Chapter 26 of the Holy Quran (227 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/26?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:08 - Ayah 2\n00:13 - Ayah 3\n00:21 - Ayah 4\n00:37 - Ayah 5\n00:50 - Ayah 6\n01:03 - Ayah 7\n01:15 - Ayah 8\n01:25 - Ayah 9\n01:32 - Ayah 10\n01:41 - Ayah 11\n01:48 - Ayah 12\n01:58 - Ayah 13\n02:08 - Ayah 14\n02:17 - Ayah 15\n02:29 - Ayah 16\n02:40 - Ayah 17\n02:51 - Ayah 18\n03:01 - Ayah 19\n03:10 - Ayah 20\n03:22 - Ayah 21\n03:36 - Ayah 22\n03:50 - Ayah 23\n03:56 - Ayah 24\n04:09 - Ayah 25\n04:17 - Ayah 26\n04:26 - Ayah 27\n04:36 - Ayah 28\n04:49 - Ayah 29\n05:00 - Ayah 30\n05:07 - Ayah 31\n05:16 - Ayah 32\n05:24 - Ayah 33\n05:34 - Ayah 34\n05:43 - Ayah 35\n05:55 - Ayah 36\n06:05 - Ayah 37\n06:12 - Ayah 38\n06:19 - Ayah 39\n06:27 - Ayah 40\n06:36 - Ayah 41\n06:51 - Ayah 42\n06:59 - Ayah 43\n07:11 - Ayah 44\n07:24 - Ayah 45\n07:33 - Ayah 46\n07:38 - Ayah 47\n07:46 - Ayah 48\n07:51 - Ayah 49\n08:21 - Ayah 50\n08:34 - Ayah 51\n08:52 - Ayah 52\n09:07 - Ayah 53\n09:16 - Ayah 54\n09:26 - Ayah 55\n09:34 - Ayah 56\n09:39 - Ayah 57\n09:48 - Ayah 58\n09:55 - Ayah 59\n10:05 - Ayah 60\n10:10 - Ayah 61\n10:24 - Ayah 62\n10:32 - Ayah 63\n10:50 - Ayah 64\n10:56 - Ayah 65\n11:06 - Ayah 66\n11:12 - Ayah 67\n11:23 - Ayah 68\n11:31 - Ayah 69\n11:36 - Ayah 70\n11:43 - Ayah 71\n11:51 - Ayah 72\n11:57 - Ayah 73\n12:04 - Ayah 74\n12:13 - Ayah 75\n12:21 - Ayah 76\n12:29 - Ayah 77\n12:38 - Ayah 78\n12:44 - Ayah 79\n12:50 - Ayah 80\n12:55 - Ayah 81\n13:02 - Ayah 82\n13:13 - Ayah 83\n13:21 - Ayah 84\n13:29 - Ayah 85\n13:37 - Ayah 86\n13:49 - Ayah 87\n13:55 - Ayah 88\n14:03 - Ayah 89\n14:10 - Ayah 90\n14:17 - Ayah 91\n14:23 - Ayah 92\n14:30 - Ayah 93\n14:41 - Ayah 94\n14:46 - Ayah 95\n14:52 - Ayah 96\n14:57 - Ayah 97\n15:06 - Ayah 98\n15:13 - Ayah 99\n15:22 - Ayah 100\n15:28 - Ayah 101\n15:32 - Ayah 102\n15:41 - Ayah 103\n15:52 - Ayah 104\n16:01 - Ayah 105\n16:06 - Ayah 106\n16:14 - Ayah 107\n16:20 - Ayah 108\n16:24 - Ayah 109\n16:36 - Ayah 110\n16:41 - Ayah 111\n16:49 - Ayah 112\n16:55 - Ayah 113\n17:03 - Ayah 114\n17:09 - Ayah 115\n17:15 - Ayah 116\n17:26 - Ayah 117\n17:32 - Ayah 118\n17:43 - Ayah 119\n17:52 - Ayah 120\n17:58 - Ayah 121\n18:09 - Ayah 122\n18:17 - Ayah 123\n18:22 - Ayah 124\n18:29 - Ayah 125\n18:35 - Ayah 126\n18:39 - Ayah 127\n18:51 - Ayah 128\n18:59 - Ayah 129\n19:06 - Ayah 130\n19:12 - Ayah 131\n19:17 - Ayah 132\n19:25 - Ayah 133\n19:32 - Ayah 134\n19:38 - Ayah 135\n19:47 - Ayah 136\n19:59 - Ayah 137\n20:06 - Ayah 138\n20:11 - Ayah 139\n20:25 - Ayah 140\n20:33 - Ayah 141\n20:38 - Ayah 142\n20:46 - Ayah 143\n20:52 - Ayah 144\n20:57 - Ayah 145\n21:08 - Ayah 146\n21:16 - Ayah 147\n21:22 - Ayah 148\n21:30 - Ayah 149\n21:38 - Ayah 150\n21:43 - Ayah 151\n21:50 - Ayah 152\n21:57 - Ayah 153\n22:07 - Ayah 154\n22:21 - Ayah 155\n22:31 - Ayah 156\n22:42 - Ayah 157\n22:48 - Ayah 158\n23:04 - Ayah 159\n23:12 - Ayah 160\n23:19 - Ayah 161\n23:26 - Ayah 162\n23:32 - Ayah 163\n23:37 - Ayah 164\n23:50 - Ayah 165\n23:56 - Ayah 166\n24:09 - Ayah 167\n24:19 - Ayah 168\n24:27 - Ayah 169\n24:34 - Ayah 170\n24:42 - Ayah 171\n24:48 - Ayah 172\n24:54 - Ayah 173\n25:05 - Ayah 174\n25:16 - Ayah 175\n25:24 - Ayah 176\n25:30 - Ayah 177\n25:37 - Ayah 178\n25:43 - Ayah 179\n25:48 - Ayah 180\n26:00 - Ayah 181\n26:07 - Ayah 182\n26:14 - Ayah 183\n26:25 - Ayah 184\n26:33 - Ayah 185\n26:44 - Ayah 186\n26:57 - Ayah 187\n27:10 - Ayah 188\n27:18 - Ayah 189\n27:31 - Ayah 190\n27:42 - Ayah 191\n27:49 - Ayah 192\n27:57 - Ayah 193\n28:03 - Ayah 194\n28:10 - Ayah 195\n28:16 - Ayah 196\n28:22 - Ayah 197\n28:36 - Ayah 198\n28:43 - Ayah 199\n28:51 - Ayah 200\n28:57 - Ayah 201\n29:05 - Ayah 202\n29:13 - Ayah 203\n29:20 - Ayah 204\n29:25 - Ayah 205\n29:31 - Ayah 206\n29:40 - Ayah 207\n29:49 - Ayah 208\n30:00 - Ayah 209\n30:06 - Ayah 210\n30:11 - Ayah 211\n30:18 - Ayah 212\n30:25 - Ayah 213\n30:34 - Ayah 214\n30:41 - Ayah 215\n30:48 - Ayah 216\n30:59 - Ayah 217\n31:05 - Ayah 218\n31:11 - Ayah 219\n31:15 - Ayah 220\n31:21 - Ayah 221\n31:30 - Ayah 222\n31:36 - Ayah 223\n31:43 - Ayah 224\n31:51 - Ayah 225\n31:59 - Ayah 226\n32:07 - Ayah 227\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "-3kTs3_YZqs",
+    "surahId": 27,
+    "title": "Surah 27. An-Naml (النمل) — Chapter 27 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=-3kTs3_YZqs",
+    "embedUrl": "https://www.youtube.com/embed/-3kTs3_YZqs?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/-3kTs3_YZqs/hqdefault.jpg",
+    "description": "Recitation of Surah An-Naml (النمل - The Ant), Chapter 27 of the Holy Quran (93 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/27?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:12 - Ayah 2\n00:17 - Ayah 3\n00:29 - Ayah 4\n00:42 - Ayah 5\n00:54 - Ayah 6\n01:03 - Ayah 7\n01:27 - Ayah 8\n01:44 - Ayah 9\n01:56 - Ayah 10\n02:25 - Ayah 11\n02:40 - Ayah 12\n03:04 - Ayah 13\n03:18 - Ayah 14\n03:38 - Ayah 15\n03:55 - Ayah 16\n04:20 - Ayah 17\n04:32 - Ayah 18\n05:04 - Ayah 19\n05:42 - Ayah 20\n05:56 - Ayah 21\n06:14 - Ayah 22\n06:29 - Ayah 23\n06:44 - Ayah 24\n07:09 - Ayah 25\n07:25 - Ayah 26\n07:36 - Ayah 27\n07:45 - Ayah 28\n08:02 - Ayah 29\n08:17 - Ayah 30\n08:30 - Ayah 31\n08:37 - Ayah 32\n08:54 - Ayah 33\n09:10 - Ayah 34\n09:30 - Ayah 35\n09:45 - Ayah 36\n10:24 - Ayah 37\n10:50 - Ayah 38\n11:03 - Ayah 39\n11:21 - Ayah 40\n12:11 - Ayah 41\n12:25 - Ayah 42\n12:45 - Ayah 43\n13:02 - Ayah 44\n13:39 - Ayah 45\n13:53 - Ayah 46\n14:07 - Ayah 47\n14:26 - Ayah 48\n14:37 - Ayah 49\n15:02 - Ayah 50\n15:12 - Ayah 51\n15:24 - Ayah 52\n15:39 - Ayah 53\n15:49 - Ayah 54\n16:01 - Ayah 55\n16:20 - Ayah 56\n16:49 - Ayah 57\n17:01 - Ayah 58\n17:13 - Ayah 59\n17:31 - Ayah 60\n18:12 - Ayah 61\n18:43 - Ayah 62\n19:08 - Ayah 63\n19:40 - Ayah 64\n20:10 - Ayah 65\n20:27 - Ayah 66\n20:41 - Ayah 67\n20:57 - Ayah 68\n21:14 - Ayah 69\n21:24 - Ayah 70\n21:36 - Ayah 71\n21:45 - Ayah 72\n21:56 - Ayah 73\n22:09 - Ayah 74\n22:19 - Ayah 75\n22:34 - Ayah 76\n22:50 - Ayah 77\n22:59 - Ayah 78\n23:10 - Ayah 79\n23:21 - Ayah 80\n23:35 - Ayah 81\n23:56 - Ayah 82\n24:19 - Ayah 83\n24:34 - Ayah 84\n24:54 - Ayah 85\n25:04 - Ayah 86\n25:22 - Ayah 87\n25:43 - Ayah 88\n26:09 - Ayah 89\n26:26 - Ayah 90\n26:49 - Ayah 91\n27:09 - Ayah 92\n27:30 - Ayah 93\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "8xjKXRA5JRQ",
+    "surahId": 28,
+    "title": "Surah 28. Al-Qasas (القصص) — Chapter 28 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=8xjKXRA5JRQ",
+    "embedUrl": "https://www.youtube.com/embed/8xjKXRA5JRQ?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/8xjKXRA5JRQ/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Qasas (القصص - The Stories), Chapter 28 of the Holy Quran (88 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/28?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:09 - Ayah 2\n00:15 - Ayah 3\n00:28 - Ayah 4\n01:02 - Ayah 5\n01:23 - Ayah 6\n01:38 - Ayah 7\n02:12 - Ayah 8\n02:32 - Ayah 9\n03:04 - Ayah 10\n03:24 - Ayah 11\n03:38 - Ayah 12\n04:00 - Ayah 13\n04:27 - Ayah 14\n04:43 - Ayah 15\n05:34 - Ayah 16\n05:49 - Ayah 17\n06:01 - Ayah 18\n06:25 - Ayah 19\n07:06 - Ayah 20\n07:34 - Ayah 21\n07:48 - Ayah 22\n08:05 - Ayah 23\n08:40 - Ayah 24\n09:00 - Ayah 25\n09:35 - Ayah 26\n09:49 - Ayah 27\n10:28 - Ayah 28\n10:45 - Ayah 29\n11:29 - Ayah 30\n11:57 - Ayah 31\n12:27 - Ayah 32\n13:05 - Ayah 33\n13:17 - Ayah 34\n13:40 - Ayah 35\n14:02 - Ayah 36\n14:32 - Ayah 37\n14:57 - Ayah 38\n15:30 - Ayah 39\n15:46 - Ayah 40\n16:00 - Ayah 41\n16:16 - Ayah 42\n16:30 - Ayah 43\n16:59 - Ayah 44\n17:14 - Ayah 45\n17:43 - Ayah 46\n18:20 - Ayah 47\n18:50 - Ayah 48\n19:26 - Ayah 49\n19:42 - Ayah 50\n20:14 - Ayah 51\n20:22 - Ayah 52\n20:32 - Ayah 53\n20:54 - Ayah 54\n21:14 - Ayah 55\n21:32 - Ayah 56\n21:50 - Ayah 57\n22:26 - Ayah 58\n22:48 - Ayah 59\n23:14 - Ayah 60\n23:36 - Ayah 61\n24:03 - Ayah 62\n24:16 - Ayah 63\n24:46 - Ayah 64\n25:05 - Ayah 65\n25:16 - Ayah 66\n25:30 - Ayah 67\n25:45 - Ayah 68\n26:06 - Ayah 69\n26:15 - Ayah 70\n26:34 - Ayah 71\n26:57 - Ayah 72\n27:28 - Ayah 73\n27:47 - Ayah 74\n28:01 - Ayah 75\n28:32 - Ayah 76\n29:05 - Ayah 77\n29:36 - Ayah 78\n30:06 - Ayah 79\n30:27 - Ayah 80\n30:46 - Ayah 81\n31:05 - Ayah 82\n31:40 - Ayah 83\n31:57 - Ayah 84\n32:20 - Ayah 85\n32:47 - Ayah 86\n33:08 - Ayah 87\n33:27 - Ayah 88\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "QxOW-U65FOM",
+    "surahId": 29,
+    "title": "Surah 29. Al-'Ankabut (العنكبوت) — Chapter 29 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=QxOW-U65FOM",
+    "embedUrl": "https://www.youtube.com/embed/QxOW-U65FOM?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/QxOW-U65FOM/hqdefault.jpg",
+    "description": "Recitation of Surah Al-'Ankabut (العنكبوت - The Spider), Chapter 29 of the Holy Quran (69 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/29?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:10 - Ayah 2\n00:25 - Ayah 3\n00:42 - Ayah 4\n00:56 - Ayah 5\n01:12 - Ayah 6\n01:26 - Ayah 7\n01:47 - Ayah 8\n02:13 - Ayah 9\n02:24 - Ayah 10\n03:14 - Ayah 11\n03:25 - Ayah 12\n03:49 - Ayah 13\n04:08 - Ayah 14\n04:31 - Ayah 15\n04:43 - Ayah 16\n04:59 - Ayah 17\n05:30 - Ayah 18\n05:45 - Ayah 19\n05:58 - Ayah 20\n06:19 - Ayah 21\n06:34 - Ayah 22\n06:55 - Ayah 23\n07:18 - Ayah 24\n07:45 - Ayah 25\n08:26 - Ayah 26\n08:41 - Ayah 27\n09:04 - Ayah 28\n09:21 - Ayah 29\n09:50 - Ayah 30\n09:57 - Ayah 31\n10:23 - Ayah 32\n10:44 - Ayah 33\n11:12 - Ayah 34\n11:29 - Ayah 35\n11:42 - Ayah 36\n11:58 - Ayah 37\n12:07 - Ayah 38\n12:27 - Ayah 39\n12:47 - Ayah 40\n13:22 - Ayah 41\n13:47 - Ayah 42\n14:02 - Ayah 43\n14:16 - Ayah 44\n14:28 - Ayah 45\n14:56 - Ayah 46\n15:27 - Ayah 47\n15:57 - Ayah 48\n16:13 - Ayah 49\n16:30 - Ayah 50\n16:53 - Ayah 51\n17:14 - Ayah 52\n17:36 - Ayah 53\n17:59 - Ayah 54\n18:11 - Ayah 55\n18:26 - Ayah 56\n18:39 - Ayah 57\n18:52 - Ayah 58\n19:21 - Ayah 59\n19:28 - Ayah 60\n19:45 - Ayah 61\n20:05 - Ayah 62\n20:21 - Ayah 63\n20:52 - Ayah 64\n21:12 - Ayah 65\n21:26 - Ayah 66\n21:37 - Ayah 67\n21:56 - Ayah 68\n22:16 - Ayah 69\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "Hb0EBqya3ks",
+    "surahId": 30,
+    "title": "Surah 30. Ar-Rum (الروم) — Chapter 30 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=Hb0EBqya3ks",
+    "embedUrl": "https://www.youtube.com/embed/Hb0EBqya3ks?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/Hb0EBqya3ks/hqdefault.jpg",
+    "description": "Recitation of Surah Ar-Rum (الروم - The Romans), Chapter 30 of the Holy Quran (60 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/30?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:09 - Ayah 2\n00:13 - Ayah 3\n00:25 - Ayah 4\n00:41 - Ayah 5\n00:55 - Ayah 6\n01:11 - Ayah 7\n01:23 - Ayah 8\n01:57 - Ayah 9\n02:50 - Ayah 10\n03:12 - Ayah 11\n03:23 - Ayah 12\n03:31 - Ayah 13\n03:48 - Ayah 14\n03:57 - Ayah 15\n04:10 - Ayah 16\n04:28 - Ayah 17\n04:36 - Ayah 18\n04:47 - Ayah 19\n05:01 - Ayah 20\n05:20 - Ayah 21\n05:49 - Ayah 22\n06:07 - Ayah 23\n06:29 - Ayah 24\n06:57 - Ayah 25\n07:21 - Ayah 26\n07:31 - Ayah 27\n07:52 - Ayah 28\n08:36 - Ayah 29\n09:00 - Ayah 30\n09:26 - Ayah 31\n09:37 - Ayah 32\n09:51 - Ayah 33\n10:21 - Ayah 34\n10:32 - Ayah 35\n10:45 - Ayah 36\n11:06 - Ayah 37\n11:27 - Ayah 38\n11:51 - Ayah 39\n12:24 - Ayah 40\n12:57 - Ayah 41\n13:15 - Ayah 42\n13:32 - Ayah 43\n13:51 - Ayah 44\n14:04 - Ayah 45\n14:19 - Ayah 46\n14:46 - Ayah 47\n15:09 - Ayah 48\n15:48 - Ayah 49\n16:02 - Ayah 50\n16:23 - Ayah 51\n16:36 - Ayah 52\n16:51 - Ayah 53\n17:12 - Ayah 54\n17:43 - Ayah 55\n17:56 - Ayah 56\n18:17 - Ayah 57\n18:28 - Ayah 58\n18:53 - Ayah 59\n19:02 - Ayah 60\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
     "id": "K7hRawDFe74",
     "surahId": 31,
     "title": "Surah 31. Luqman (لقمان) — Chapter 31 of 114 | Peace2074 Quran Recitation",
@@ -30,6 +320,116 @@ export default [
     "description": "Recitation of Surah As-Sajdah (السجدة - The Prostration), Chapter 32 of the Holy Quran (30 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/32?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:07 - Ayah 2\n00:15 - Ayah 3\n00:35 - Ayah 4\n01:00 - Ayah 5\n01:20 - Ayah 6\n01:27 - Ayah 7\n01:38 - Ayah 8\n01:49 - Ayah 9\n02:03 - Ayah 10\n02:22 - Ayah 11\n02:34 - Ayah 12\n02:56 - Ayah 13\n03:18 - Ayah 14\n03:36 - Ayah 15\n03:57 - Ayah 16\n04:13 - Ayah 17\n04:30 - Ayah 18\n04:40 - Ayah 19\n04:57 - Ayah 20\n05:29 - Ayah 21\n05:42 - Ayah 22\n06:00 - Ayah 23\n06:18 - Ayah 24\n06:32 - Ayah 25\n06:43 - Ayah 26\n07:02 - Ayah 27\n07:24 - Ayah 28\n07:32 - Ayah 29\n07:44 - Ayah 30\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
+    "id": "jOuVlEbSs4M",
+    "surahId": 33,
+    "title": "Surah 33. Al-Ahzab (الأحزاب) — Chapter 33 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=jOuVlEbSs4M",
+    "embedUrl": "https://www.youtube.com/embed/jOuVlEbSs4M?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/jOuVlEbSs4M/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Ahzab (الأحزاب - The Combined Forces), Chapter 33 of the Holy Quran (73 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/33?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:16 - Ayah 2\n00:27 - Ayah 3\n00:34 - Ayah 4\n01:11 - Ayah 5\n01:46 - Ayah 6\n02:29 - Ayah 7\n02:48 - Ayah 8\n02:59 - Ayah 9\n03:22 - Ayah 10\n03:47 - Ayah 11\n03:54 - Ayah 12\n04:09 - Ayah 13\n04:38 - Ayah 14\n04:52 - Ayah 15\n05:04 - Ayah 16\n05:17 - Ayah 17\n05:38 - Ayah 18\n05:54 - Ayah 19\n06:34 - Ayah 20\n07:00 - Ayah 21\n07:18 - Ayah 22\n07:38 - Ayah 23\n07:58 - Ayah 24\n08:16 - Ayah 25\n08:31 - Ayah 26\n08:53 - Ayah 27\n09:08 - Ayah 28\n09:33 - Ayah 29\n09:50 - Ayah 30\n10:10 - Ayah 31\n10:35 - Ayah 32\n10:59 - Ayah 33\n11:30 - Ayah 34\n11:44 - Ayah 35\n12:34 - Ayah 36\n12:57 - Ayah 37\n13:59 - Ayah 38\n14:18 - Ayah 39\n14:32 - Ayah 40\n14:55 - Ayah 41\n15:03 - Ayah 42\n15:08 - Ayah 43\n15:25 - Ayah 44\n15:35 - Ayah 45\n15:48 - Ayah 46\n15:55 - Ayah 47\n16:07 - Ayah 48\n16:21 - Ayah 49\n17:00 - Ayah 50\n18:20 - Ayah 51\n19:00 - Ayah 52\n19:25 - Ayah 53\n20:47 - Ayah 54\n20:56 - Ayah 55\n21:47 - Ayah 56\n22:05 - Ayah 57\n22:20 - Ayah 58\n22:36 - Ayah 59\n23:05 - Ayah 60\n23:29 - Ayah 61\n23:39 - Ayah 62\n23:50 - Ayah 63\n24:07 - Ayah 64\n24:14 - Ayah 65\n24:23 - Ayah 66\n24:36 - Ayah 67\n24:50 - Ayah 68\n25:04 - Ayah 69\n25:21 - Ayah 70\n25:31 - Ayah 71\n25:44 - Ayah 72\n26:11 - Ayah 73\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "4V189E-p6GE",
+    "surahId": 34,
+    "title": "Surah 34. Saba (سبإ) — Chapter 34 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=4V189E-p6GE",
+    "embedUrl": "https://www.youtube.com/embed/4V189E-p6GE?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/4V189E-p6GE/hqdefault.jpg",
+    "description": "Recitation of Surah Saba (سبإ - Sheba), Chapter 34 of the Holy Quran (54 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/34?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:13 - Ayah 2\n00:28 - Ayah 3\n00:58 - Ayah 4\n01:12 - Ayah 5\n01:25 - Ayah 6\n01:42 - Ayah 7\n01:58 - Ayah 8\n02:13 - Ayah 9\n02:42 - Ayah 10\n02:58 - Ayah 11\n03:10 - Ayah 12\n03:34 - Ayah 13\n03:58 - Ayah 14\n04:27 - Ayah 15\n04:50 - Ayah 16\n05:12 - Ayah 17\n05:22 - Ayah 18\n05:41 - Ayah 19\n06:04 - Ayah 20\n06:15 - Ayah 21\n06:35 - Ayah 22\n06:59 - Ayah 23\n07:24 - Ayah 24\n07:43 - Ayah 25\n07:54 - Ayah 26\n08:05 - Ayah 27\n08:19 - Ayah 28\n08:37 - Ayah 29\n08:45 - Ayah 30\n08:57 - Ayah 31\n09:34 - Ayah 32\n09:52 - Ayah 33\n10:32 - Ayah 34\n10:55 - Ayah 35\n11:06 - Ayah 36\n11:21 - Ayah 37\n12:01 - Ayah 38\n12:15 - Ayah 39\n12:39 - Ayah 40\n12:55 - Ayah 41\n13:12 - Ayah 42\n13:37 - Ayah 43\n14:28 - Ayah 44\n14:46 - Ayah 45\n15:01 - Ayah 46\n15:30 - Ayah 47\n15:46 - Ayah 48\n15:53 - Ayah 49\n16:02 - Ayah 50\n16:21 - Ayah 51\n16:33 - Ayah 52\n16:46 - Ayah 53\n16:57 - Ayah 54\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "L4n81m7eSCY",
+    "surahId": 35,
+    "title": "Surah 35. Fatir (فاطر) — Chapter 35 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=L4n81m7eSCY",
+    "embedUrl": "https://www.youtube.com/embed/L4n81m7eSCY?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/L4n81m7eSCY/hqdefault.jpg",
+    "description": "Recitation of Surah Fatir (فاطر - Originator), Chapter 35 of the Holy Quran (45 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/35?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:28 - Ayah 2\n00:45 - Ayah 3\n01:11 - Ayah 4\n01:24 - Ayah 5\n01:43 - Ayah 6\n01:59 - Ayah 7\n02:17 - Ayah 8\n02:49 - Ayah 9\n03:13 - Ayah 10\n03:42 - Ayah 11\n04:22 - Ayah 12\n04:59 - Ayah 13\n05:28 - Ayah 14\n05:48 - Ayah 15\n06:02 - Ayah 16\n06:09 - Ayah 17\n06:15 - Ayah 18\n06:52 - Ayah 19\n06:58 - Ayah 20\n07:04 - Ayah 21\n07:09 - Ayah 22\n07:33 - Ayah 23\n07:38 - Ayah 24\n07:54 - Ayah 25\n08:20 - Ayah 26\n08:29 - Ayah 27\n08:57 - Ayah 28\n09:23 - Ayah 29\n09:43 - Ayah 30\n09:56 - Ayah 31\n10:16 - Ayah 32\n10:42 - Ayah 33\n10:59 - Ayah 34\n11:15 - Ayah 35\n11:31 - Ayah 36\n11:50 - Ayah 37\n12:24 - Ayah 38\n12:38 - Ayah 39\n13:03 - Ayah 40\n13:36 - Ayah 41\n13:59 - Ayah 42\n14:23 - Ayah 43\n14:55 - Ayah 44\n15:27 - Ayah 45\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "ImlyYBZi26Q",
+    "surahId": 36,
+    "title": "Surah 36. Ya-Sin (يس) — Chapter 36 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=ImlyYBZi26Q",
+    "embedUrl": "https://www.youtube.com/embed/ImlyYBZi26Q?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/ImlyYBZi26Q/hqdefault.jpg",
+    "description": "Recitation of Surah Ya-Sin (يس - Ya Sin), Chapter 36 of the Holy Quran (83 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/36?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:09 - Ayah 3\n00:15 - Ayah 4\n00:21 - Ayah 5\n00:27 - Ayah 6\n00:41 - Ayah 7\n00:50 - Ayah 8\n01:05 - Ayah 9\n01:21 - Ayah 10\n01:34 - Ayah 11\n01:53 - Ayah 12\n02:11 - Ayah 13\n02:23 - Ayah 14\n02:44 - Ayah 15\n03:05 - Ayah 16\n03:15 - Ayah 17\n03:23 - Ayah 18\n03:43 - Ayah 19\n03:59 - Ayah 20\n04:12 - Ayah 21\n04:22 - Ayah 22\n04:33 - Ayah 23\n04:52 - Ayah 24\n05:02 - Ayah 25\n05:12 - Ayah 26\n05:22 - Ayah 27\n05:30 - Ayah 28\n05:50 - Ayah 29\n06:02 - Ayah 30\n06:17 - Ayah 31\n06:30 - Ayah 32\n06:39 - Ayah 33\n06:53 - Ayah 34\n07:08 - Ayah 35\n07:18 - Ayah 36\n07:35 - Ayah 37\n07:46 - Ayah 38\n07:57 - Ayah 39\n08:07 - Ayah 40\n08:27 - Ayah 41\n08:38 - Ayah 42\n08:46 - Ayah 43\n08:56 - Ayah 44\n09:05 - Ayah 45\n09:17 - Ayah 46\n09:29 - Ayah 47\n10:00 - Ayah 48\n10:10 - Ayah 49\n10:22 - Ayah 50\n10:34 - Ayah 51\n10:46 - Ayah 52\n11:03 - Ayah 53\n11:17 - Ayah 54\n11:32 - Ayah 55\n11:43 - Ayah 56\n11:54 - Ayah 57\n12:04 - Ayah 58\n12:12 - Ayah 59\n12:20 - Ayah 60\n12:39 - Ayah 61\n12:48 - Ayah 62\n13:01 - Ayah 63\n13:09 - Ayah 64\n13:18 - Ayah 65\n13:35 - Ayah 66\n13:49 - Ayah 67\n14:03 - Ayah 68\n14:13 - Ayah 69\n14:28 - Ayah 70\n14:40 - Ayah 71\n14:56 - Ayah 72\n15:06 - Ayah 73\n15:15 - Ayah 74\n15:25 - Ayah 75\n15:36 - Ayah 76\n15:48 - Ayah 77\n16:03 - Ayah 78\n16:15 - Ayah 79\n16:29 - Ayah 80\n16:44 - Ayah 81\n17:02 - Ayah 82\n17:19 - Ayah 83\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "1pFcKuWC9jQ",
+    "surahId": 37,
+    "title": "Surah 37. As-Saffat (الصافات) — Chapter 37 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=1pFcKuWC9jQ",
+    "embedUrl": "https://www.youtube.com/embed/1pFcKuWC9jQ?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/1pFcKuWC9jQ/hqdefault.jpg",
+    "description": "Recitation of Surah As-Saffat (الصافات - Those who set the Ranks), Chapter 37 of the Holy Quran (182 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/37?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:06 - Ayah 2\n00:10 - Ayah 3\n00:13 - Ayah 4\n00:17 - Ayah 5\n00:25 - Ayah 6\n00:35 - Ayah 7\n00:42 - Ayah 8\n00:52 - Ayah 9\n00:58 - Ayah 10\n01:06 - Ayah 11\n01:20 - Ayah 12\n01:25 - Ayah 13\n01:30 - Ayah 14\n01:37 - Ayah 15\n01:48 - Ayah 16\n02:00 - Ayah 17\n02:07 - Ayah 18\n02:14 - Ayah 19\n02:26 - Ayah 20\n02:34 - Ayah 21\n02:44 - Ayah 22\n02:54 - Ayah 23\n03:03 - Ayah 24\n03:11 - Ayah 25\n03:17 - Ayah 26\n03:24 - Ayah 27\n03:34 - Ayah 28\n03:45 - Ayah 29\n03:51 - Ayah 30\n04:08 - Ayah 31\n04:19 - Ayah 32\n04:28 - Ayah 33\n04:37 - Ayah 34\n04:45 - Ayah 35\n05:00 - Ayah 36\n05:13 - Ayah 37\n05:22 - Ayah 38\n05:31 - Ayah 39\n05:39 - Ayah 40\n05:45 - Ayah 41\n05:54 - Ayah 42\n06:01 - Ayah 43\n06:08 - Ayah 44\n06:14 - Ayah 45\n06:23 - Ayah 46\n06:31 - Ayah 47\n06:40 - Ayah 48\n06:47 - Ayah 49\n06:56 - Ayah 50\n07:06 - Ayah 51\n07:17 - Ayah 52\n07:24 - Ayah 53\n07:35 - Ayah 54\n07:42 - Ayah 55\n07:50 - Ayah 56\n07:58 - Ayah 57\n08:06 - Ayah 58\n08:12 - Ayah 59\n08:20 - Ayah 60\n08:27 - Ayah 61\n08:34 - Ayah 62\n08:42 - Ayah 63\n08:50 - Ayah 64\n09:00 - Ayah 65\n09:07 - Ayah 66\n09:17 - Ayah 67\n09:27 - Ayah 68\n09:35 - Ayah 69\n09:48 - Ayah 70\n09:56 - Ayah 71\n10:02 - Ayah 72\n10:10 - Ayah 73\n10:19 - Ayah 74\n10:26 - Ayah 75\n10:35 - Ayah 76\n10:42 - Ayah 77\n10:49 - Ayah 78\n10:55 - Ayah 79\n11:02 - Ayah 80\n11:09 - Ayah 81\n11:15 - Ayah 82\n11:22 - Ayah 83\n11:29 - Ayah 84\n11:38 - Ayah 85\n11:46 - Ayah 86\n11:54 - Ayah 87\n12:01 - Ayah 88\n12:08 - Ayah 89\n12:13 - Ayah 90\n12:18 - Ayah 91\n12:27 - Ayah 92\n12:33 - Ayah 93\n12:40 - Ayah 94\n12:47 - Ayah 95\n12:53 - Ayah 96\n12:59 - Ayah 97\n13:07 - Ayah 98\n13:16 - Ayah 99\n13:24 - Ayah 100\n13:29 - Ayah 101\n13:35 - Ayah 102\n14:11 - Ayah 103\n14:20 - Ayah 104\n14:29 - Ayah 105\n14:39 - Ayah 106\n14:48 - Ayah 107\n14:54 - Ayah 108\n15:00 - Ayah 109\n15:07 - Ayah 110\n15:12 - Ayah 111\n15:19 - Ayah 112\n15:28 - Ayah 113\n15:47 - Ayah 114\n15:54 - Ayah 115\n16:02 - Ayah 116\n16:08 - Ayah 117\n16:15 - Ayah 118\n16:21 - Ayah 119\n16:27 - Ayah 120\n16:33 - Ayah 121\n16:40 - Ayah 122\n16:48 - Ayah 123\n16:55 - Ayah 124\n17:02 - Ayah 125\n17:10 - Ayah 126\n17:20 - Ayah 127\n17:27 - Ayah 128\n17:33 - Ayah 129\n17:38 - Ayah 130\n17:45 - Ayah 131\n17:51 - Ayah 132\n17:58 - Ayah 133\n18:04 - Ayah 134\n18:12 - Ayah 135\n18:18 - Ayah 136\n18:25 - Ayah 137\n18:33 - Ayah 138\n18:41 - Ayah 139\n18:47 - Ayah 140\n18:53 - Ayah 141\n18:58 - Ayah 142\n19:04 - Ayah 143\n19:12 - Ayah 144\n19:21 - Ayah 145\n19:29 - Ayah 146\n19:38 - Ayah 147\n19:46 - Ayah 148\n19:53 - Ayah 149\n20:01 - Ayah 150\n20:11 - Ayah 151\n20:21 - Ayah 152\n20:28 - Ayah 153\n20:33 - Ayah 154\n20:39 - Ayah 155\n20:44 - Ayah 156\n20:50 - Ayah 157\n20:58 - Ayah 158\n21:12 - Ayah 159\n21:19 - Ayah 160\n21:25 - Ayah 161\n21:31 - Ayah 162\n21:39 - Ayah 163\n21:44 - Ayah 164\n21:55 - Ayah 165\n22:05 - Ayah 166\n22:11 - Ayah 167\n22:17 - Ayah 168\n22:25 - Ayah 169\n22:32 - Ayah 170\n22:39 - Ayah 171\n22:46 - Ayah 172\n22:53 - Ayah 173\n23:00 - Ayah 174\n23:06 - Ayah 175\n23:11 - Ayah 176\n23:18 - Ayah 177\n23:28 - Ayah 178\n23:34 - Ayah 179\n23:39 - Ayah 180\n23:47 - Ayah 181\n23:52 - Ayah 182\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "Fc7qfW4loms",
+    "surahId": 38,
+    "title": "Surah 38. Sad (ص) — Chapter 38 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=Fc7qfW4loms",
+    "embedUrl": "https://www.youtube.com/embed/Fc7qfW4loms?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/Fc7qfW4loms/hqdefault.jpg",
+    "description": "Recitation of Surah Sad (ص - The Letter \"Saad\"), Chapter 38 of the Holy Quran (88 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/38?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:07 - Ayah 2\n00:15 - Ayah 3\n00:28 - Ayah 4\n00:47 - Ayah 5\n00:59 - Ayah 6\n01:15 - Ayah 7\n01:27 - Ayah 8\n01:44 - Ayah 9\n01:55 - Ayah 10\n02:06 - Ayah 11\n02:15 - Ayah 12\n02:25 - Ayah 13\n02:37 - Ayah 14\n02:45 - Ayah 15\n03:02 - Ayah 16\n03:11 - Ayah 17\n03:24 - Ayah 18\n03:35 - Ayah 19\n03:44 - Ayah 20\n03:54 - Ayah 21\n04:01 - Ayah 22\n04:26 - Ayah 23\n04:50 - Ayah 24\n05:31 - Ayah 25\n05:42 - Ayah 26\n06:20 - Ayah 27\n06:41 - Ayah 28\n06:55 - Ayah 29\n07:12 - Ayah 30\n07:26 - Ayah 31\n07:34 - Ayah 32\n07:49 - Ayah 33\n07:58 - Ayah 34\n08:12 - Ayah 35\n08:29 - Ayah 36\n08:40 - Ayah 37\n08:51 - Ayah 38\n08:57 - Ayah 39\n09:07 - Ayah 40\n09:15 - Ayah 41\n09:32 - Ayah 42\n09:42 - Ayah 43\n10:01 - Ayah 44\n10:21 - Ayah 45\n10:33 - Ayah 46\n10:44 - Ayah 47\n10:54 - Ayah 48\n11:05 - Ayah 49\n11:14 - Ayah 50\n11:23 - Ayah 51\n11:35 - Ayah 52\n11:43 - Ayah 53\n11:50 - Ayah 54\n11:59 - Ayah 55\n12:07 - Ayah 56\n12:15 - Ayah 57\n12:23 - Ayah 58\n12:32 - Ayah 59\n12:48 - Ayah 60\n13:03 - Ayah 61\n13:18 - Ayah 62\n13:30 - Ayah 63\n13:39 - Ayah 64\n13:48 - Ayah 65\n14:02 - Ayah 66\n14:11 - Ayah 67\n14:16 - Ayah 68\n14:22 - Ayah 69\n14:33 - Ayah 70\n14:47 - Ayah 71\n15:01 - Ayah 72\n15:11 - Ayah 73\n15:18 - Ayah 74\n15:27 - Ayah 75\n15:43 - Ayah 76\n15:54 - Ayah 77\n16:01 - Ayah 78\n16:11 - Ayah 79\n16:20 - Ayah 80\n16:27 - Ayah 81\n16:33 - Ayah 82\n16:41 - Ayah 83\n16:47 - Ayah 84\n16:53 - Ayah 85\n17:06 - Ayah 86\n17:19 - Ayah 87\n17:25 - Ayah 88\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "SnRmNaysCIc",
+    "surahId": 39,
+    "title": "Surah 39. Az-Zumar (الزمر) — Chapter 39 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=SnRmNaysCIc",
+    "embedUrl": "https://www.youtube.com/embed/SnRmNaysCIc?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/SnRmNaysCIc/hqdefault.jpg",
+    "description": "Recitation of Surah Az-Zumar (الزمر - The Troops), Chapter 39 of the Holy Quran (75 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/39?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:08 - Ayah 2\n00:24 - Ayah 3\n01:09 - Ayah 4\n01:29 - Ayah 5\n01:59 - Ayah 6\n02:48 - Ayah 7\n03:32 - Ayah 8\n04:23 - Ayah 9\n04:56 - Ayah 10\n05:21 - Ayah 11\n05:31 - Ayah 12\n05:38 - Ayah 13\n05:49 - Ayah 14\n05:54 - Ayah 15\n06:19 - Ayah 16\n06:40 - Ayah 17\n06:56 - Ayah 18\n07:17 - Ayah 19\n07:30 - Ayah 20\n07:56 - Ayah 21\n08:36 - Ayah 22\n09:02 - Ayah 23\n09:41 - Ayah 24\n10:00 - Ayah 25\n10:11 - Ayah 26\n10:25 - Ayah 27\n10:38 - Ayah 28\n10:47 - Ayah 29\n11:13 - Ayah 30\n11:24 - Ayah 31\n11:35 - Ayah 32\n11:54 - Ayah 33\n12:08 - Ayah 34\n12:22 - Ayah 35\n12:40 - Ayah 36\n12:57 - Ayah 37\n13:13 - Ayah 38\n13:59 - Ayah 39\n14:11 - Ayah 40\n14:22 - Ayah 41\n14:51 - Ayah 42\n15:25 - Ayah 43\n15:42 - Ayah 44\n15:56 - Ayah 45\n16:18 - Ayah 46\n16:36 - Ayah 47\n17:05 - Ayah 48\n17:17 - Ayah 49\n17:45 - Ayah 50\n17:59 - Ayah 51\n18:21 - Ayah 52\n18:44 - Ayah 53\n19:13 - Ayah 54\n19:41 - Ayah 55\n20:14 - Ayah 56\n20:33 - Ayah 57\n20:45 - Ayah 58\n20:59 - Ayah 59\n21:14 - Ayah 60\n21:33 - Ayah 61\n21:54 - Ayah 62\n22:06 - Ayah 63\n22:23 - Ayah 64\n22:39 - Ayah 65\n22:56 - Ayah 66\n23:04 - Ayah 67\n23:30 - Ayah 68\n23:56 - Ayah 69\n24:27 - Ayah 70\n24:38 - Ayah 71\n25:34 - Ayah 72\n25:48 - Ayah 73\n26:16 - Ayah 74\n26:38 - Ayah 75\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "HTmcqJsArI8",
+    "surahId": 40,
+    "title": "Surah 40. Ghafir (غافر) — Chapter 40 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=HTmcqJsArI8",
+    "embedUrl": "https://www.youtube.com/embed/HTmcqJsArI8?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/HTmcqJsArI8/hqdefault.jpg",
+    "description": "Recitation of Surah Ghafir (غافر - The Forgiver), Chapter 40 of the Holy Quran (85 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/40?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:12 - Ayah 3\n00:27 - Ayah 4\n00:40 - Ayah 5\n01:08 - Ayah 6\n01:21 - Ayah 7\n01:54 - Ayah 8\n02:17 - Ayah 9\n02:33 - Ayah 10\n02:49 - Ayah 11\n03:09 - Ayah 12\n03:27 - Ayah 13\n03:44 - Ayah 14\n03:52 - Ayah 15\n04:10 - Ayah 16\n04:31 - Ayah 17\n04:46 - Ayah 18\n05:05 - Ayah 19\n05:14 - Ayah 20\n05:33 - Ayah 21\n06:02 - Ayah 22\n06:22 - Ayah 23\n06:31 - Ayah 24\n06:41 - Ayah 25\n07:08 - Ayah 26\n07:29 - Ayah 27\n07:45 - Ayah 28\n08:28 - Ayah 29\n08:59 - Ayah 30\n09:14 - Ayah 31\n09:29 - Ayah 32\n09:39 - Ayah 33\n09:54 - Ayah 34\n10:30 - Ayah 35\n10:57 - Ayah 36\n11:09 - Ayah 37\n11:40 - Ayah 38\n11:50 - Ayah 39\n12:05 - Ayah 40\n12:37 - Ayah 41\n12:51 - Ayah 42\n13:06 - Ayah 43\n13:39 - Ayah 44\n13:59 - Ayah 45\n14:12 - Ayah 46\n14:30 - Ayah 47\n14:59 - Ayah 48\n15:16 - Ayah 49\n15:32 - Ayah 50\n15:55 - Ayah 51\n16:10 - Ayah 52\n16:25 - Ayah 53\n16:37 - Ayah 54\n16:43 - Ayah 55\n16:57 - Ayah 56\n17:27 - Ayah 57\n17:40 - Ayah 58\n17:58 - Ayah 59\n18:11 - Ayah 60\n18:30 - Ayah 61\n18:52 - Ayah 62\n19:07 - Ayah 63\n19:16 - Ayah 64\n19:44 - Ayah 65\n20:02 - Ayah 66\n20:23 - Ayah 67\n21:05 - Ayah 68\n21:23 - Ayah 69\n21:36 - Ayah 70\n21:49 - Ayah 71\n21:59 - Ayah 72\n22:07 - Ayah 73\n22:16 - Ayah 74\n22:37 - Ayah 75\n22:51 - Ayah 76\n23:04 - Ayah 77\n23:22 - Ayah 78\n23:57 - Ayah 79\n24:07 - Ayah 80\n24:21 - Ayah 81\n24:31 - Ayah 82\n24:59 - Ayah 83\n25:24 - Ayah 84\n25:40 - Ayah 85\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "8SsQOw1-khg",
+    "surahId": 41,
+    "title": "Surah 41. Fussilat (فصلت) — Chapter 41 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=8SsQOw1-khg",
+    "embedUrl": "https://www.youtube.com/embed/8SsQOw1-khg?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/8SsQOw1-khg/hqdefault.jpg",
+    "description": "Recitation of Surah Fussilat (فصلت - Explained in Detail), Chapter 41 of the Holy Quran (54 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/41?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:05 - Ayah 2\n00:12 - Ayah 3\n00:23 - Ayah 4\n00:32 - Ayah 5\n01:03 - Ayah 6\n01:33 - Ayah 7\n01:43 - Ayah 8\n01:52 - Ayah 9\n02:10 - Ayah 10\n02:40 - Ayah 11\n03:10 - Ayah 12\n03:37 - Ayah 13\n03:50 - Ayah 14\n04:25 - Ayah 15\n04:52 - Ayah 16\n05:20 - Ayah 17\n05:44 - Ayah 18\n05:51 - Ayah 19\n06:02 - Ayah 20\n06:20 - Ayah 21\n06:45 - Ayah 22\n07:13 - Ayah 23\n07:29 - Ayah 24\n07:44 - Ayah 25\n08:21 - Ayah 26\n08:34 - Ayah 27\n08:50 - Ayah 28\n09:14 - Ayah 29\n09:40 - Ayah 30\n10:11 - Ayah 31\n10:32 - Ayah 32\n10:39 - Ayah 33\n10:55 - Ayah 34\n11:15 - Ayah 35\n11:30 - Ayah 36\n11:49 - Ayah 37\n12:13 - Ayah 38\n12:28 - Ayah 39\n13:02 - Ayah 40\n13:37 - Ayah 41\n13:52 - Ayah 42\n14:07 - Ayah 43\n14:25 - Ayah 44\n15:08 - Ayah 45\n15:29 - Ayah 46\n15:45 - Ayah 47\n16:19 - Ayah 48\n16:34 - Ayah 49\n16:50 - Ayah 50\n17:41 - Ayah 51\n17:59 - Ayah 52\n18:18 - Ayah 53\n18:42 - Ayah 54\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "31Ts1BTJAUA",
+    "surahId": 42,
+    "title": "Surah 42. Ash-Shuraa (الشورى) — Chapter 42 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=31Ts1BTJAUA",
+    "embedUrl": "https://www.youtube.com/embed/31Ts1BTJAUA?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/31Ts1BTJAUA/hqdefault.jpg",
+    "description": "Recitation of Surah Ash-Shuraa (الشورى - The Consultation), Chapter 42 of the Holy Quran (53 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/42?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:19 - Ayah 3\n00:31 - Ayah 4\n00:40 - Ayah 5\n01:07 - Ayah 6\n01:28 - Ayah 7\n02:03 - Ayah 8\n02:30 - Ayah 9\n02:49 - Ayah 10\n03:08 - Ayah 11\n03:34 - Ayah 12\n03:52 - Ayah 13\n04:41 - Ayah 14\n05:20 - Ayah 15\n06:06 - Ayah 16\n06:32 - Ayah 17\n06:49 - Ayah 18\n07:17 - Ayah 19\n07:31 - Ayah 20\n07:53 - Ayah 21\n08:18 - Ayah 22\n08:50 - Ayah 23\n09:24 - Ayah 24\n09:48 - Ayah 25\n10:01 - Ayah 26\n10:18 - Ayah 27\n10:41 - Ayah 28\n10:56 - Ayah 29\n11:17 - Ayah 30\n11:32 - Ayah 31\n11:50 - Ayah 32\n11:58 - Ayah 33\n12:15 - Ayah 34\n12:24 - Ayah 35\n12:37 - Ayah 36\n13:02 - Ayah 37\n13:15 - Ayah 38\n13:31 - Ayah 39\n13:41 - Ayah 40\n14:03 - Ayah 41\n14:16 - Ayah 42\n14:35 - Ayah 43\n14:44 - Ayah 44\n15:09 - Ayah 45\n15:47 - Ayah 46\n16:09 - Ayah 47\n16:35 - Ayah 48\n17:16 - Ayah 49\n17:38 - Ayah 50\n17:57 - Ayah 51\n18:28 - Ayah 52\n19:04 - Ayah 53\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "bjc6H3G9Ir0",
+    "surahId": 43,
+    "title": "Surah 43. Az-Zukhruf (الزخرف) — Chapter 43 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=bjc6H3G9Ir0",
+    "embedUrl": "https://www.youtube.com/embed/bjc6H3G9Ir0?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/bjc6H3G9Ir0/hqdefault.jpg",
+    "description": "Recitation of Surah Az-Zukhruf (الزخرف - The Ornaments of Gold), Chapter 43 of the Holy Quran (89 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/43?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:05 - Ayah 2\n00:09 - Ayah 3\n00:19 - Ayah 4\n00:30 - Ayah 5\n00:41 - Ayah 6\n00:49 - Ayah 7\n00:59 - Ayah 8\n01:11 - Ayah 9\n01:26 - Ayah 10\n01:38 - Ayah 11\n01:58 - Ayah 12\n02:11 - Ayah 13\n02:34 - Ayah 14\n02:43 - Ayah 15\n02:56 - Ayah 16\n03:06 - Ayah 17\n03:22 - Ayah 18\n03:31 - Ayah 19\n03:49 - Ayah 20\n04:06 - Ayah 21\n04:17 - Ayah 22\n04:41 - Ayah 23\n05:23 - Ayah 24\n05:47 - Ayah 25\n06:00 - Ayah 26\n06:15 - Ayah 27\n06:23 - Ayah 28\n06:34 - Ayah 29\n06:53 - Ayah 30\n07:06 - Ayah 31\n07:17 - Ayah 32\n07:49 - Ayah 33\n08:16 - Ayah 34\n08:25 - Ayah 35\n08:42 - Ayah 36\n08:55 - Ayah 37\n09:08 - Ayah 38\n09:23 - Ayah 39\n09:36 - Ayah 40\n09:49 - Ayah 41\n10:01 - Ayah 42\n10:12 - Ayah 43\n10:26 - Ayah 44\n10:36 - Ayah 45\n10:53 - Ayah 46\n11:08 - Ayah 47\n11:21 - Ayah 48\n11:37 - Ayah 49\n11:51 - Ayah 50\n12:01 - Ayah 51\n12:18 - Ayah 52\n12:28 - Ayah 53\n12:46 - Ayah 54\n12:59 - Ayah 55\n13:12 - Ayah 56\n13:20 - Ayah 57\n13:29 - Ayah 58\n13:44 - Ayah 59\n13:58 - Ayah 60\n14:12 - Ayah 61\n14:29 - Ayah 62\n14:40 - Ayah 63\n15:04 - Ayah 64\n15:18 - Ayah 65\n15:31 - Ayah 66\n15:44 - Ayah 67\n15:57 - Ayah 68\n16:09 - Ayah 69\n16:17 - Ayah 70\n16:25 - Ayah 71\n16:49 - Ayah 72\n17:01 - Ayah 73\n17:11 - Ayah 74\n17:20 - Ayah 75\n17:27 - Ayah 76\n17:36 - Ayah 77\n17:48 - Ayah 78\n17:59 - Ayah 79\n18:09 - Ayah 80\n18:22 - Ayah 81\n18:32 - Ayah 82\n18:42 - Ayah 83\n18:52 - Ayah 84\n19:08 - Ayah 85\n19:27 - Ayah 86\n19:41 - Ayah 87\n19:56 - Ayah 88\n20:09 - Ayah 89\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
     "id": "3t8FkAGw6k0",
     "surahId": 44,
     "title": "Surah 44. Ad-Dukhan (الدخان) — Chapter 44 of 114 | Peace2074 Quran Recitation",
@@ -48,6 +448,16 @@ export default [
     "published": "2026-10-21T00:31:02Z",
     "thumbnail": "https://i.ytimg.com/vi/MdJnz9fKvS8/hqdefault.jpg",
     "description": "Recitation of Surah Al-Jathiyah (الجاثية - The Crouching), Chapter 45 of the Holy Quran (37 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/45?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:11 - Ayah 3\n00:20 - Ayah 4\n00:33 - Ayah 5\n00:57 - Ayah 6\n01:12 - Ayah 7\n01:17 - Ayah 8\n01:34 - Ayah 9\n01:48 - Ayah 10\n02:12 - Ayah 11\n02:25 - Ayah 12\n02:42 - Ayah 13\n03:00 - Ayah 14\n03:15 - Ayah 15\n03:30 - Ayah 16\n03:57 - Ayah 17\n04:25 - Ayah 18\n04:41 - Ayah 19\n05:01 - Ayah 20\n05:13 - Ayah 21\n05:35 - Ayah 22\n05:49 - Ayah 23\n06:21 - Ayah 24\n06:42 - Ayah 25\n07:08 - Ayah 26\n07:27 - Ayah 27\n07:41 - Ayah 28\n08:00 - Ayah 29\n08:16 - Ayah 30\n08:31 - Ayah 31\n08:48 - Ayah 32\n09:15 - Ayah 33\n09:27 - Ayah 34\n09:51 - Ayah 35\n10:12 - Ayah 36\n10:22 - Ayah 37\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "yOjLI2ag1o8",
+    "surahId": 46,
+    "title": "Surah 46. Al-Ahqaf (الأحقاف) — Chapter 46 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=yOjLI2ag1o8",
+    "embedUrl": "https://www.youtube.com/embed/yOjLI2ag1o8?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/yOjLI2ag1o8/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Ahqaf (الأحقاف - The Wind-Curved Sandhills), Chapter 46 of the Holy Quran (35 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/46?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:13 - Ayah 3\n00:38 - Ayah 4\n01:12 - Ayah 5\n01:33 - Ayah 6\n01:48 - Ayah 7\n02:12 - Ayah 8\n02:41 - Ayah 9\n03:07 - Ayah 10\n03:39 - Ayah 11\n04:05 - Ayah 12\n04:29 - Ayah 13\n04:45 - Ayah 14\n05:03 - Ayah 15\n06:09 - Ayah 16\n06:35 - Ayah 17\n07:25 - Ayah 18\n07:48 - Ayah 19\n08:04 - Ayah 20\n08:46 - Ayah 21\n09:26 - Ayah 22\n09:44 - Ayah 23\n10:05 - Ayah 24\n10:29 - Ayah 25\n10:50 - Ayah 26\n11:44 - Ayah 27\n11:57 - Ayah 28\n12:17 - Ayah 29\n12:45 - Ayah 30\n13:25 - Ayah 31\n13:56 - Ayah 32\n14:21 - Ayah 33\n14:51 - Ayah 34\n15:13 - Ayah 35\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
     "id": "baqZL77XeHY",
@@ -280,6 +690,16 @@ export default [
     "description": "Recitation of Surah Al-Haqqah (الحاقة - The Reality), Chapter 69 of the Holy Quran (52 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/69?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:05 - Ayah 2\n00:10 - Ayah 3\n00:19 - Ayah 4\n00:25 - Ayah 5\n00:31 - Ayah 6\n00:41 - Ayah 7\n01:00 - Ayah 8\n01:06 - Ayah 9\n01:16 - Ayah 10\n01:23 - Ayah 11\n01:33 - Ayah 12\n01:44 - Ayah 13\n01:51 - Ayah 14\n01:59 - Ayah 15\n02:04 - Ayah 16\n02:13 - Ayah 17\n02:28 - Ayah 18\n02:37 - Ayah 19\n02:49 - Ayah 20\n02:57 - Ayah 21\n03:01 - Ayah 22\n03:05 - Ayah 23\n03:08 - Ayah 24\n03:20 - Ayah 25\n03:32 - Ayah 26\n03:35 - Ayah 27\n03:40 - Ayah 28\n03:46 - Ayah 29\n03:50 - Ayah 30\n03:55 - Ayah 31\n04:01 - Ayah 32\n04:12 - Ayah 33\n04:20 - Ayah 34\n04:27 - Ayah 35\n04:34 - Ayah 36\n04:40 - Ayah 37\n04:48 - Ayah 38\n04:55 - Ayah 39\n05:00 - Ayah 40\n05:08 - Ayah 41\n05:16 - Ayah 42\n05:25 - Ayah 43\n05:33 - Ayah 44\n05:40 - Ayah 45\n05:45 - Ayah 46\n05:51 - Ayah 47\n06:00 - Ayah 48\n06:07 - Ayah 49\n06:16 - Ayah 50\n06:24 - Ayah 51\n06:30 - Ayah 52\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
+    "id": "sVwQ3sSIh0w",
+    "surahId": 70,
+    "title": "Surah 70. Al-Ma'arij (المعارج) — Chapter 70 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=sVwQ3sSIh0w",
+    "embedUrl": "https://www.youtube.com/embed/sVwQ3sSIh0w?autoplay=1&rel=0",
+    "published": "2026-10-25T07:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/sVwQ3sSIh0w/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Ma'arij (المعارج - The Ascending Stairways), Chapter 70 of the Holy Quran (44 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/70?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
     "id": "s--VncFcUrI",
     "surahId": 71,
     "title": "Surah 71. Nuh (نوح) — Chapter 71 of 114 | Peace2074 Quran Recitation",
@@ -392,101 +812,331 @@ export default [
   {
     "id": "Uc_vaui5Vtc",
     "surahId": 82,
-    "title": "Surah 82. Al-Infitar (Al-Infitar) — Chapter 82 of 114 | Peace2074 Quran Recitation",
+    "title": "Surah 82. Al-Infitar (الإنفطار) — Chapter 82 of 114 | Peace2074 Quran Recitation",
     "url": "https://www.youtube.com/watch?v=Uc_vaui5Vtc",
     "embedUrl": "https://www.youtube.com/embed/Uc_vaui5Vtc?autoplay=1&rel=0",
     "published": "2026-10-25T07:39:19.132Z",
     "thumbnail": "https://i.ytimg.com/vi/Uc_vaui5Vtc/hqdefault.jpg",
-    "description": "Recitation of Surah Al-Infitar (Al-Infitar), Chapter 82 of the Holy Quran (0 verses, meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/82?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:09 - Ayah 3\n00:12 - Ayah 4\n00:15 - Ayah 5\n00:20 - Ayah 6\n00:30 - Ayah 7\n00:34 - Ayah 8\n00:42 - Ayah 9\n00:48 - Ayah 10\n00:53 - Ayah 11\n00:57 - Ayah 12\n01:01 - Ayah 13\n01:07 - Ayah 14\n01:12 - Ayah 15\n01:17 - Ayah 16\n01:23 - Ayah 17\n01:30 - Ayah 18\n01:37 - Ayah 19\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+    "description": "Recitation of Surah Al-Infitar (الإنفطار - The Cleaving), Chapter 82 of the Holy Quran (19 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/82?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:09 - Ayah 3\n00:12 - Ayah 4\n00:15 - Ayah 5\n00:20 - Ayah 6\n00:30 - Ayah 7\n00:34 - Ayah 8\n00:42 - Ayah 9\n00:48 - Ayah 10\n00:53 - Ayah 11\n00:57 - Ayah 12\n01:01 - Ayah 13\n01:07 - Ayah 14\n01:12 - Ayah 15\n01:17 - Ayah 16\n01:23 - Ayah 17\n01:30 - Ayah 18\n01:37 - Ayah 19\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
     "id": "4NBm-c-Pu34",
     "surahId": 83,
-    "title": "Surah 83. Al-Mutaffifin (Al-Mutaffifin) — Chapter 83 of 114 | Peace2074 Quran Recitation",
+    "title": "Surah 83. Al-Mutaffifin (المطففين) — Chapter 83 of 114 | Peace2074 Quran Recitation",
     "url": "https://www.youtube.com/watch?v=4NBm-c-Pu34",
     "embedUrl": "https://www.youtube.com/embed/4NBm-c-Pu34?autoplay=1&rel=0",
     "published": "2026-10-25T07:39:19.134Z",
     "thumbnail": "https://i.ytimg.com/vi/4NBm-c-Pu34/hqdefault.jpg",
-    "description": "Recitation of Surah Al-Mutaffifin (Al-Mutaffifin), Chapter 83 of the Holy Quran (0 verses, meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/83?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:12 - Ayah 3\n00:19 - Ayah 4\n00:30 - Ayah 5\n00:34 - Ayah 6\n00:42 - Ayah 7\n00:52 - Ayah 8\n00:59 - Ayah 9\n01:04 - Ayah 10\n01:11 - Ayah 11\n01:17 - Ayah 12\n01:27 - Ayah 13\n01:36 - Ayah 14\n01:46 - Ayah 15\n01:56 - Ayah 16\n02:04 - Ayah 17\n02:14 - Ayah 18\n02:24 - Ayah 19\n02:31 - Ayah 20\n02:36 - Ayah 21\n02:40 - Ayah 22\n02:47 - Ayah 23\n02:54 - Ayah 24\n03:01 - Ayah 25\n03:08 - Ayah 26\n03:17 - Ayah 27\n03:23 - Ayah 28\n03:30 - Ayah 29\n03:40 - Ayah 30\n03:46 - Ayah 31\n03:57 - Ayah 32\n04:12 - Ayah 33\n04:20 - Ayah 34\n04:28 - Ayah 35\n04:36 - Ayah 36\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+    "description": "Recitation of Surah Al-Mutaffifin (المطففين - The Defrauding), Chapter 83 of the Holy Quran (36 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/83?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:12 - Ayah 3\n00:19 - Ayah 4\n00:30 - Ayah 5\n00:34 - Ayah 6\n00:42 - Ayah 7\n00:52 - Ayah 8\n00:59 - Ayah 9\n01:04 - Ayah 10\n01:11 - Ayah 11\n01:17 - Ayah 12\n01:27 - Ayah 13\n01:36 - Ayah 14\n01:46 - Ayah 15\n01:56 - Ayah 16\n02:04 - Ayah 17\n02:14 - Ayah 18\n02:24 - Ayah 19\n02:31 - Ayah 20\n02:36 - Ayah 21\n02:40 - Ayah 22\n02:47 - Ayah 23\n02:54 - Ayah 24\n03:01 - Ayah 25\n03:08 - Ayah 26\n03:17 - Ayah 27\n03:23 - Ayah 28\n03:30 - Ayah 29\n03:40 - Ayah 30\n03:46 - Ayah 31\n03:57 - Ayah 32\n04:12 - Ayah 33\n04:20 - Ayah 34\n04:28 - Ayah 35\n04:36 - Ayah 36\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
     "id": "1TUaq1DACGY",
     "surahId": 84,
-    "title": "Surah 84. Al-Inshiqaq (Al-Inshiqaq) — Chapter 84 of 114 | Peace2074 Quran Recitation",
+    "title": "Surah 84. Al-Inshiqaq (الإنشقاق) — Chapter 84 of 114 | Peace2074 Quran Recitation",
     "url": "https://www.youtube.com/watch?v=1TUaq1DACGY",
     "embedUrl": "https://www.youtube.com/embed/1TUaq1DACGY?autoplay=1&rel=0",
     "published": "2026-10-25T07:39:19.134Z",
     "thumbnail": "https://i.ytimg.com/vi/1TUaq1DACGY/hqdefault.jpg",
-    "description": "Recitation of Surah Al-Inshiqaq (Al-Inshiqaq), Chapter 84 of the Holy Quran (0 verses, meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/84?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:05 - Ayah 2\n00:09 - Ayah 3\n00:11 - Ayah 4\n00:15 - Ayah 5\n00:19 - Ayah 6\n00:33 - Ayah 7\n00:39 - Ayah 8\n00:44 - Ayah 9\n00:51 - Ayah 10\n00:59 - Ayah 11\n01:02 - Ayah 12\n01:05 - Ayah 13\n01:12 - Ayah 14\n01:20 - Ayah 15\n01:26 - Ayah 16\n01:30 - Ayah 17\n01:33 - Ayah 18\n01:36 - Ayah 19\n01:41 - Ayah 20\n01:46 - Ayah 21\n01:54 - Ayah 22\n02:00 - Ayah 23\n02:05 - Ayah 24\n02:11 - Ayah 25\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+    "description": "Recitation of Surah Al-Inshiqaq (الإنشقاق - The Sundering), Chapter 84 of the Holy Quran (25 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/84?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:05 - Ayah 2\n00:09 - Ayah 3\n00:11 - Ayah 4\n00:15 - Ayah 5\n00:19 - Ayah 6\n00:33 - Ayah 7\n00:39 - Ayah 8\n00:44 - Ayah 9\n00:51 - Ayah 10\n00:59 - Ayah 11\n01:02 - Ayah 12\n01:05 - Ayah 13\n01:12 - Ayah 14\n01:20 - Ayah 15\n01:26 - Ayah 16\n01:30 - Ayah 17\n01:33 - Ayah 18\n01:36 - Ayah 19\n01:41 - Ayah 20\n01:46 - Ayah 21\n01:54 - Ayah 22\n02:00 - Ayah 23\n02:05 - Ayah 24\n02:11 - Ayah 25\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
     "id": "0Il6icRfXXI",
     "surahId": 85,
-    "title": "Surah 85. Al-Buruj (Al-Buruj) — Chapter 85 of 114 | Peace2074 Quran Recitation",
+    "title": "Surah 85. Al-Buruj (البروج) — Chapter 85 of 114 | Peace2074 Quran Recitation",
     "url": "https://www.youtube.com/watch?v=0Il6icRfXXI",
     "embedUrl": "https://www.youtube.com/embed/0Il6icRfXXI?autoplay=1&rel=0",
     "published": "2026-10-25T07:39:19.135Z",
     "thumbnail": "https://i.ytimg.com/vi/0Il6icRfXXI/hqdefault.jpg",
-    "description": "Recitation of Surah Al-Buruj (Al-Buruj), Chapter 85 of the Holy Quran (0 verses, meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/85?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:08 - Ayah 2\n00:13 - Ayah 3\n00:20 - Ayah 4\n00:26 - Ayah 5\n00:32 - Ayah 6\n00:38 - Ayah 7\n00:46 - Ayah 8\n00:59 - Ayah 9\n01:12 - Ayah 10\n01:30 - Ayah 11\n01:52 - Ayah 12\n01:58 - Ayah 13\n02:06 - Ayah 14\n02:11 - Ayah 15\n02:16 - Ayah 16\n02:21 - Ayah 17\n02:26 - Ayah 18\n02:31 - Ayah 19\n02:37 - Ayah 20\n02:45 - Ayah 21\n02:51 - Ayah 22\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+    "description": "Recitation of Surah Al-Buruj (البروج - The Mansions of the Stars), Chapter 85 of the Holy Quran (22 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/85?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:08 - Ayah 2\n00:13 - Ayah 3\n00:20 - Ayah 4\n00:26 - Ayah 5\n00:32 - Ayah 6\n00:38 - Ayah 7\n00:46 - Ayah 8\n00:59 - Ayah 9\n01:12 - Ayah 10\n01:30 - Ayah 11\n01:52 - Ayah 12\n01:58 - Ayah 13\n02:06 - Ayah 14\n02:11 - Ayah 15\n02:16 - Ayah 16\n02:21 - Ayah 17\n02:26 - Ayah 18\n02:31 - Ayah 19\n02:37 - Ayah 20\n02:45 - Ayah 21\n02:51 - Ayah 22\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
     "id": "ebAkW-DlIek",
     "surahId": 86,
-    "title": "Surah 86. At-Tariq (At-Tariq) — Chapter 86 of 114 | Peace2074 Quran Recitation",
+    "title": "Surah 86. At-Tariq (الطارق) — Chapter 86 of 114 | Peace2074 Quran Recitation",
     "url": "https://www.youtube.com/watch?v=ebAkW-DlIek",
     "embedUrl": "https://www.youtube.com/embed/ebAkW-DlIek?autoplay=1&rel=0",
     "published": "2026-10-25T07:39:19.136Z",
     "thumbnail": "https://i.ytimg.com/vi/ebAkW-DlIek/hqdefault.jpg",
-    "description": "Recitation of Surah At-Tariq (At-Tariq), Chapter 86 of the Holy Quran (0 verses, meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/86?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:05 - Ayah 2\n00:10 - Ayah 3\n00:13 - Ayah 4\n00:20 - Ayah 5\n00:27 - Ayah 6\n00:33 - Ayah 7\n00:41 - Ayah 8\n00:46 - Ayah 9\n00:50 - Ayah 10\n00:57 - Ayah 11\n01:02 - Ayah 12\n01:05 - Ayah 13\n01:10 - Ayah 14\n01:12 - Ayah 15\n01:17 - Ayah 16\n01:19 - Ayah 17\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+    "description": "Recitation of Surah At-Tariq (الطارق - The Nightcommer), Chapter 86 of the Holy Quran (17 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/86?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:05 - Ayah 2\n00:10 - Ayah 3\n00:13 - Ayah 4\n00:20 - Ayah 5\n00:27 - Ayah 6\n00:33 - Ayah 7\n00:41 - Ayah 8\n00:46 - Ayah 9\n00:50 - Ayah 10\n00:57 - Ayah 11\n01:02 - Ayah 12\n01:05 - Ayah 13\n01:10 - Ayah 14\n01:12 - Ayah 15\n01:17 - Ayah 16\n01:19 - Ayah 17\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
     "id": "SVqrwPTm_T4",
     "surahId": 87,
-    "title": "Surah 87. Al-A'la (Al-A'la) — Chapter 87 of 114 | Peace2074 Quran Recitation",
+    "title": "Surah 87. Al-A'la (الأعلى) — Chapter 87 of 114 | Peace2074 Quran Recitation",
     "url": "https://www.youtube.com/watch?v=SVqrwPTm_T4",
     "embedUrl": "https://www.youtube.com/embed/SVqrwPTm_T4?autoplay=1&rel=0",
     "published": "2026-10-25T07:39:19.137Z",
     "thumbnail": "https://i.ytimg.com/vi/SVqrwPTm_T4/hqdefault.jpg",
-    "description": "Recitation of Surah Al-A'la (Al-A'la), Chapter 87 of the Holy Quran (0 verses, meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/87?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:07 - Ayah 3\n00:10 - Ayah 4\n00:15 - Ayah 5\n00:21 - Ayah 6\n00:25 - Ayah 7\n00:37 - Ayah 8\n00:40 - Ayah 9\n00:45 - Ayah 10\n00:50 - Ayah 11\n00:54 - Ayah 12\n00:59 - Ayah 13\n01:06 - Ayah 14\n01:10 - Ayah 15\n01:14 - Ayah 16\n01:18 - Ayah 17\n01:23 - Ayah 18\n01:28 - Ayah 19\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+    "description": "Recitation of Surah Al-A'la (الأعلى - The Most High), Chapter 87 of the Holy Quran (19 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/87?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:07 - Ayah 3\n00:10 - Ayah 4\n00:15 - Ayah 5\n00:21 - Ayah 6\n00:25 - Ayah 7\n00:37 - Ayah 8\n00:40 - Ayah 9\n00:45 - Ayah 10\n00:50 - Ayah 11\n00:54 - Ayah 12\n00:59 - Ayah 13\n01:06 - Ayah 14\n01:10 - Ayah 15\n01:14 - Ayah 16\n01:18 - Ayah 17\n01:23 - Ayah 18\n01:28 - Ayah 19\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
     "id": "RgI8-VQGdmE",
     "surahId": 88,
-    "title": "Surah 88. Al-Ghashiyah (Al-Ghashiyah) — Chapter 88 of 114 | Peace2074 Quran Recitation",
+    "title": "Surah 88. Al-Ghashiyah (الغاشية) — Chapter 88 of 114 | Peace2074 Quran Recitation",
     "url": "https://www.youtube.com/watch?v=RgI8-VQGdmE",
     "embedUrl": "https://www.youtube.com/embed/RgI8-VQGdmE?autoplay=1&rel=0",
     "published": "2026-10-25T07:39:19.137Z",
     "thumbnail": "https://i.ytimg.com/vi/RgI8-VQGdmE/hqdefault.jpg",
-    "description": "Recitation of Surah Al-Ghashiyah (Al-Ghashiyah), Chapter 88 of the Holy Quran (0 verses, meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/88?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:03 - Ayah 2\n00:08 - Ayah 3\n00:12 - Ayah 4\n00:16 - Ayah 5\n00:20 - Ayah 6\n00:27 - Ayah 7\n00:33 - Ayah 8\n00:39 - Ayah 9\n00:42 - Ayah 10\n00:46 - Ayah 11\n00:50 - Ayah 12\n00:54 - Ayah 13\n00:58 - Ayah 14\n01:02 - Ayah 15\n01:05 - Ayah 16\n01:09 - Ayah 17\n01:15 - Ayah 18\n01:20 - Ayah 19\n01:24 - Ayah 20\n01:27 - Ayah 21\n01:34 - Ayah 22\n01:37 - Ayah 23\n01:42 - Ayah 24\n01:47 - Ayah 25\n01:53 - Ayah 26\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+    "description": "Recitation of Surah Al-Ghashiyah (الغاشية - The Overwhelming), Chapter 88 of the Holy Quran (26 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/88?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:03 - Ayah 2\n00:08 - Ayah 3\n00:12 - Ayah 4\n00:16 - Ayah 5\n00:20 - Ayah 6\n00:27 - Ayah 7\n00:33 - Ayah 8\n00:39 - Ayah 9\n00:42 - Ayah 10\n00:46 - Ayah 11\n00:50 - Ayah 12\n00:54 - Ayah 13\n00:58 - Ayah 14\n01:02 - Ayah 15\n01:05 - Ayah 16\n01:09 - Ayah 17\n01:15 - Ayah 18\n01:20 - Ayah 19\n01:24 - Ayah 20\n01:27 - Ayah 21\n01:34 - Ayah 22\n01:37 - Ayah 23\n01:42 - Ayah 24\n01:47 - Ayah 25\n01:53 - Ayah 26\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
     "id": "qd-4LfhbpY4",
     "surahId": 89,
-    "title": "Surah 89. Al-Fajr (Al-Fajr) — Chapter 89 of 114 | Peace2074 Quran Recitation",
+    "title": "Surah 89. Al-Fajr (الفجر) — Chapter 89 of 114 | Peace2074 Quran Recitation",
     "url": "https://www.youtube.com/watch?v=qd-4LfhbpY4",
     "embedUrl": "https://www.youtube.com/embed/qd-4LfhbpY4?autoplay=1&rel=0",
     "published": "2026-10-25T07:39:19.139Z",
     "thumbnail": "https://i.ytimg.com/vi/qd-4LfhbpY4/hqdefault.jpg",
-    "description": "Recitation of Surah Al-Fajr (Al-Fajr), Chapter 89 of the Holy Quran (0 verses, meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/89?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:01 - Ayah 2\n00:03 - Ayah 3\n00:06 - Ayah 4\n00:08 - Ayah 5\n00:13 - Ayah 6\n00:19 - Ayah 7\n00:23 - Ayah 8\n00:30 - Ayah 9\n00:37 - Ayah 10\n00:42 - Ayah 11\n00:47 - Ayah 12\n00:52 - Ayah 13\n00:59 - Ayah 14\n01:05 - Ayah 15\n01:20 - Ayah 16\n01:33 - Ayah 17\n01:40 - Ayah 18\n01:49 - Ayah 19\n01:55 - Ayah 20\n02:02 - Ayah 21\n02:08 - Ayah 22\n02:16 - Ayah 23\n02:32 - Ayah 24\n02:38 - Ayah 25\n02:45 - Ayah 26\n02:50 - Ayah 27\n02:58 - Ayah 28\n03:05 - Ayah 29\n03:09 - Ayah 30\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+    "description": "Recitation of Surah Al-Fajr (الفجر - The Dawn), Chapter 89 of the Holy Quran (30 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/89?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:01 - Ayah 2\n00:03 - Ayah 3\n00:06 - Ayah 4\n00:08 - Ayah 5\n00:13 - Ayah 6\n00:19 - Ayah 7\n00:23 - Ayah 8\n00:30 - Ayah 9\n00:37 - Ayah 10\n00:42 - Ayah 11\n00:47 - Ayah 12\n00:52 - Ayah 13\n00:59 - Ayah 14\n01:05 - Ayah 15\n01:20 - Ayah 16\n01:33 - Ayah 17\n01:40 - Ayah 18\n01:49 - Ayah 19\n01:55 - Ayah 20\n02:02 - Ayah 21\n02:08 - Ayah 22\n02:16 - Ayah 23\n02:32 - Ayah 24\n02:38 - Ayah 25\n02:45 - Ayah 26\n02:50 - Ayah 27\n02:58 - Ayah 28\n03:05 - Ayah 29\n03:09 - Ayah 30\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
     "id": "hLJfafgf2S4",
     "surahId": 90,
-    "title": "Surah 90. Al-Balad (Al-Balad) — Chapter 90 of 114 | Peace2074 Quran Recitation",
+    "title": "Surah 90. Al-Balad (البلد) — Chapter 90 of 114 | Peace2074 Quran Recitation",
     "url": "https://www.youtube.com/watch?v=hLJfafgf2S4",
     "embedUrl": "https://www.youtube.com/embed/hLJfafgf2S4?autoplay=1&rel=0",
     "published": "2026-10-25T07:39:19.139Z",
     "thumbnail": "https://i.ytimg.com/vi/hLJfafgf2S4/hqdefault.jpg",
-    "description": "Recitation of Surah Al-Balad (Al-Balad), Chapter 90 of the Holy Quran (0 verses, meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/90?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:05 - Ayah 2\n00:11 - Ayah 3\n00:15 - Ayah 4\n00:20 - Ayah 5\n00:25 - Ayah 6\n00:30 - Ayah 7\n00:35 - Ayah 8\n00:41 - Ayah 9\n00:46 - Ayah 10\n00:52 - Ayah 11\n00:55 - Ayah 12\n01:00 - Ayah 13\n01:02 - Ayah 14\n01:08 - Ayah 15\n01:12 - Ayah 16\n01:16 - Ayah 17\n01:26 - Ayah 18\n01:32 - Ayah 19\n01:39 - Ayah 20\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+    "description": "Recitation of Surah Al-Balad (البلد - The City), Chapter 90 of the Holy Quran (20 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/90?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:05 - Ayah 2\n00:11 - Ayah 3\n00:15 - Ayah 4\n00:20 - Ayah 5\n00:25 - Ayah 6\n00:30 - Ayah 7\n00:35 - Ayah 8\n00:41 - Ayah 9\n00:46 - Ayah 10\n00:52 - Ayah 11\n00:55 - Ayah 12\n01:00 - Ayah 13\n01:02 - Ayah 14\n01:08 - Ayah 15\n01:12 - Ayah 16\n01:16 - Ayah 17\n01:26 - Ayah 18\n01:32 - Ayah 19\n01:39 - Ayah 20\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
     "id": "ut7mPaQA6W4",
     "surahId": 91,
-    "title": "Surah 91. Ash-Shams (Ash-Shams) — Chapter 91 of 114 | Peace2074 Quran Recitation",
+    "title": "Surah 91. Ash-Shams (الشمس) — Chapter 91 of 114 | Peace2074 Quran Recitation",
     "url": "https://www.youtube.com/watch?v=ut7mPaQA6W4",
     "embedUrl": "https://www.youtube.com/embed/ut7mPaQA6W4?autoplay=1&rel=0",
     "published": "2026-10-25T07:39:19.140Z",
     "thumbnail": "https://i.ytimg.com/vi/ut7mPaQA6W4/hqdefault.jpg",
-    "description": "Recitation of Surah Ash-Shams (Ash-Shams), Chapter 91 of the Holy Quran (0 verses, meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/91?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:03 - Ayah 2\n00:06 - Ayah 3\n00:11 - Ayah 4\n00:14 - Ayah 5\n00:19 - Ayah 6\n00:23 - Ayah 7\n00:27 - Ayah 8\n00:32 - Ayah 9\n00:36 - Ayah 10\n00:40 - Ayah 11\n00:44 - Ayah 12\n00:48 - Ayah 13\n00:55 - Ayah 14\n01:06 - Ayah 15\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+    "description": "Recitation of Surah Ash-Shams (الشمس - The Sun), Chapter 91 of the Holy Quran (15 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/91?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:03 - Ayah 2\n00:06 - Ayah 3\n00:11 - Ayah 4\n00:14 - Ayah 5\n00:19 - Ayah 6\n00:23 - Ayah 7\n00:27 - Ayah 8\n00:32 - Ayah 9\n00:36 - Ayah 10\n00:40 - Ayah 11\n00:44 - Ayah 12\n00:48 - Ayah 13\n00:55 - Ayah 14\n01:06 - Ayah 15\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "AyPgmjqHAwI",
+    "surahId": 92,
+    "title": "Surah 92. Al-Layl (الليل) — Chapter 92 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=AyPgmjqHAwI",
+    "embedUrl": "https://www.youtube.com/embed/AyPgmjqHAwI?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/AyPgmjqHAwI/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Layl (الليل - The Night), Chapter 92 of the Holy Quran (21 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/92?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:03 - Ayah 2\n00:07 - Ayah 3\n00:12 - Ayah 4\n00:16 - Ayah 5\n00:21 - Ayah 6\n00:24 - Ayah 7\n00:28 - Ayah 8\n00:33 - Ayah 9\n00:35 - Ayah 10\n00:39 - Ayah 11\n00:46 - Ayah 12\n00:50 - Ayah 13\n00:55 - Ayah 14\n01:01 - Ayah 15\n01:07 - Ayah 16\n01:11 - Ayah 17\n01:15 - Ayah 18\n01:20 - Ayah 19\n01:28 - Ayah 20\n01:34 - Ayah 21\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "pRqgBiU_nuI",
+    "surahId": 93,
+    "title": "Surah 93. Ad-Duhaa (الضحى) — Chapter 93 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=pRqgBiU_nuI",
+    "embedUrl": "https://www.youtube.com/embed/pRqgBiU_nuI?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/pRqgBiU_nuI/hqdefault.jpg",
+    "description": "Recitation of Surah Ad-Duhaa (الضحى - The Morning Hours), Chapter 93 of the Holy Quran (11 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/93?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:01 - Ayah 2\n00:04 - Ayah 3\n00:09 - Ayah 4\n00:14 - Ayah 5\n00:19 - Ayah 6\n00:24 - Ayah 7\n00:31 - Ayah 8\n00:37 - Ayah 9\n00:42 - Ayah 10\n00:48 - Ayah 11\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "xdQTpy46-yk",
+    "surahId": 94,
+    "title": "Surah 94. Ash-Sharh (الشرح) — Chapter 94 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=xdQTpy46-yk",
+    "embedUrl": "https://www.youtube.com/embed/xdQTpy46-yk?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/xdQTpy46-yk/hqdefault.jpg",
+    "description": "Recitation of Surah Ash-Sharh (الشرح - The Relief), Chapter 94 of the Holy Quran (8 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/94?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:03 - Ayah 2\n00:07 - Ayah 3\n00:13 - Ayah 4\n00:16 - Ayah 5\n00:21 - Ayah 6\n00:25 - Ayah 7\n00:29 - Ayah 8\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "Rp_yXuRsk9s",
+    "surahId": 95,
+    "title": "Surah 95. At-Tin (التين) — Chapter 95 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=Rp_yXuRsk9s",
+    "embedUrl": "https://www.youtube.com/embed/Rp_yXuRsk9s?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/Rp_yXuRsk9s/hqdefault.jpg",
+    "description": "Recitation of Surah At-Tin (التين - The Fig), Chapter 95 of the Holy Quran (8 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/95?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:08 - Ayah 3\n00:13 - Ayah 4\n00:22 - Ayah 5\n00:29 - Ayah 6\n00:39 - Ayah 7\n00:45 - Ayah 8\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "CCs09dJpk9c",
+    "surahId": 96,
+    "title": "Surah 96. Al-'Alaq (العلق) — Chapter 96 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=CCs09dJpk9c",
+    "embedUrl": "https://www.youtube.com/embed/CCs09dJpk9c?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/CCs09dJpk9c/hqdefault.jpg",
+    "description": "Recitation of Surah Al-'Alaq (العلق - The Clot), Chapter 96 of the Holy Quran (19 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/96?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:08 - Ayah 3\n00:12 - Ayah 4\n00:15 - Ayah 5\n00:20 - Ayah 6\n00:27 - Ayah 7\n00:30 - Ayah 8\n00:34 - Ayah 9\n00:37 - Ayah 10\n00:40 - Ayah 11\n00:45 - Ayah 12\n00:48 - Ayah 13\n00:52 - Ayah 14\n00:58 - Ayah 15\n01:06 - Ayah 16\n01:11 - Ayah 17\n01:13 - Ayah 18\n01:16 - Ayah 19\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "D96Ra14qFAM",
+    "surahId": 97,
+    "title": "Surah 97. Al-Qadr (القدر) — Chapter 97 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=D96Ra14qFAM",
+    "embedUrl": "https://www.youtube.com/embed/D96Ra14qFAM?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/D96Ra14qFAM/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Qadr (القدر - The Power), Chapter 97 of the Holy Quran (5 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/97?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:07 - Ayah 2\n00:13 - Ayah 3\n00:19 - Ayah 4\n00:30 - Ayah 5\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "mrAEr7dpIc4",
+    "surahId": 98,
+    "title": "Surah 98. Al-Bayyinah (البينة) — Chapter 98 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=mrAEr7dpIc4",
+    "embedUrl": "https://www.youtube.com/embed/mrAEr7dpIc4?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/mrAEr7dpIc4/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Bayyinah (البينة - The Clear Proof), Chapter 98 of the Holy Quran (8 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/98?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:12 - Ayah 2\n00:19 - Ayah 3\n00:23 - Ayah 4\n00:35 - Ayah 5\n00:56 - Ayah 6\n01:14 - Ayah 7\n01:25 - Ayah 8\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "4xE6FzuFZP8",
+    "surahId": 99,
+    "title": "Surah 99. Az-Zalzalah (الزلزلة) — Chapter 99 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=4xE6FzuFZP8",
+    "embedUrl": "https://www.youtube.com/embed/4xE6FzuFZP8?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/4xE6FzuFZP8/hqdefault.jpg",
+    "description": "Recitation of Surah Az-Zalzalah (الزلزلة - The Earthquake), Chapter 99 of the Holy Quran (8 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/99?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:09 - Ayah 3\n00:14 - Ayah 4\n00:19 - Ayah 5\n00:24 - Ayah 6\n00:32 - Ayah 7\n00:40 - Ayah 8\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "nbsDPUHsVrc",
+    "surahId": 100,
+    "title": "Surah 100. Al-'Adiyat (العاديات) — Chapter 100 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=nbsDPUHsVrc",
+    "embedUrl": "https://www.youtube.com/embed/nbsDPUHsVrc?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/nbsDPUHsVrc/hqdefault.jpg",
+    "description": "Recitation of Surah Al-'Adiyat (العاديات - The Courser), Chapter 100 of the Holy Quran (11 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/100?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:03 - Ayah 2\n00:06 - Ayah 3\n00:09 - Ayah 4\n00:12 - Ayah 5\n00:15 - Ayah 6\n00:23 - Ayah 7\n00:30 - Ayah 8\n00:37 - Ayah 9\n00:44 - Ayah 10\n00:49 - Ayah 11\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "zP1Vsi86Qjw",
+    "surahId": 101,
+    "title": "Surah 101. Al-Qari'ah (القارعة) — Chapter 101 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=zP1Vsi86Qjw",
+    "embedUrl": "https://www.youtube.com/embed/zP1Vsi86Qjw?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/zP1Vsi86Qjw/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Qari'ah (القارعة - The Calamity), Chapter 101 of the Holy Quran (11 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/101?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:02 - Ayah 2\n00:04 - Ayah 3\n00:10 - Ayah 4\n00:17 - Ayah 5\n00:25 - Ayah 6\n00:30 - Ayah 7\n00:34 - Ayah 8\n00:39 - Ayah 9\n00:43 - Ayah 10\n00:47 - Ayah 11\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "Pj2vddpMaeo",
+    "surahId": 102,
+    "title": "Surah 102. At-Takathur (التكاثر) — Chapter 102 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=Pj2vddpMaeo",
+    "embedUrl": "https://www.youtube.com/embed/Pj2vddpMaeo?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/Pj2vddpMaeo/hqdefault.jpg",
+    "description": "Recitation of Surah At-Takathur (التكاثر - The Rivalry in world increase), Chapter 102 of the Holy Quran (8 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/102?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:03 - Ayah 2\n00:07 - Ayah 3\n00:12 - Ayah 4\n00:19 - Ayah 5\n00:25 - Ayah 6\n00:31 - Ayah 7\n00:39 - Ayah 8\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "AJyF35jEMEk",
+    "surahId": 103,
+    "title": "Surah 103. Al-'Asr (العصر) — Chapter 103 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=AJyF35jEMEk",
+    "embedUrl": "https://www.youtube.com/embed/AJyF35jEMEk?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/AJyF35jEMEk/hqdefault.jpg",
+    "description": "Recitation of Surah Al-'Asr (العصر - The Declining Day), Chapter 103 of the Holy Quran (3 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/103?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:01 - Ayah 2\n00:07 - Ayah 3\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "p5Q2LUMFZII",
+    "surahId": 104,
+    "title": "Surah 104. Al-Humazah (الهمزة) — Chapter 104 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=p5Q2LUMFZII",
+    "embedUrl": "https://www.youtube.com/embed/p5Q2LUMFZII?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/p5Q2LUMFZII/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Humazah (الهمزة - The Traducer), Chapter 104 of the Holy Quran (9 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/104?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:09 - Ayah 3\n00:16 - Ayah 4\n00:23 - Ayah 5\n00:28 - Ayah 6\n00:31 - Ayah 7\n00:35 - Ayah 8\n00:41 - Ayah 9\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "WnrMsyJkVaQ",
+    "surahId": 105,
+    "title": "Surah 105. Al-Fil (الفيل) — Chapter 105 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=WnrMsyJkVaQ",
+    "embedUrl": "https://www.youtube.com/embed/WnrMsyJkVaQ?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/WnrMsyJkVaQ/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Fil (الفيل - The Elephant), Chapter 105 of the Holy Quran (5 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/105?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:07 - Ayah 2\n00:14 - Ayah 3\n00:20 - Ayah 4\n00:30 - Ayah 5\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "NhIrTcLmFuc",
+    "surahId": 106,
+    "title": "Surah 106. Quraysh (قريش) — Chapter 106 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=NhIrTcLmFuc",
+    "embedUrl": "https://www.youtube.com/embed/NhIrTcLmFuc?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/NhIrTcLmFuc/hqdefault.jpg",
+    "description": "Recitation of Surah Quraysh (قريش - Quraysh), Chapter 106 of the Holy Quran (4 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/106?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:04 - Ayah 2\n00:13 - Ayah 3\n00:19 - Ayah 4\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "Vhzagl3-WbE",
+    "surahId": 107,
+    "title": "Surah 107. Al-Ma'un (الماعون) — Chapter 107 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=Vhzagl3-WbE",
+    "embedUrl": "https://www.youtube.com/embed/Vhzagl3-WbE?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/Vhzagl3-WbE/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Ma'un (الماعون - The Small kindnesses), Chapter 107 of the Holy Quran (7 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/107?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:06 - Ayah 2\n00:12 - Ayah 3\n00:19 - Ayah 4\n00:25 - Ayah 5\n00:33 - Ayah 6\n00:40 - Ayah 7\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "JkqTKbDOiFg",
+    "surahId": 108,
+    "title": "Surah 108. Al-Kawthar (الكوثر) — Chapter 108 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=JkqTKbDOiFg",
+    "embedUrl": "https://www.youtube.com/embed/JkqTKbDOiFg?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/JkqTKbDOiFg/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Kawthar (الكوثر - The Abundance), Chapter 108 of the Holy Quran (3 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/108?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:06 - Ayah 2\n00:10 - Ayah 3\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "kbWajLACCgE",
+    "surahId": 109,
+    "title": "Surah 109. Al-Kafirun (الكافرون) — Chapter 109 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=kbWajLACCgE",
+    "embedUrl": "https://www.youtube.com/embed/kbWajLACCgE?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/kbWajLACCgE/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Kafirun (الكافرون - The Disbelievers), Chapter 109 of the Holy Quran (6 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/109?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:07 - Ayah 2\n00:14 - Ayah 3\n00:23 - Ayah 4\n00:29 - Ayah 5\n00:38 - Ayah 6\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "euakOnn_yYI",
+    "surahId": 110,
+    "title": "Surah 110. An-Nasr (النصر) — Chapter 110 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=euakOnn_yYI",
+    "embedUrl": "https://www.youtube.com/embed/euakOnn_yYI?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/euakOnn_yYI/hqdefault.jpg",
+    "description": "Recitation of Surah An-Nasr (النصر - The Divine Support), Chapter 110 of the Holy Quran (3 verses, Medinan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/110?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:06 - Ayah 2\n00:15 - Ayah 3\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "AChJjxPYWbI",
+    "surahId": 111,
+    "title": "Surah 111. Al-Masad (المسد) — Chapter 111 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=AChJjxPYWbI",
+    "embedUrl": "https://www.youtube.com/embed/AChJjxPYWbI?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/AChJjxPYWbI/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Masad (المسد - The Palm Fiber), Chapter 111 of the Holy Quran (5 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/111?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:07 - Ayah 2\n00:14 - Ayah 3\n00:19 - Ayah 4\n00:25 - Ayah 5\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "_ta4IsCdCJo",
+    "surahId": 112,
+    "title": "Surah 112. Al-Ikhlas (الإخلاص) — Chapter 112 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=_ta4IsCdCJo",
+    "embedUrl": "https://www.youtube.com/embed/_ta4IsCdCJo?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/_ta4IsCdCJo/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Ikhlas (الإخلاص - The Sincerity), Chapter 112 of the Holy Quran (4 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/112?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:02 - Ayah 2\n00:05 - Ayah 3\n00:08 - Ayah 4\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "THNoEP1jpbM",
+    "surahId": 113,
+    "title": "Surah 113. Al-Falaq (الفلق) — Chapter 113 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=THNoEP1jpbM",
+    "embedUrl": "https://www.youtube.com/embed/THNoEP1jpbM?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/THNoEP1jpbM/hqdefault.jpg",
+    "description": "Recitation of Surah Al-Falaq (الفلق - The Daybreak), Chapter 113 of the Holy Quran (5 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/113?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:03 - Ayah 2\n00:07 - Ayah 3\n00:12 - Ayah 4\n00:17 - Ayah 5\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
+  },
+  {
+    "id": "6TvJEjEKMhY",
+    "surahId": 114,
+    "title": "Surah 114. An-Nas (الناس) — Chapter 114 of 114 | Peace2074 Quran Recitation",
+    "url": "https://www.youtube.com/watch?v=6TvJEjEKMhY",
+    "embedUrl": "https://www.youtube.com/embed/6TvJEjEKMhY?autoplay=1&rel=0",
+    "published": "2026-10-28T01:30:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/6TvJEjEKMhY/hqdefault.jpg",
+    "description": "Recitation of Surah An-Nas (الناس - Mankind), Chapter 114 of the Holy Quran (6 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/114?play=true&theme=dark\n\n📖 Verse Timestamp Chapters (Click to Jump):\n00:00 - Ayah 1\n00:06 - Ayah 2\n00:11 - Ayah 3\n00:16 - Ayah 4\n00:24 - Ayah 5\n00:32 - Ayah 6\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   }
 ]

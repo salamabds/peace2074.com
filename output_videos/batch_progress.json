@@ -751,39 +751,44 @@
   "108": {
     "surahId": 108,
     "surahName": "Al-Kawthar",
-    "status": "failed",
+    "status": "uploaded",
     "videoPath": "output_videos/surah_108_al_kawthar.mp4",
-    "error": "YouTube Daily Upload Limit Reached. YouTube restricts channels to a daily maximum (~50-100 uploads per 24 hours). Halting batch until the 24h window resets."
+    "youtubeVideoId": "JkqTKbDOiFg"
   },
   "109": {
     "surahId": 109,
     "surahName": "Al-Kafirun",
-    "status": "generated",
-    "videoPath": "output_videos/surah_109_al_kafirun.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_109_al_kafirun.mp4",
+    "youtubeVideoId": "kbWajLACCgE"
   },
   "110": {
     "surahId": 110,
     "surahName": "An-Nasr",
-    "status": "generated",
-    "videoPath": "output_videos/surah_110_an_nasr.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_110_an_nasr.mp4",
+    "youtubeVideoId": "euakOnn_yYI"
   },
   "111": {
     "surahId": 111,
     "surahName": "Al-Masad",
-    "status": "generated",
-    "videoPath": "output_videos/surah_111_al_masad.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_111_al_masad.mp4",
+    "youtubeVideoId": "AChJjxPYWbI"
   },
   "112": {
     "surahId": 112,
     "surahName": "Al-Ikhlas",
-    "status": "generated",
-    "videoPath": "output_videos/surah_112_al_ikhlas.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_112_al_ikhlas.mp4",
+    "youtubeVideoId": "_ta4IsCdCJo"
   },
   "113": {
     "surahId": 113,
     "surahName": "Al-Falaq",
-    "status": "generated",
-    "videoPath": "output_videos/surah_113_al_falaq.mp4"
+    "status": "uploaded",
+    "videoPath": "output_videos/surah_113_al_falaq.mp4",
+    "youtubeVideoId": "THNoEP1jpbM"
   },
   "114": {
     "surahId": 114,

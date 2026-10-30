@@ -26,6 +26,17 @@
     "pause": "Pause Athan",
     "stop": "Stop Athan"
   },
+  "fridayKahf": {
+    "badge": "Jumu'ah Mubarak • Friday Sunnah",
+    "title": "Surah Al-Kahf (The Cave)",
+    "arabicTitle": "سورة الكهف",
+    "hadith": "“Whoever recites Surah Al-Kahf on Friday, a light will illuminate for them between the two Fridays.”",
+    "hadithSource": "Sunan al-Bayhaqi & al-Hakim",
+    "action": "Recite Surah Al-Kahf",
+    "actionListen": "Listen & Read Word-by-Word",
+    "fridayBadge": "Friday Sunnah",
+    "dismiss": "Dismiss"
+  },
   "appShell": {
     "toggleMenu": "Toggle menu",
     "searchPlaceholder": "Search…",

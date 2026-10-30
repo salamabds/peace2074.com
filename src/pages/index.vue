@@ -4,6 +4,7 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import FridayKahfBanner from '@/components/common/FridayKahfBanner.vue'
 
 const { t } = useI18n()
 

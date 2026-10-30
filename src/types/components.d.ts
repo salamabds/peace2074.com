@@ -13,6 +13,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     ConsentBanner: typeof import('./../components/common/ConsentBanner.vue')['default']
     CursorTrail: typeof import('./../components/common/CursorTrail.vue')['default']
+    FridayKahfBanner: typeof import('./../components/common/FridayKahfBanner.vue')['default']
     MiraclesSwitcher: typeof import('./../components/common/MiraclesSwitcher.vue')['default']
     OfflineRecitationManager: typeof import('./../components/quran/OfflineRecitationManager.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

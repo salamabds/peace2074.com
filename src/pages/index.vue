@@ -49,6 +49,11 @@ const features = [
       </div>
     </section>
 
+    <!-- ── Friday Sunnah Banner ── -->
+    <div class="friday-banner-container">
+      <FridayKahfBanner />
+    </div>
+
     <!-- ── Feature Cards ── -->
     <section class="features">
       <RouterLink
@@ -167,6 +172,15 @@ const features = [
   font-size: 1.05rem;
   line-height: 1.7;
   margin: 0;
+}
+
+/* ── Friday Banner ── */
+.friday-banner-container {
+  max-width: 1000px;
+  margin: -1.5rem auto 1.25rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 12;
 }
 
 /* ── Feature Cards ── */

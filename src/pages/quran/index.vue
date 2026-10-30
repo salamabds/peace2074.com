@@ -7,6 +7,8 @@ import { useQ2P as useQ2PStore } from '@/stores/q2p.pinia'
 import { useBookmarksStore } from '@/stores/bookmarks.pinia'
 import { useAuthStore } from '@/stores/auth.pinia'
 import { fetchQuranProgress, saveQuranProgress } from '@/stores/services'
+import FridayKahfBanner from '@/components/common/FridayKahfBanner.vue'
+import { useFridayKahf } from '@/composables/useFridayKahf'
 
 const { t } = useI18n()
 const $q = useQuasar()
@@ -18,6 +20,7 @@ const authStore = useAuthStore()
 const loading = ref(true)
 const error = ref('')
 const invalidSuraNotice = ref(false)
+const { isFriday } = useFridayKahf()
 
 // Ramadan Progress Tracking
 const PROGRESS_KEY = 'quran-ramadan-progress'
@@ -454,6 +457,9 @@ onMounted(async () => {
   <q-page class="q-pa-md">
     <h1 class="text-h4 q-mb-md">{{ t('pages.quran.title') }}</h1>
 
+    <!-- Friday Sunnah Banner -->
+    <FridayKahfBanner />
+
     <!-- Ramadan Progress Card -->
     <q-card
       class="ramadan-progress q-mb-lg"
@@ -573,10 +579,19 @@ onMounted(async () => {
         <RouterLink
           :to="`/quran/${s?.id}`"
           class="sura-card q-card q-pa-sm"
-          :class="{ 'is-completed': completedSuras.has(s.id) }"
+          :class="{
+            'is-completed': completedSuras.has(s.id),
+            'is-friday-kahf': s.id === 18 && isFriday
+          }"
         >
           <div class="sura-content">
-            <div class="text-subtitle1">{{ s.id }}. {{ s.e_name || '' }}</div>
+            <div class="text-subtitle1 row items-center no-wrap">
+              <span>{{ s.id }}. {{ s.e_name || '' }}</span>
+              <span v-if="s.id === 18 && isFriday" class="friday-pill q-ml-xs">
+                <q-icon name="auto_awesome" size="11px" class="q-mr-xs" />
+                {{ t('fridayKahf.fridayBadge') }}
+              </span>
+            </div>
             <div class="text-body2">{{ s.name }}</div>
             <div class="text-caption">
               {{ s.total_verses }} {{ t('pages.quran.verses') }} • {{ s.type }}
@@ -837,6 +852,29 @@ body.body--dark .sura-card.is-completed::before {
 
 .sura-card .text-caption {
   color: rgba(0, 0, 0, 0.6);
+}
+
+.sura-card.is-friday-kahf {
+  border: 1.5px solid rgba(245, 158, 11, 0.7) !important;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.22) !important;
+}
+
+.friday-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  color: #b45309;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 12px;
+  letter-spacing: 0.3px;
+}
+:global(body.body--dark) .friday-pill {
+  color: #fef08a;
+  background: rgba(245, 158, 11, 0.25);
+  border-color: rgba(251, 191, 36, 0.6);
 }
 
 .sura-actions {

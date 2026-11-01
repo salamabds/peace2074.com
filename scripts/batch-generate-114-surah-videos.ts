@@ -419,27 +419,43 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
     const fileKey = `${paddedSura}${pad3(verse)}.mp3`
     const localMp3 = path.join(tempDir, fileKey)
 
-    if (!fs.existsSync(localMp3) || fs.statSync(localMp3).size < 100) {
+    let downloaded = fs.existsSync(localMp3) && fs.statSync(localMp3).size > 1000
+    if (!downloaded) {
       const urls = [
         `https://verses.quran.com/Alafasy/mp3/${fileKey}`,
-        `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${fileKey}`,
         `https://mirrors.quranicaudio.com/everyayah/Alafasy_128kbps/${fileKey}`,
         `https://everyayah.com/data/Alafasy_128kbps/${fileKey}`,
+        `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${fileKey}`,
       ]
-      for (const u of urls) {
-        try {
-          const res = await fetch(u, { signal: AbortSignal.timeout(8000) })
-          if (res.ok) {
-            const buf = Buffer.from(await res.arrayBuffer())
-            if (buf.length > 100) { fs.writeFileSync(localMp3, buf); break }
-          }
-        } catch {}
+      for (let attempt = 1; attempt <= 5 && !downloaded; attempt++) {
+        for (const u of urls) {
+          try {
+            const res = await fetch(u, { signal: AbortSignal.timeout(10000) })
+            if (res.ok) {
+              const buf = Buffer.from(await res.arrayBuffer())
+              if (buf.length > 1000) {
+                fs.writeFileSync(localMp3, buf)
+                downloaded = true
+                break
+              }
+            }
+          } catch {}
+        }
+        if (!downloaded && attempt < 5) {
+          await new Promise((r) => setTimeout(r, 1000 * attempt))
+        }
       }
     }
 
-    if (fs.existsSync(localMp3)) {
-      expectedDuration += getAudioDuration(localMp3)
+    if (!fs.existsSync(localMp3) || fs.statSync(localMp3).size < 1000) {
+      throw new Error(`CRITICAL: Failed to download audio for Surah ${chapter.id} Verse ${verse} (${fileKey})! Aborting to prevent audio desync.`)
     }
+
+    const dur = getAudioDuration(localMp3)
+    if (dur <= 0) {
+      throw new Error(`CRITICAL: Audio file ${fileKey} has invalid duration (0s)!`)
+    }
+    expectedDuration += dur
   }
 
   // Playwright video recording dir
@@ -449,6 +465,7 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
   const launchOptions: any = {
     headless: true,
     args: [
+      '--window-size=1920,1080',
       '--autoplay-policy=no-user-gesture-required',
       '--disable-web-security',
       '--no-sandbox',
@@ -461,8 +478,8 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
   }
   const browser = await chromium.launch(launchOptions)
   const context = await browser.newContext({
-    viewport: { width: 1280, height: 720 },
-    recordVideo: { dir: videoDir, size: { width: 1280, height: 720 } },
+    viewport: { width: 1920, height: 1080 },
+    recordVideo: { dir: videoDir, size: { width: 1920, height: 1080 } },
     colorScheme: 'dark',
   })
   const page = await context.newPage()
@@ -478,6 +495,16 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
     localStorage.setItem('layout-preference', 'plain')
 
     const style = document.createElement('style')
+    style.id = 'recording-clean-css'
+    style.textContent = `
+      html, body {
+        height: 100% !important;
+        margin: 0 !important;
+        background: #0b1120 !important;
+      }
+      .mushaf-layout, .surah-text-container {
+        font-size: 1.22em !important;
+      }
     style.id = 'recording-clean-css'
     style.textContent = `
       .q-banner, .announcement-banner, .paused-indicator-banner, .consent-banner,

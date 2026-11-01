@@ -465,7 +465,7 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
   const launchOptions: any = {
     headless: true,
     args: [
-      '--window-size=1920,1080',
+      '--window-size=2560,1440',
       '--autoplay-policy=no-user-gesture-required',
       '--disable-web-security',
       '--no-sandbox',
@@ -478,8 +478,8 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
   }
   const browser = await chromium.launch(launchOptions)
   const context = await browser.newContext({
-    viewport: { width: 1920, height: 1080 },
-    recordVideo: { dir: videoDir, size: { width: 1920, height: 1080 } },
+    viewport: { width: 2560, height: 1440 },
+    recordVideo: { dir: videoDir, size: { width: 2560, height: 1440 } },
     colorScheme: 'dark',
   })
   const page = await context.newPage()
@@ -502,11 +502,13 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
         margin: 0 !important;
         background: #0b1120 !important;
       }
-      .mushaf-layout, .surah-text-container {
-        font-size: 1.22em !important;
+      .mushaf-body, .mushaf-flow-text, .mushaf-ayah-inline, [id^="word-mushaf-"] {
+        font-size: 50px !important;
+        line-height: 2.4 !important;
       }
-    style.id = 'recording-clean-css'
-    style.textContent = `
+      .verse-marker {
+        font-size: 38px !important;
+      }
       .q-banner, .announcement-banner, .paused-indicator-banner, .consent-banner,
       .q-header, nav, .back-to-list, .q-mb-md,
       a.q-btn, .quran-detail-page > a.q-btn, .quran-detail-page > .q-btn,
@@ -558,19 +560,19 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
       mark.innerHTML = '✨ <b>PEACE2074</b> • peace2074.com'
       mark.style.cssText = `
         position: fixed !important;
-        top: 20px !important;
-        right: 24px !important;
+        top: 28px !important;
+        right: 36px !important;
         z-index: 999999 !important;
-        background: rgba(15, 23, 42, 0.85) !important;
-        border: 1px solid rgba(251, 191, 36, 0.4) !important;
+        background: rgba(15, 23, 42, 0.88) !important;
+        border: 1.5px solid rgba(251, 191, 36, 0.45) !important;
         color: #fef3c7 !important;
-        padding: 8px 16px !important;
-        border-radius: 20px !important;
+        padding: 12px 24px !important;
+        border-radius: 28px !important;
         font-family: system-ui, -apple-system, sans-serif !important;
-        font-size: 14px !important;
-        letter-spacing: 0.5px !important;
-        backdrop-filter: blur(8px) !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 12px rgba(251, 191, 36, 0.2) !important;
+        font-size: 18px !important;
+        letter-spacing: 0.6px !important;
+        backdrop-filter: blur(10px) !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 20px rgba(251, 191, 36, 0.25) !important;
         pointer-events: none !important;
       `
       document.body.appendChild(mark)
@@ -582,19 +584,20 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
       secMark.innerHTML = '🔒 © 2026 PEACE2074 • peace2074.com • All Rights Reserved • Unauthorized Re-Upload Prohibited'
       secMark.style.cssText = `
         position: fixed !important;
-        bottom: 12px !important;
+        bottom: 24px !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         z-index: 999999 !important;
-        background: rgba(15, 23, 42, 0.75) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        color: rgba(255, 255, 255, 0.75) !important;
-        padding: 4px 14px !important;
-        border-radius: 12px !important;
+        background: rgba(15, 23, 42, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        color: rgba(255, 255, 255, 0.88) !important;
+        padding: 6px 20px !important;
+        border-radius: 16px !important;
         font-family: system-ui, -apple-system, sans-serif !important;
-        font-size: 11px !important;
-        letter-spacing: 0.6px !important;
-        backdrop-filter: blur(6px) !important;
+        font-size: 13px !important;
+        letter-spacing: 0.7px !important;
+        white-space: nowrap !important;
+        backdrop-filter: blur(8px) !important;
         pointer-events: none !important;
       `
       document.body.appendChild(secMark)
@@ -628,7 +631,7 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
 
   // Record for the expected audio duration + 1.5s buffer
   const waitMs = Math.ceil((expectedDuration + 1.5) * 1000)
-  console.log(`[Surah ${chapter.id}] ⏱️ Recording for ${Math.ceil(expectedDuration)}s (${chapter.total_verses} verses)...`)
+  console.log(`[Surah ${chapter.id}] ⏱️ Recording 2K QHD for ${Math.ceil(expectedDuration)}s (${chapter.total_verses} verses)...`)
   await page.waitForTimeout(waitMs)
 
   // Close context to finalize the video recording
@@ -644,7 +647,13 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
   const audioFiles: string[] = []
   for (let verse = 1; verse <= chapter.total_verses; verse++) {
     const localMp3 = path.join(tempDir, `${paddedSura}${pad3(verse)}.mp3`)
-    if (fs.existsSync(localMp3)) audioFiles.push(localMp3)
+    if (fs.existsSync(localMp3) && fs.statSync(localMp3).size > 1000) {
+      audioFiles.push(localMp3)
+    }
+  }
+
+  if (audioFiles.length !== chapter.total_verses) {
+    throw new Error(`CRITICAL: Expected ${chapter.total_verses} audio files for Surah ${chapter.id}, but found ${audioFiles.length}!`)
   }
 
   const audioListFile = path.join(tempDir, 'audio_list.txt')
@@ -685,10 +694,10 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
     console.log(`[Surah ${chapter.id}] Fallback sync offset: ${startOffsetSec.toFixed(3)}s`)
   }
 
-  // 3. Merge screen recording video (with exact start offset trimmed) + master studio audio → final HD MP4
-  console.log(`[Surah ${chapter.id}] 🔄 Encoding final synchronized HD video...`)
+  // 3. Merge screen recording video (with exact start offset trimmed) + master studio audio → final 2K QHD MP4
+  console.log(`[Surah ${chapter.id}] 🔄 Encoding final synchronized 2K QHD video (2560x1440)...`)
   execSync(
-    `"${ffmpeg}" -y -ss ${startOffsetSec.toFixed(3)} -i "${videoFile}" -i "${fullAudio}" -c:v libx264 -preset fast -crf 22 -c:a aac -b:a 192k -shortest -pix_fmt yuv420p "${outputVideo}"`,
+    `"${ffmpeg}" -y -ss ${startOffsetSec.toFixed(3)} -i "${videoFile}" -i "${fullAudio}" -c:v libx264 -preset veryfast -crf 18 -b:v 8000k -maxrate 12000k -bufsize 16000k -c:a aac -b:a 320k -shortest -pix_fmt yuv420p "${outputVideo}"`,
     { stdio: 'ignore' }
   )
 
@@ -698,6 +707,9 @@ async function buildSurahVideoWithSyncedText(chapter: Chapter, tempDir: string, 
   for (let verse = 1; verse <= chapter.total_verses; verse++) {
     const localMp3 = path.join(tempDir, `${paddedSura}${pad3(verse)}.mp3`)
     const dur = fs.existsSync(localMp3) ? getAudioDuration(localMp3) : 0
+    if (dur <= 0) {
+      throw new Error(`CRITICAL: Verse ${verse} in Surah ${chapter.id} has invalid duration (0s)!`)
+    }
     verseTimestamps.push({ verse, timestamp: cumTime, duration: dur })
     cumTime += dur
   }

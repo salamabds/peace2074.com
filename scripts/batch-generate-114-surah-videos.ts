@@ -858,7 +858,17 @@ async function uploadToYouTube(chapter: Chapter, videoPath: string, rawOauthToke
   const webPlayerUrl = `https://peace2074.com/quran/${chapter.id}?play=true&theme=dark`
   const copyrightNotice = '\n\n🔒 COPYRIGHT & ANTI-PIRACY NOTICE:\n© 2026 PEACE2074 (https://peace2074.com). All rights reserved.\nThis video, synchronized Arabic Uthmani calligraphy, multilingual translations, audio editing, and layout are protected under international copyright law.\nUnauthorized downloading, re-uploading, mirroring, derivative broadcasting, or commercial exploitation on YouTube, TikTok, Facebook, or other platforms is strictly prohibited and subject to immediate DMCA takedown and copyright strikes.'
 
-  const description = `Recitation of Surah ${chapter.transliteration} (${chapter.name} - ${chapter.translation}), Chapter ${chapter.id} of the Holy Quran (${chapter.total_verses} verses, ${chapter.type === 'meccan' ? 'Meccan' : 'Medinan'}). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\n${webPlayerUrl}${chaptersText}\n\nSubscribe to Peace2074: https://www.youtube.com/channel/${CHANNEL_ID}?sub_confirmation=1${copyrightNotice}`
+  let description = `Recitation of Surah ${chapter.transliteration} (${chapter.name} - ${chapter.translation}), Chapter ${chapter.id} of the Holy Quran (${chapter.total_verses} verses, ${chapter.type === 'meccan' ? 'Meccan' : 'Medinan'}). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\n${webPlayerUrl}${chaptersText}\n\nSubscribe to Peace2074: https://www.youtube.com/channel/${CHANNEL_ID}?sub_confirmation=1${copyrightNotice}`
+  if (description.length > 4900) {
+    const baseLength = description.length - chaptersText.length
+    const allowedChaptersLen = 4900 - baseLength - 60
+    if (allowedChaptersLen > 200) {
+      const trimmedChapters = chaptersText.slice(0, allowedChaptersLen).replace(/\n[^\n]*$/, '') + '\n... (see peace2074.com for complete interactive verses)'
+      description = `Recitation of Surah ${chapter.transliteration} (${chapter.name} - ${chapter.translation}), Chapter ${chapter.id} of the Holy Quran (${chapter.total_verses} verses, ${chapter.type === 'meccan' ? 'Meccan' : 'Medinan'}). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\n${webPlayerUrl}${trimmedChapters}\n\nSubscribe to Peace2074: https://www.youtube.com/channel/${CHANNEL_ID}?sub_confirmation=1${copyrightNotice}`
+    } else {
+      description = `Recitation of Surah ${chapter.transliteration} (${chapter.name} - ${chapter.translation}), Chapter ${chapter.id} of the Holy Quran (${chapter.total_verses} verses, ${chapter.type === 'meccan' ? 'Meccan' : 'Medinan'}). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\n${webPlayerUrl}\n\nSubscribe to Peace2074: https://www.youtube.com/channel/${CHANNEL_ID}?sub_confirmation=1${copyrightNotice}`
+    }
+  }
   const tags = ['Quran', `Surah ${chapter.transliteration}`, `Surah ${chapter.id}`, 'Peace2074', 'Quran Recitation', 'Mishary Alafasy', 'Holy Quran', 'Islam']
 
   try {

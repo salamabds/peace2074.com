@@ -48,9 +48,11 @@ export function usePrayerTimes() {
     ) {
       console.log(`Time for ${nextPrayer.value}!`);
       
+      const prayerTimesPref = typeof window !== 'undefined' ? window.localStorage.getItem('pref-autoplay-prayer-times') : null;
+      const athanPref = typeof window !== 'undefined' ? window.localStorage.getItem('pref-autoplay-athan') : null;
       const isAutoPlayEnabled = typeof window !== 'undefined' 
-        ? window.localStorage.getItem('pref-autoplay-prayer-times') !== 'false'
-        : true; // Default to true if not set
+        ? prayerTimesPref !== 'false' && athanPref !== 'false'
+        : false;
         
       if (isAutoPlayEnabled) {
         console.log('Playing Athan...');

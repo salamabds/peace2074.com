@@ -170,13 +170,13 @@ export default [
     "description": "Recitation of Surah Al-Isra (الإسراء - The Night Journey), Chapter 17 of the Holy Quran (111 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/17?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {
-    "id": "1NsXDloW9OY",
+    "id": "XEj4j8MUu2I",
     "surahId": 18,
     "title": "Surah 18. Al-Kahf (الكهف) — Chapter 18 of 114 | Peace2074 Quran Recitation",
-    "url": "https://www.youtube.com/watch?v=1NsXDloW9OY",
-    "embedUrl": "https://www.youtube.com/embed/1NsXDloW9OY?autoplay=1&rel=0",
-    "published": "2026-10-25T07:30:00Z",
-    "thumbnail": "https://i.ytimg.com/vi/1NsXDloW9OY/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=XEj4j8MUu2I",
+    "embedUrl": "https://www.youtube.com/embed/XEj4j8MUu2I?autoplay=1&rel=0",
+    "published": "2026-10-30T06:11:00Z",
+    "thumbnail": "https://i.ytimg.com/vi/XEj4j8MUu2I/hqdefault.jpg",
     "description": "Recitation of Surah Al-Kahf (الكهف - The Cave), Chapter 18 of the Holy Quran (110 verses, Meccan). Recited by Sheikh Mishary Rashid Alafasy. Streamed on Peace2074.\n\n▶ Follow along with word-by-word highlighted text on Peace2074:\nhttps://peace2074.com/quran/18?play=true&theme=dark\n\nSubscribe to Peace2074: https://www.youtube.com/channel/UCKPAQJxnUTX-pzvLQ3M0aEQ?sub_confirmation=1"
   },
   {

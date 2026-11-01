@@ -586,7 +586,6 @@ onMounted(() => {
 
   applyCompact(compactLayout.value)
   applyReduceMotion(reduceMotion.value)
-  applyAutoplay(autoPlayAthan.value)
 
   // Start prayer time scheduler using user's real GPS location
   updateLocationToCurrent()
@@ -754,7 +753,6 @@ function onStorage(e: StorageEvent) {
   }
   if (e.key === AUTOPLAY_KEY && e.newValue !== null) {
     autoPlayAthan.value = e.newValue === 'true'
-    applyAutoplay(autoPlayAthan.value)
   }
   if (e.key === NAV_STORAGE_KEY && e.newValue) {
     try {
@@ -795,7 +793,6 @@ function onReduceMotionChanged(ev: CustomEvent) {
 function onAutoplayChanged(ev: CustomEvent) {
   if (typeof ev.detail?.enabled === 'boolean') {
     autoPlayAthan.value = ev.detail.enabled
-    applyAutoplay(autoPlayAthan.value)
   }
 }
 
@@ -866,14 +863,8 @@ function applyReduceMotion(enabled: boolean) {
   document.documentElement.classList.toggle('reduce-motion', enabled)
 }
 
-function applyAutoplay(enabled: boolean) {
-  if (!enabled) return
-  try {
-    if (!isAthanPlaying.value) {
-      toggleAthan()
-    }
-  } catch {}
-}
+// Audio must NEVER auto-play on initial website visit or page mount.
+// Playback is strictly user-initiated or triggered at scheduled prayer times if enabled.
 
 function restoreNavState(): NavItem[] {
   try {
